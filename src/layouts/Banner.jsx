@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const AnnouncementBar = () => {
+const AnnouncementBar = ({ className }) => {
   const announcements = [
     'Free Shipping to Select Locations. <a href="#" className="underline">Learn More</a>',
     'Subscribe & Save 10% <a href="#" className="underline">Learn More</a>',
@@ -30,7 +30,7 @@ const AnnouncementBar = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white text-center py-2 text-sm overflow-hidden ">
+    <div className={`bg-black text-white text-center py-2 text-sm overflow-hidden ${className}`}>
       <div 
         className={`transition-all duration-500 ${
           animationState === 'slideOut' ? 'transform -translate-x-full opacity-0' : 

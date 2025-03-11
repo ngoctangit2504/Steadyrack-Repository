@@ -6,15 +6,11 @@ import Banner from "./Banner";
 const MainLayout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
-      
-      <Banner />
-      
-      
-      <div className="flex-grow overflow-auto">
-        <Header className="sticky top-0 z-50" />
+      <div className="flex-grow">
+        <Banner />
+        <Header />
         <main>{children}</main>
       </div>
-      
       <Footer />
     </div>
   );
