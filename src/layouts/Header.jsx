@@ -34,7 +34,7 @@ const Header = () => {
           <img 
             src={isDark ? LogoBlack : LogoWhite} 
             alt="Steadyrack" 
-            className="h-8 w-auto object-contain" 
+            className="h-8 w-auto object-contain"
           />
         </div>
 
@@ -44,20 +44,48 @@ const Header = () => {
           <li><a href="#" className="hover:underline">Solutions</a></li>
 
           <li className="relative group">
-            <a href="#" className="hover:underline">About</a>
-            <div className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 w-56 bg-white shadow-md text-black border border-gray-300">
-              {["About Us", "Reviews", "Ambassadors", "Stories", "Gallery", "Press", "Community Support"].map((item) => (
-                <a key={item} href="#" className="block px-4 py-2 hover:bg-gray-100">{item}</a>
-              ))}
-            </div>
-          </li>
+            <a className="hover:underline">About</a>
+           <div className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 w-56 bg-white shadow-md text-black border border-gray-300">
+             {[
+               { name: "About Us", path: "/pages/the-steadyrack-story" },
+               { name: "Reviews", path: "/pages/steadyrack-bike-rack-reviews" },
+               { name: "Ambassadors", path: "/pages/steadyrack-ambassadors" },
+               { name: "Stories", path: "/blogs/stories" },
+               { name: "Gallery", path: "/pages/personal-gallery" },
+               { name: "Press", path: "/pages/press" },
+               { name: "Community Support", path: "/pages/charities-we-support" }
+              ].map((item) => (
+          <a 
+             key={item.name} 
+             href={item.path} 
+             className="block px-4 py-2 hover:bg-gray-100"
+           >
+            {item.name}
+          </a>
+           ))}
+         </div>
+       </li>
        
           <li className="relative group">
-            <a href="#" className="hover:underline">Commercial</a>
+            <a className="hover:underline">Commercial</a>
             <div className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 w-56 bg-white shadow-md text-black border border-gray-300">
-              {["Commercial Bike Parking", "Indoor Bike Parking", "Design Files & Guidelines", "Project Gallery", "Become A Dealer", "Commercial Enquiries", "Request Revit Files"].map((item) => (
-                <a key={item} href="#" className="block px-4 py-2 hover:bg-gray-100">{item}</a>
-              ))}
+            {[
+               { name: "Commercial Bike Parking", path: "/pages/commercial-bike-parking" },
+               { name: "Indoor Bike Parking", path: "/pages/commercial-indoor-bike-parking" },
+               { name: "Design Files & Guidelines", path: "/pages/design-guidelines" },
+               { name: "Project Gallery", path: "/pages/project-gallery" },
+               { name: "Become A Dealer", path: "/pages/become-a-dealer" },
+               { name: "Commercial Enquiries", path: "/pages/commercial-enquiries" },
+               { name: "Request Revit Files", path: "/pages/revit-files" }
+              ].map((item) => (
+          <a 
+             key={item.name} 
+             href={item.path} 
+             className="block px-4 py-2 hover:bg-gray-100"
+           >
+            {item.name}
+          </a>
+           ))}
             </div>
           </li>
   

@@ -9,6 +9,10 @@ import ButtonA from "../components/buttons/ButtonA";
 import ButtonB from "../components/buttons/ButtonB";
 import ButtonC from "../components/buttons/ButtonC";
 import FeaturedProducts from "../components/featured products/FeaturedProduct";
+import TolstoyCarousel from "../components/carousel/TolstoyCarousel";
+import BrandCarousel from "../components/carousel/BrandsCarousel";
+import ShopByStyle from "../components/shop by style/ShopByStyle";
+import ReviewCarousel from "../components/carousel/ReviewsCrousel";
 
 const Home = () => {
 
@@ -47,14 +51,14 @@ const Home = () => {
         </div>
       </div>
     </div>
+  
+    <div className="flex justify-center items-center h-64 bg-white">
+  <h1 className="text-[10rem] leading-none uppercase italic tracking-wide skew-x-10 font-zuume whitespace-nowrap">
+    READY, STEADY, PRO.
+  </h1>
+</div>
 
     <FeaturedProducts/>
-
-    <div className="flex justify-center items-center h-64 bg-white">
-      <h1 className="text-9xl font-bold uppercase italic tracking-wide skew-x-12 font-zuume">
-        READY, STEADY, PRO.
-      </h1>
-    </div>
 
     {/*Khối video */}
     <div className="relative w-full h-screen flex justify-center items-center">
@@ -78,6 +82,9 @@ const Home = () => {
         </div>
       )}
     </div>
+
+
+    <TolstoyCarousel/>
 
 
     <div className="relative w-full h-[80vh] flex items-center px-10 md:px-20"
@@ -141,6 +148,11 @@ const Home = () => {
       </div>
     </div>
 
+    <BrandCarousel/>
+
+    <ShopByStyle/>
+
+    <ReviewCarousel/>
 
     <div className="flex flex-col md:flex-row w-full h-[200px] md:h-[300px]">
       <div className="relative w-full md:w-1/2">
