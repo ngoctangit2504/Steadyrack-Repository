@@ -65,7 +65,7 @@ class ReviewCarousel extends Component {
     return (
         <div className="relative w-full py-12 px-4 md:px-0">
         
-        <h2 className="text-3xl font-bold mb-6 text-center md:text-left md:pl-4">
+        <h2 className="text-4xl font-bold mb-6 text-center md:text-left md:pl-4">
           What Our Customers Are Saying
         </h2>
       

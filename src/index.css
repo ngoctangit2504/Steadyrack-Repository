@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+/* * {
+    outline: 1px solid red;
+  } */

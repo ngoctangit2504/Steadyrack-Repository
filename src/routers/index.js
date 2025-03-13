@@ -1,6 +1,9 @@
 import React from "react";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home.jsx";
+
+import Contact from "../pages/Contact";
+
 import AboutUs from "../pages/about/AboutUs";
 import Reviews from "../pages/about/Reviews.jsx";
 import Ambassadors from "../pages/about/Ambassadors.jsx";
@@ -17,9 +20,20 @@ import BecomeADealer from "../pages/commercial/BecomeADealer.jsx";
 import CommercialEnquiries from "../pages/commercial/CommercialEnquiries.jsx";
 import RequestRevitFiles from "../pages/commercial/RequestRevitFiles.jsx";
 
+import NeedHelp from "../pages/support/NeedHelp.jsx";
+import Shipping from "../pages/support/Shipping";
+import Faq from "../pages/support/Faq.jsx";
+import Installation from "../pages/support/Installation.jsx";
+import WallPlacementGuide from "../pages/support/WallPlacementGuide.jsx";
+
+
 
 const routes = [
   { path: "/", element: <MainLayout><Home/></MainLayout> },
+
+  { path: "/pages/customer-support", element: <MainLayout><Contact/></MainLayout> },
+
+
   { path: "/pages/the-steadyrack-story", element: <MainLayout><AboutUs/></MainLayout> },
   { path: "/pages/steadyrack-bike-rack-reviews", element: <MainLayout><Reviews/></MainLayout> },
   { path: "/pages/steadyrack-ambassadors", element: <MainLayout><Ambassadors/></MainLayout> },
@@ -35,6 +49,12 @@ const routes = [
   { path: "/pages/become-a-dealer", element: <MainLayout><BecomeADealer/></MainLayout> },
   { path: "/pages/commercial-enquiries", element: <MainLayout><CommercialEnquiries/></MainLayout> },
   { path: "/pages/revit-files", element: <MainLayout><RequestRevitFiles/></MainLayout> },
+
+  { path: "/pages/choosing-the-correct-bike-rack", element: <MainLayout><NeedHelp/></MainLayout> },
+  { path: "/pages/shipping", element: <MainLayout><Shipping/></MainLayout> },
+  { path: "/pages/faq", element: <MainLayout><Faq/></MainLayout> },
+  { path: "/pages/installation-advice", element: <MainLayout><Installation/></MainLayout> },
+  { path: "/pages/wall-placement-guide", element: <MainLayout><WallPlacementGuide/></MainLayout> },
 
 ];
 

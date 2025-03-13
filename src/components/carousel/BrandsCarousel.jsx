@@ -90,7 +90,7 @@ const FullWidthBrandCarousel = () => {
       <h2 className="text-4xl font-bold text-center mb-10">Trusted By World Leading Brands</h2>
       
       <div 
-        className="w-screen overflow-hidden cursor-pointer"
+        className="w-full overflow-hidden cursor-pointer"
         onClick={handleClick}
         ref={carouselRef}
       >

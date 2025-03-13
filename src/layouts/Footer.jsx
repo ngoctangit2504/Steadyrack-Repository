@@ -9,7 +9,7 @@ const Footer = () => {
   </div>
 
   <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-6 gap-6 text-sm">
-    {/* About */}
+    
     <div>
       <h3 className="font-bold mb-3">About</h3>
       <ul className="space-y-2">
@@ -23,7 +23,6 @@ const Footer = () => {
       </ul>
     </div>
 
-    {/* Support */}
     <div>
       <h3 className="font-bold mb-3">Support</h3>
       <ul className="space-y-2">
@@ -40,7 +39,6 @@ const Footer = () => {
       </ul>
     </div>
 
-    {/* Corporate */}
     <div>
       <h3 className="font-bold mb-3">Corporate</h3>
       <ul className="space-y-2">
@@ -50,7 +48,6 @@ const Footer = () => {
       </ul>
     </div>
 
-    {/* Social */}
     <div>
       <h3 className="font-bold mb-3">Social</h3>
       <ul className="space-y-2">
@@ -63,31 +60,34 @@ const Footer = () => {
       </ul>
     </div>
 
-    {/* Join Our Community (Chiếm 2 Cột) */}
     <div className="md:col-span-2">
       <h3 className="font-bold mb-3">Join our community today.</h3>
       <p className="text-sm mb-4">
         10% off first order. Be the first to hear the latest product news, VIP offers, and sales!
       </p>
-      <div className="flex items-center border border-white rounded-full px-4 py-2 w-full max-w-lg space-x-4">
-        <input type="email" placeholder="YOUR EMAIL" className="bg-transparent flex-grow outline-none text-white placeholder-gray-400 px-2" />
-        <ButtonA text={"SUBSCRIBE"}/>
-      </div>
-      <p className="text-xs mt-2">
+      <div className="flex items-center gap-3">
+  <div className="flex items-center border border-white rounded-full px-4 py-2 w-full max-w-lg">
+    <input type="email" placeholder="YOUR EMAIL" className="bg-transparent flex-grow outline-none text-white placeholder-gray-400 px-2"/>
+  </div>
+  <ButtonA text={"SUBSCRIBE"}/>
+</div>
+      <p className="text-sm text-gray-600 mt-2">
         By submitting this form and signing up for texts, you consent to <a href="#" className="underline">Terms & Conditions</a>
       </p>
     </div>
   </div>
 
-  <div className="mt-10 text-center text-sm text-gray-500">
+  <div className="container mx-auto px-6 mt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+  <div className="text-sm">
     &copy; COPYRIGHT 2025 STEADYRACK NA – ALL RIGHTS RESERVED
   </div>
 
-  <div className="flex justify-center space-x-4 mt-4">
-    <button className="border border-gray-600 px-4 py-2 text-xs">UNITED STATES</button>
-    <button className="border border-gray-600 px-4 py-2 text-xs">USD $</button>
-    <button className="border border-gray-600 px-4 py-2 text-xs">ENGLISH</button>
+  <div className="flex flex-wrap gap-2">
+    <button className="border border-white px-4 py-2 text-xs">UNITED STATES</button>
+    <button className="border border-white px-4 py-2 text-xs">USD $</button>
+    <button className="border border-white px-4 py-2 text-xs">ENGLISH</button>
   </div>
+</div>
 </footer>
   );
 };

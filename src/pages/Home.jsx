@@ -13,6 +13,8 @@ import TolstoyCarousel from "../components/carousel/TolstoyCarousel";
 import BrandCarousel from "../components/carousel/BrandsCarousel";
 import ShopByStyle from "../components/shop by style/ShopByStyle";
 import ReviewCarousel from "../components/carousel/ReviewsCrousel";
+import SteadyrackAmbassador from "../components/steadyrack ambassadors/SteadyrackAmbassadors";
+import BlogCarousel from "../components/carousel/BlogCarousel";
 
 const Home = () => {
 
@@ -154,7 +156,8 @@ const Home = () => {
 
     <ReviewCarousel/>
 
-    <div className="flex flex-col md:flex-row w-full h-[200px] md:h-[300px]">
+    <div className="flex flex-col md:flex-row w-full h-[200px] md:h-[300px] mb-20 mt-10">
+      
       <div className="relative w-full md:w-1/2">
        <img src={Frame188Img} alt="Get 10% Off" className="w-full h-full object-cover"/>
         <div className="absolute top-4 left-4 text-white px-4 py-2 rounded-md text-3xl font-bold">
@@ -185,6 +188,10 @@ const Home = () => {
   </p>
 </div>
     </div>
+
+    <BlogCarousel/>  
+    
+    <SteadyrackAmbassador/>
 
     </div>
   );
