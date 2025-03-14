@@ -4,7 +4,7 @@ import Home from "../pages/Home.jsx";
 
 import Contact from "../pages/Contact";
 
-import AboutUs from "../pages/about/AboutUs";
+import AboutUs from "../pages/about/AboutUs.jsx";
 import Reviews from "../pages/about/Reviews.jsx";
 import Ambassadors from "../pages/about/Ambassadors.jsx";
 import Stories from "../pages/about/Stories.jsx";
@@ -21,10 +21,14 @@ import CommercialEnquiries from "../pages/commercial/CommercialEnquiries.jsx";
 import RequestRevitFiles from "../pages/commercial/RequestRevitFiles.jsx";
 
 import NeedHelp from "../pages/support/NeedHelp.jsx";
-import Shipping from "../pages/support/Shipping";
+import Shipping from "../pages/support/Shipping.jsx";
 import Faq from "../pages/support/Faq.jsx";
 import Installation from "../pages/support/Installation.jsx";
 import WallPlacementGuide from "../pages/support/WallPlacementGuide.jsx";
+
+
+import AllProduct from "../pages/shop/AllProduct";
+import AllBikeRack from "../pages/shop/AllBikeRack";
 
 
 
@@ -32,7 +36,6 @@ const routes = [
   { path: "/", element: <MainLayout><Home/></MainLayout> },
 
   { path: "/pages/customer-support", element: <MainLayout><Contact/></MainLayout> },
-
 
   { path: "/pages/the-steadyrack-story", element: <MainLayout><AboutUs/></MainLayout> },
   { path: "/pages/steadyrack-bike-rack-reviews", element: <MainLayout><Reviews/></MainLayout> },
@@ -55,6 +58,10 @@ const routes = [
   { path: "/pages/faq", element: <MainLayout><Faq/></MainLayout> },
   { path: "/pages/installation-advice", element: <MainLayout><Installation/></MainLayout> },
   { path: "/pages/wall-placement-guide", element: <MainLayout><WallPlacementGuide/></MainLayout> },
+
+
+  { path: "/collections/all", element: <MainLayout><AllProduct/></MainLayout> },
+  { path: "/collections/proflex-range", element: <MainLayout><AllBikeRack/></MainLayout> },
 
 ];
 

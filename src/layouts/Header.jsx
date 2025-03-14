@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ShoppingCartIcon, UserIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { UserIcon, MagnifyingGlassIcon, ShoppingBagIcon} from "@heroicons/react/24/outline";
+import { useCart } from '../contexts/CartContext';
 
 import ButtonA from "../components/buttons/ButtonA";
 import LogoBlack from "../assets/Header/logo-black.png";
@@ -13,6 +14,8 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
 
+  const { openCart, itemsCount } = useCart();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 82);
@@ -24,8 +27,6 @@ const Header = () => {
 
   // Xác định trạng thái hiện tại của header
   const isDark = isScrolled || isHovered;
-
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleMenuHover = (menu) => {
     setActiveMenu(menu);
@@ -163,10 +164,19 @@ const Header = () => {
             <UserIcon className="h-6 w-6" />
           </a>
 
-          <a href="#" className={`relative transition-all duration-500 ${isDark ? "text-black" : "text-white"}`}>
-            <ShoppingCartIcon className="h-6 w-6" />
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
-          </a>
+          <div className="flex items-center">
+            <button 
+              onClick={openCart}
+              className="relative p-2 rounded-full hover:bg-gray-100"
+            >
+              <ShoppingBagIcon className="h-6 w-6" />
+              {itemsCount > 0 && (
+                <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {itemsCount}
+                </span>
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -217,7 +227,7 @@ const Header = () => {
         <ul className="space-y-3">
           <li><a href="#" className="block">ProFlex Range</a></li>
           <li><a href="#" className="block">Classic Range</a></li>
-          <li><a href="#" className="block">Shop All</a></li>
+          <li><a href="/collections/proflex-range" className="block">Shop All</a></li>
         </ul>
       </div>
 

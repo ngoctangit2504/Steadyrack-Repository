@@ -2,7 +2,7 @@ import React from 'react'
 
 function UltimateDuo() {
   return (
-    <div>UltimateDuo</div>
+    <div>ProFlex & GearMate: The Ultimate Duo</div>
   )
 }
 

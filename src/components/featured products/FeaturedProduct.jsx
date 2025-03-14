@@ -64,7 +64,7 @@ export default function FeaturedProducts() {
     ))}
   </div>
   <div className="flex justify-center mt-6">
-    <ButtonA text={"SHOW ALL"} />
+  <ButtonA text={"SHOW ALL"} onClick={() => window.location.href = '/collections/all'} />
   </div>
 </div>
   );
