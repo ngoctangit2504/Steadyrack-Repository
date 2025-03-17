@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
-
 import { useCart } from '../../contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const ProductItem = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [buttonHovered, setButtonHovered] = useState(false);
+  const navigate = useNavigate();
 
   const { addItem, openCart } = useCart();
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
     addItem({
       ...product,
       quantity: 1
@@ -16,17 +18,20 @@ const ProductItem = ({ product }) => {
     openCart();
   };
 
+  const handleProductClick = () => {
+    navigate(`/product/${encodeURIComponent(product.name)}`);
+  };
 
   return (
     <div
-      className="w-full p-2 hover:shadow-lg transition"
+      className="w-full p-2 hover:shadow-lg transition cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleProductClick}
     >
-
       <div className="relative">
         <img
-          src={isHovered ? product.hoverImage : product.image}
+          src={isHovered ? product.hoverImage : product.primaryImage}
           alt={product.name}
           className="w-full h-[480px] object-cover"
         />
@@ -58,7 +63,6 @@ const ProductItem = ({ product }) => {
 
         <p className="text-sm text-gray-500">{product.category}</p>
         <p className="font-bold">{product.price}</p>
-        
       </div>
     </div>
   );

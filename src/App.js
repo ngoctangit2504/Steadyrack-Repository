@@ -2,15 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import routes from "./routers/index";
 
-import { CartProvider } from './contexts/CartContext';
-import Header from './layouts/Header.jsx';
-import Cart from './components/cart/Cart.jsx';
-
-
 const App = () => {
   return (
-
-    <CartProvider>
     <Router>
       <nav>
         <ul>
@@ -23,10 +16,6 @@ const App = () => {
         ))}
       </Routes>
     </Router>
-
-        <Cart />
-
-  </CartProvider>
   );
 };
 

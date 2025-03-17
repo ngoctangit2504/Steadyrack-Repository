@@ -2,6 +2,8 @@ import React from "react";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home.jsx";
 
+import LoginCard from "../pages/login/Login.jsx";
+
 import Contact from "../pages/Contact";
 
 import AboutUs from "../pages/about/AboutUs.jsx";
@@ -30,10 +32,12 @@ import WallPlacementGuide from "../pages/support/WallPlacementGuide.jsx";
 import AllProduct from "../pages/shop/AllProduct";
 import AllBikeRack from "../pages/shop/AllBikeRack";
 
-
+import ProductDetailPage from "../pages/products/ProductDetail";
 
 const routes = [
   { path: "/", element: <MainLayout><Home/></MainLayout> },
+
+  { path: "/login", element:<LoginCard/> },
 
   { path: "/pages/customer-support", element: <MainLayout><Contact/></MainLayout> },
 
@@ -62,6 +66,8 @@ const routes = [
 
   { path: "/collections/all", element: <MainLayout><AllProduct/></MainLayout> },
   { path: "/collections/proflex-range", element: <MainLayout><AllBikeRack/></MainLayout> },
+
+  { path: "/product/:productName", element: <MainLayout><ProductDetailPage/></MainLayout> },
 
 ];
 

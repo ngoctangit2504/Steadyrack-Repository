@@ -7,7 +7,6 @@ import Pic4 from "../../assets/SteadyrackAmbassadors/Photo_28-3-2022_12_26_11_pm
 import ButtonA from "../buttons/ButtonA";
 
 
-
 class SteadyrackAmbassador extends Component {
   styles = [
     {name: "Jack Thompson",country: "Australia",type: "Ultra-Cycling",image: Pic1,},
@@ -36,7 +35,7 @@ class SteadyrackAmbassador extends Component {
                 <p className="text-white text-xl">{style.country}</p>
                 <p className="text-white text-xl">{style.type}</p>
                 <button className="mt-2 bg-white text-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-red-600 hover:text-white">
-                  &
+                  A
                 </button>
               </div>
             </div>

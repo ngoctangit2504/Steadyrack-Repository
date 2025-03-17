@@ -18,7 +18,8 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 82);
+      const bannerHeight = 82; // Điều chỉnh theo chiều cao thực tế của banner
+    setIsScrolled(window.scrollY > bannerHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,7 +27,8 @@ const Header = () => {
   }, []);
 
   // Xác định trạng thái hiện tại của header
-  const isDark = isScrolled || isHovered;
+  const isDarkColor = isScrolled || isHovered;
+  const isFixedPosition = isScrolled;
 
   const handleMenuHover = (menu) => {
     setActiveMenu(menu);
@@ -39,10 +41,14 @@ const Header = () => {
   return (
     <header
       className={`w-full z-40 transition-all duration-600 ${
-        isDark
-          ? "fixed top-0 bg-white shadow-md text-black" 
-          : "absolute top-0 bg-transparent text-white"
-      }`}
+  isFixedPosition
+    ? "fixed top-0" 
+    : "absolute top-[36px]"
+} ${
+  isDarkColor
+    ? "bg-white shadow-md text-black"
+    : "bg-transparent text-white"
+}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -52,7 +58,7 @@ const Header = () => {
       <nav className="px-6 py-3 flex items-center justify-between">
         <div className="w-[200px] flex items-center">
           <img 
-          src={isDark ? LogoBlack : LogoWhite} 
+          src={isDarkColor ? LogoBlack : LogoWhite}  
           alt="Steadyrack" 
           className="h-8 w-auto object-contain"
           onClick={() => window.location.href = "/"}
@@ -150,17 +156,17 @@ const Header = () => {
 
         <div className="w-[200px] flex items-center justify-end space-x-4">
           <div className={`flex items-center space-x-2 px-3 py-1 rounded-full transition-all duration-500 ${
-            isDark ? "bg-gray-200 text-black" : "bg-transparent text-white border border-white"
+            isDarkColor ? "bg-gray-200 text-black" : "bg-transparent text-white border border-white"
           } hover:bg-gray-300 hover:text-black`}>
             <MagnifyingGlassIcon className="h-5 w-5" />
             <span className="text-sm hidden md:inline">Search</span>
           </div>
 
-          <a href="/pages/customer-support" className={`hidden md:block ${isDark ? "text-black" : "text-white"}`}>
+          <a href="/pages/customer-support" className={`hidden md:block ${isDarkColor ? "text-black" : "text-white"}`}>
             <span className="text-sm">Contact</span>
           </a>
 
-          <a href="#" className={`transition-all duration-500 ${isDark ? "text-black" : "text-white"}`}>
+          <a href="/login" className={`transition-all duration-500 ${isDarkColor ? "text-black" : "text-white"}`}>
             <UserIcon className="h-6 w-6" />
           </a>
 

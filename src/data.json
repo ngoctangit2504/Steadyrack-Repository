@@ -3,133 +3,229 @@
       "id": 1,
       "name": "Classic Rack",
       "category": "Road, Hybrid, Small MTB, BMX",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★★",
-      "image": "/asset/Classic_1.png",
+      "images": [
+        "/asset/Classic_1.png",
+        "/asset/bikegg.mp4",
+        "/asset/Classic_7e5.webp"
+      ],
+      "primaryImage": "/asset/Classic_1.png",
       "hoverImage": "/asset/Classic_ebike_fullset.png"
     },
     {
       "id": 2,
       "name": "Classic Range End Caps",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "category": "Clothing",
       "price": "$4.99",
       "rating": "★★★★★",
-      "image": "/asset/Untitleddesign_5.webp",
+      "images": [
+        "/asset/Untitleddesign_5.webp",
+        "/asset/Untitleddesign_4.webp"
+      ],
+      "primaryImage": "/asset/Untitleddesign_5.webp",
       "hoverImage": "/asset/Untitleddesign_4.webp"
     },
     {
       "id": 3,
       "name": "Classic Range Installation Kit",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "category": "Clothing",
       "price": "$9.99",
       "rating": "★★★★☆",
-      "image": "/asset/Untitleddesign_1.webp",
+      "images": [
+        "/asset/Untitleddesign_1.webp",
+        "/asset/Untitleddesign.webp"
+      ],
+      "primaryImage": "/asset/Untitleddesign_1.webp",
       "hoverImage": "/asset/Untitleddesign.webp"
     }
     ,
     {
       "id": 4,
       "name": "Classic Range Rear Tire Rest",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$9.99",
       "rating": "★★★★☆",
-      "image": "/asset/RearTyreRest-Small.webp",
+      "images": [
+        "/asset/RearTyreRest-Small.webp",
+        "/asset/RearTyreRest-Medium.webp"
+      ],
+      "primaryImage": "/asset/RearTyreRest-Small.webp",
       "hoverImage": "/asset/RearTyreRest-Medium.webp"
     }
     ,
     {
       "id": 5,
       "name": "Easyship Shipping Protection",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$9.99",
       "rating": "★★★★☆",
-      "image": "/asset/eas.webp",
+      "images": [
+        "/asset/eas.webp",
+        "/asset/eas.webp"
+      ],
+      "primaryImage": "/asset/eas.webp",
       "hoverImage": "/asset/eas.webp"
     },
     {
       "id": 6,
       "name": "eBike Rack",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★☆",
-      "image": "/asset/eBikewithBike.webp",
+      "images": [
+        "/asset/eBikewithBike.webp",
+        "/asset/Classic_ebike_fullset.png"
+      ],
+      "primaryImage": "/asset/eBikewithBike.webp",
       "hoverImage": "/asset/Classic_ebike_fullset.png"
     },
     {
       "id": 7,
       "name": "End Caps",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$8.99",
       "rating": "★★★★☆",
-      "image": "/asset/EndCaps_f59.webp",
+      "images": [
+        "/asset/EndCaps_f59.webp",
+        "/asset/EndCaps_2.webp"
+      ],
+      "primaryImage": "/asset/EndCaps_f59.webp",
       "hoverImage": "/asset/EndCaps_2.webp"
     },
     {
       "id": 8,
       "name": "Fat Rack",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★☆",
-      "image": "/asset/Fat_2_b77.webp",
+      "images": [
+        "/asset/Fat_2_b77.webp",
+        "/asset/Classic_ebike_fullset.png"
+      ],
+      "primaryImage": "/asset/Fat_2_b77.webp",
       "hoverImage": "/asset/Classic_ebike_fullset.png"
     },
     {
       "id": 9,
       "name": "Fender Rack",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★☆",
-      "image": "/asset/Fender_with_Bike.webp",
+      "images": [
+        "/asset/Fender_with_Bike.webp",
+        "/asset/Classic_ebike_fullset.png"
+      ],
+      "primaryImage": "/asset/Fender_with_Bike.webp",
       "hoverImage": "/asset/Classic_ebike_fullset.png"
     },
     {
       "id": 10,
       "name": "GearMate Build Your Own Bundle",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$0.00",
       "rating": "★★★★☆",
-      "image": "/asset/GearMateSpineWhite.webp",
+      "images": [
+        "/asset/GearMateSpineWhite.webp",
+        "/asset/GearMateSpineWhite.webp"
+      ],
+      "primaryImage": "/asset/GearMateSpineWhite.webp",
       "hoverImage": "/asset/GearMateSpineWhite.webp"
     },
     {
       "id": 11,
       "name": "GearMate Bundle",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$79.99",
       "rating": "★★★★☆",
-      "image": "/asset/GM-Spine_Ghost.webp",
+      "images": [
+        "/asset/GM-Spine_Ghost.webp",
+        "/asset/GearMateWithRack_Accessories.webp"
+      ],
+      "primaryImage": "/asset/GM-Spine_Ghost.webp",
       "hoverImage": "/asset/GearMateWithRack_Accessories.webp"
     },
     {
       "id": 12,
       "name": "GearMate SteadySpine",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$14.99",
       "rating": "★★★★☆",
-      "image": "/asset/GearMateSpineWhite.webp",
+      "images": [
+        "/asset/GearMateSpineWhite.webp",
+        "/asset/GearMateSpineTopWhite.webp"
+      ],
+      "primaryImage": "/asset/GearMateSpineWhite.webp",
       "hoverImage": "/asset/GearMateSpineTopWhite.webp"
     },
     {
       "id": 13,
       "name": "Mountain Bike Rack",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★☆",
-      "image": "/asset/MTB_1.webp",
+      "images": [
+        "/asset/MTB_1.webp",
+        "/asset/Classic_ebike_fullset.png"
+      ],
+      "primaryImage": "/asset/MTB_1.webp",
       "hoverImage": "/asset/Classic_ebike_fullset.png"
     },
     {
       "id": 14,
       "name": "ProFlex Rack",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$119.99",
       "rating": "★★★★☆",
-      "image": "/asset/ProFlexSizesWhite.webp",
+      "images": [
+        "/asset/ProFlexSizesWhite.webp",
+        "/asset/ProFlexSaddles.webp"
+      ],
+      "primaryImage": "/asset/ProFlexSizesWhite.webp",
       "hoverImage": "/asset/ProFlexSaddles.webp"
     },
     {
       "id": 15,
       "name": "Steadyrack D-Lock and Cable",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$39.99",
       "rating": "★★★★☆",
-      "image": "/asset/PhotoRoom_20230619_155454.webp",
+      "images": [
+        "/asset/PhotoRoom_20230619_155454.webp",
+        "/asset/PhotoRoom_2222222222.webp"
+      ],
+      "primaryImage": "/asset/PhotoRoom_20230619_155454.webp",
       "hoverImage": "/asset/PhotoRoom_2222222222.webp"
     },
     {
       "id": 16,
       "name": "Steadyrack Lock Bracket",
+      "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$19.99",
       "rating": "★★★★☆",
-      "image": "/asset/PhotoRoom_33333333.webp",
+      "images": [
+        "/asset/PhotoRoom_33333333.webp",
+        "/asset/PhotoRoom_5555555.webp"
+      ],
+      "primaryImage": "/asset/PhotoRoom_33333333.webp",
       "hoverImage": "/asset/PhotoRoom_5555555.webp"
+    },
+    {
+      "id": 17,
+      "name": "ProFlexRackk",
+      "category": "eMTB, MTB, Gravel, eBike, Fender",
+      "detail":"The Steadyrack ProFlex Bike Rack is the ultimate storage solution, featuring an innovative roll-in, roll-out design for secure, space-saving convenience. The all new GearMate SteadySpine included with all ProFlex racks. Available in three sizes, it’s perfect for nearly every bike and adventure.",
+      "price": "$119.99",
+      "rating": "★★★★★",
+      "images": [
+        "/asset/ProFlexRack.webp",
+        "/asset/ProFlex_MTB_Bike_Original.webp",
+        "/asset/ProFlexFenderBikeOriginal.webp"
+      ],
+      "primaryImage": "/asset/ProFlexRack.webp",
+      "hoverImage": "/asset/Classic_ebike_fullset.png"
     }
   ]

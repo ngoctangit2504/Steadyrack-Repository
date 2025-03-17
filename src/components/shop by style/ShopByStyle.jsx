@@ -33,7 +33,7 @@ class ShopByStyle extends Component {
               <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-end p-4">
                 <h3 className="text-white text-3xl font-bold">{style.name}</h3>
                 <button className="mt-2 bg-white text-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-red-600 hover:text-white">
-                  &
+                  A
                 </button>
               </div>
             </div>
