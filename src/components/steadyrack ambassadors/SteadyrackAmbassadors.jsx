@@ -6,25 +6,41 @@ import Pic4 from "../../assets/SteadyrackAmbassadors/Photo_28-3-2022_12_26_11_pm
 
 import ButtonA from "../buttons/ButtonA";
 
-
 class SteadyrackAmbassador extends Component {
   styles = [
-    {name: "Jack Thompson",country: "Australia",type: "Ultra-Cycling",image: Pic1,},
-    {name: "Remy Metailler",country: "Canada",type: "MTB",image: Pic2,},
-    {name: "Tom Cardy",country: "United Kingdom",type: "MTB",image: Pic3,},
-    {name: "Caroline Buchanan",country: "Australia",type: "BMX and MTB",image: Pic4,},
+    { name: "Jack Thompson", country: "Australia", type: "Ultra-Cycling", image: Pic1 },
+    { name: "Remy Metailler", country: "Canada", type: "MTB", image: Pic2 },
+    { name: "Tom Cardy", country: "United Kingdom", type: "MTB", image: Pic3 },
+    { name: "Caroline Buchanan", country: "Australia", type: "BMX and MTB", image: Pic4 },
+    { name: "Caroline Buchanan", country: "Australia", type: "BMX and MTB", image: Pic4 },
+    { name: "Caroline Buchanan", country: "Australia", type: "BMX and MTB", image: Pic4 },
   ];
 
   render() {
+    const { records = 4 } = this.props; 
+    const displayStyles = this.styles.slice(0, records); 
+
+    
+    let gridCols = "grid-cols-1";
+    let itemHeight = "h-[400px]"; 
+
+    if (records >= 4) {
+      gridCols = "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"; 
+    } else if (records === 2) {
+      gridCols = "grid-cols-1 sm:grid-cols-2"; 
+      itemHeight = "h-[500px]"; 
+    } else if (records === 1) {
+      gridCols = "grid-cols-1"; 
+      itemHeight = "h-[600px]"; 
+    }
+
     return (
       <div className="container mx-auto px-4 py-8 min-h-[800px]">
+
         <h2 className="text-4xl font-bold mb-6">Steadyrack Ambassador</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-          {this.styles.map((style, index) => (
-            <div
-              key={index}
-              className="relative group overflow-hidden shadow-md"
-            >
+        <div className={`grid ${gridCols} gap-4`}>
+          {displayStyles.map((style, index) => (
+            <div key={index} className={`relative group overflow-hidden shadow-md transition-all ${itemHeight}`}>
               <img
                 src={style.image}
                 alt={style.name}
@@ -42,9 +58,8 @@ class SteadyrackAmbassador extends Component {
           ))}
         </div>
         <div className="text-center pt-10">
-            <ButtonA text={"EXPLORE MORE"}/>
+          <ButtonA text={"EXPLORE MORE"} />
         </div>
-
       </div>
     );
   }

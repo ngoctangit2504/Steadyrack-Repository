@@ -1,0 +1,38 @@
+[
+    {
+      "img": "/asset/Classic_1.png",
+      "type": "Multirack"
+    },
+    {
+      "img": "/asset/Classic_1.png",
+      "type": "Indoor Steadyracks"
+    },
+    {
+      "img": "/asset/Classic_1.png",
+      "type": "Small Spaces"
+    },
+    {
+        "img": "/asset/Classic_1.png",
+        "type": "Single Rack"
+      },
+      {
+        "img": "/asset/Classic_1.png",
+        "type": "Single Rack"
+      },
+      {
+        "img": "/asset/Classic_1.png",
+        "type": "Single Rack"
+      },
+      {
+        "img": "/asset/Classic_1.png",
+        "type": "Single Rack"
+      },
+      {
+        "img": "/asset/Classic_1.png",
+        "type": "Single Rack"
+      },
+      {
+        "img": "/asset/Classic_1.png",
+        "type": "Single Rack"
+      }
+  ]

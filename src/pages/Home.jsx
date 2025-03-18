@@ -1,10 +1,9 @@
 import React from "react";
 import videoHead from "../assets/videos/Introducing-the-new-ProFlex-Bike-Rack2.mp4";
-import VideoBody from "../assets/videos/introducing-the-new-proflex-bike-rack.mp4";
+import VideoBody from "../assets/videos/Introducing the new ProFlex Bike Rack6.mp4";
 import BackroundFind from "../assets/Choosing_right_rack_Home_page_2160_x_1440_px.png";
 import BackroundAbout from "../assets/NEW_Home_Page_About_Us_Desktop_1.png";
 import Frame188Img from "../assets/Frame_188.png";
-import { useRef, useState } from "react";
 import ButtonA from "../components/buttons/ButtonA";
 import ButtonB from "../components/buttons/ButtonB";
 import ButtonC from "../components/buttons/ButtonC";
@@ -15,26 +14,13 @@ import ShopByStyle from "../components/shop by style/ShopByStyle";
 import ReviewCarousel from "../components/carousel/ReviewsCrousel";
 import SteadyrackAmbassador from "../components/steadyrack ambassadors/SteadyrackAmbassadors";
 import BlogCarousel from "../components/carousel/BlogCarousel";
+import VideoOverlay from "../components/videoComponent/VideoOverlay";
 
 const Home = () => {
 
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+return (
 
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  return (
-<div>
+ <div>
 
     <div className="relative w-full h-screen">
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -62,28 +48,8 @@ const Home = () => {
 
     <FeaturedProducts/>
 
-    {/*Khối video */}
-    <div className="relative w-full h-screen flex justify-center items-center">
-      <video
-        ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
-        src={VideoBody}
-        muted
-        loop
-        onClick={togglePlay}
-      />
-
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-
-      {!isPlaying && (
-        <div className="relative text-center text-white transition-opacity duration-300">
-          <h1 className="text-3xl md:text-5xl font-semibold">
-            The Evolution of a Revolution
-          </h1>
-          <ButtonC text="PLAY VIDEO" onClick={togglePlay}/>
-        </div>
-      )}
-    </div>
+    
+    <VideoOverlay videoSrc={VideoBody} title="The Evolution of a Revolution"/>
 
 
     <TolstoyCarousel/>
@@ -191,7 +157,7 @@ const Home = () => {
 
     <BlogCarousel/>  
     
-    <SteadyrackAmbassador/>
+    <SteadyrackAmbassador records={4}/>
 
     </div>
   );

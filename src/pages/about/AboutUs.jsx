@@ -1,6 +1,13 @@
 import React from 'react';
 import { useEffect, useRef, useState } from "react";
 import videoIntro from "../../assets/videos/introducing-the-new-proflex-bike-rack-5.mp4";
+import VideoOverlay from '../../components/videoComponent/VideoOverlay';
+import VideoFounder from '../../assets/videos/Bike Storage_ Steadyrack s Journey with Founder Dave _ Hang Your.mp4';
+import SteadyrackAmbassador from '../../components/steadyrack ambassadors/SteadyrackAmbassadors';
+import NewEraSteadyrackImg from '../../assets/Header/Shop_6.png';
+import ButtonA from '../../components/buttons/ButtonA';
+import Timeline from '../../components/timeLine/TimeLine';
+import TextCarouselImages from '../../components/carousel/TextCarouselImages';
 
 function AboutUs() {
   const videoRef = useRef(null);
@@ -77,8 +84,7 @@ function AboutUs() {
     </div>
 
     <div className="bg-black py-8 md:py-28 overflow-hidden">
-  <div className="container mx-auto flex flex-col md:flex-row gap-8 relative">
-    
+    <div className="container mx-auto flex flex-col md:flex-row gap-8 relative">
     <div className="w-full md:w-[60%] flex flex-col items-start text-left text-white px-6">
       <h2 className="text-[40px] md:text-[70px] lg:text-[100px] font-zuume italic font-bold tracking-tighter whitespace-normal max-w-full leading-tight">
         A <strong className="text-black drop-shadow-[2px_2px_0px_white]">GLOBAL LEADER</strong> IN BIKE RACKS.
@@ -103,7 +109,29 @@ function AboutUs() {
         className="w-full h-auto object-cover"
       />
     </div>
+  </div>
+</div>
 
+<VideoOverlay videoSrc={VideoFounder} title={"From Our Founder"}/>
+<TextCarouselImages/>
+<Timeline/>
+<SteadyrackAmbassador records={2}/>
+
+<div className="relative w-full h-screen flex flex-col justify-center items-center text-center px-6">
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{
+      backgroundImage: `url(${NewEraSteadyrackImg})`,
+    }}>
+  </div>
+  <div className="relative z-10 flex flex-col items-center justify-center text-white gap-6">
+    <h1 className="text-[40px] md:text-[70px] lg:text-[100px] font-zuume italic font-bold tracking-tighter whitespace-normal max-w-full leading-tight">
+      READY <strong className="text-black drop-shadow-[2px_2px_0px_white]">STEADY</strong> PRO.
+    </h1>
+    <h2 className="text-4xl md:text-5xl font-bold mb-8">
+      New Era of Steadyrack.
+    </h2>
+    <ButtonA text="DISCOVER PROFLEX"/>
   </div>
 </div>
 
