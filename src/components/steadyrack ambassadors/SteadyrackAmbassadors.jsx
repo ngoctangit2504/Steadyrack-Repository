@@ -35,13 +35,14 @@ class SteadyrackAmbassador extends Component {
     }
 
     return (
-      <div className="container mx-auto px-4 py-8 min-h-[800px]">
+      <div data-aos="fade-left" className="container mx-auto px-4 py-8 min-h-[800px]">
 
         <h2 className="text-4xl font-bold mb-6">Steadyrack Ambassador</h2>
         <div className={`grid ${gridCols} gap-4`}>
           {displayStyles.map((style, index) => (
             <div key={index} className={`relative group overflow-hidden shadow-md transition-all ${itemHeight}`}>
               <img
+                data-aos="fade-left"
                 src={style.image}
                 alt={style.name}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"

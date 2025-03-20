@@ -1,0 +1,81 @@
+{
+  "brands": [
+    { 
+      "id": 1, 
+      "name": "Brand 1",
+      "title": "Canuck Place Children'sHospice",
+      "text": "A place of comfort and compassion where children can receive expert clinical care while experiencing the simple joys of being a child with their families at their side savouring their time together.",
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 2, 
+      "name": "Brand 2", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 3, 
+      "name": "Brand 3", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 4, 
+      "name": "Brand 4", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 5, 
+      "name": "Brand 5", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 6, 
+      "name": "Brand 6", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 7, 
+      "name": "Brand 7", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 8, 
+      "name": "Brand 8", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 9, 
+      "name": "Brand 9", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 10, 
+      "name": "Brand 10", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 11, 
+      "name": "Brand 11", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 12, 
+      "name": "Brand 12", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 13, 
+      "name": "Brand 13", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 14, 
+      "name": "Brand 14", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    },
+    { 
+      "id": 15, 
+      "name": "Brand 15", 
+      "image": "/asset/CommunityLogo/CPCH_PrimaryLogo_CMYK_Horz.webp" 
+    }
+  ]
+}

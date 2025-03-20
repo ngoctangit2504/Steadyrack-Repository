@@ -31,8 +31,14 @@ import WallPlacementGuide from "../pages/support/WallPlacementGuide.jsx";
 
 import AllProduct from "../pages/shop/AllProduct";
 import AllBikeRack from "../pages/shop/AllBikeRack";
+import AllGearMaster from "../pages/shop/AllGearMaster";
+import AllSpareParts from "../pages/shop/AllSparePart";
 
 import ProductDetailPage from "../pages/products/ProductDetail";
+
+import JustLandedShopAll from "../pages/JustLanded/ShopAll.jsx";
+
+
 
 const routes = [
   { path: "/", element: <MainLayout><Home/></MainLayout> },
@@ -65,7 +71,12 @@ const routes = [
 
 
   { path: "/collections/all", element: <MainLayout><AllProduct/></MainLayout> },
-  { path: "/collections/proflex-range", element: <MainLayout><AllBikeRack/></MainLayout> },
+  { path: "/collections/bike-racks", element: <MainLayout><AllBikeRack/></MainLayout> },
+  { path: "/collections/gearmate-range", element: <MainLayout><AllGearMaster/></MainLayout> },
+  { path: "/collections/all-spare-parts", element: <MainLayout><AllSpareParts/></MainLayout> },
+
+
+  { path: "/collections/proflex-gearmate", element: <MainLayout><JustLandedShopAll/></MainLayout> },
 
   { path: "/product/:productName", element: <MainLayout><ProductDetailPage/></MainLayout> },
 

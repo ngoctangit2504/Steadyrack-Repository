@@ -1,5 +1,5 @@
 import { useState } from "react";
-import data from "../../galleryData.json";
+import data from "../../data/galleryData.json";
 
 const allTypes = [...new Set(data.map((story) => story.type))];
 

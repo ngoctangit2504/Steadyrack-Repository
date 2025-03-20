@@ -42,7 +42,7 @@ const TextCarouselImages = () => {
   }, [activeIndex, carouselData.length]);
   
   return (
-    <div className="overflow-hidden py-5 bg-white">
+    <div data-aos="fade-up" className="overflow-hidden py-5 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           {/* Left side: Text content */}
@@ -66,7 +66,7 @@ const TextCarouselImages = () => {
          </div>
           
           {/* Right side: Images */}
-          <div className="w-full md:w-1/2 mt-8 md:mt-0 relative overflow-hidden">
+          <div data-aos="fade-up" className="w-full md:w-1/2 mt-8 md:mt-0 relative overflow-hidden">
             <div className="aspect-square w-full relative">
               {carouselData.map((item, index) => (
                 <div 

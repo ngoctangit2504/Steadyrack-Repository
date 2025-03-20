@@ -17,9 +17,9 @@ class ShopByStyle extends Component {
 
   render() {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div data-aos="fade-left" className="container mx-auto px-4 py-8">
         <h2 className="text-4xl font-bold mb-6">Shop By Style</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1">
+        <div data-aos="fade-left" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1">
           {this.styles.map((style, index) => (
             <div
               key={index}

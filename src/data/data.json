@@ -3,6 +3,7 @@
       "id": 1,
       "name": "Classic Rack",
       "category": "Road, Hybrid, Small MTB, BMX",
+      "type": "pro",
       "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★★",
@@ -12,7 +13,16 @@
         "/asset/Classic_7e5.webp"
       ],
       "primaryImage": "/asset/Classic_1.png",
-      "hoverImage": "/asset/Classic_ebike_fullset.png"
+      "hoverImage": "/asset/Classic_ebike_fullset.png",
+      "sizes": ["Small", "Medium", "Large", "XL"],
+      "proFlexNarrow" : ["Road", "Gravel", "eBike", "City", "Commuter", "BMX", "Fender"],
+      "proFlexWide" : ["eMTB, MTB, Gravel, eBike, Fender"],
+      "proFlexFat" : ["Cruiser, Plus, Fat, eBike"],
+      "wheelDiameter": "20” – 29”",
+      "tireWidth": "Up to 2.1",
+      "maximumWeight": "35kg / 77lbs",
+      "fenders": "No",
+      "includesGearMateSteadySpine":"No"
     },
     {
       "id": 2,
@@ -26,7 +36,8 @@
         "/asset/Untitleddesign_4.webp"
       ],
       "primaryImage": "/asset/Untitleddesign_5.webp",
-      "hoverImage": "/asset/Untitleddesign_4.webp"
+      "hoverImage": "/asset/Untitleddesign_4.webp",
+      "sizes": ["Small", "Medium", "Large", "XL"]
     },
     {
       "id": 3,
@@ -40,7 +51,8 @@
         "/asset/Untitleddesign.webp"
       ],
       "primaryImage": "/asset/Untitleddesign_1.webp",
-      "hoverImage": "/asset/Untitleddesign.webp"
+      "hoverImage": "/asset/Untitleddesign.webp",
+      "sizes": ["Small", "Medium", "Large", "XL"]
     }
     ,
     {
@@ -73,6 +85,7 @@
     {
       "id": 6,
       "name": "eBike Rack",
+      "type": "pro",
       "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★☆",
@@ -99,6 +112,7 @@
     {
       "id": 8,
       "name": "Fat Rack",
+      "type": "pro",
       "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★☆",
@@ -107,11 +121,17 @@
         "/asset/Classic_ebike_fullset.png"
       ],
       "primaryImage": "/asset/Fat_2_b77.webp",
-      "hoverImage": "/asset/Classic_ebike_fullset.png"
+      "hoverImage": "/asset/Classic_ebike_fullset.png",
+      "wheelDiameter": "20” – 29”",
+      "tireWidth": "Up to 2.1",
+      "maximumWeight": "35kg / 77lbs",
+      "fenders": "No",
+      "includesGearMateSteadySpine":"No"
     },
     {
       "id": 9,
       "name": "Fender Rack",
+      "type": "pro",
       "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$89.99",
       "rating": "★★★★☆",
@@ -138,6 +158,7 @@
     {
       "id": 11,
       "name": "GearMate Bundle",
+      "type": "pro",
       "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$79.99",
       "rating": "★★★★☆",
@@ -146,7 +167,8 @@
         "/asset/GearMateWithRack_Accessories.webp"
       ],
       "primaryImage": "/asset/GM-Spine_Ghost.webp",
-      "hoverImage": "/asset/GearMateWithRack_Accessories.webp"
+      "hoverImage": "/asset/GearMateWithRack_Accessories.webp",
+      "maximumWeight": "35kg / 77lbs"
     },
     {
       "id": 12,
@@ -177,6 +199,7 @@
     {
       "id": 14,
       "name": "ProFlex Rack",
+      "type": "pro",
       "detail":"Need an extra set of bolts, screws, and fittings for your next installation? This kit includes everything you need!",
       "price": "$119.99",
       "rating": "★★★★☆",
@@ -216,6 +239,7 @@
     {
       "id": 17,
       "name": "ProFlexRackk",
+      "type": "pro",
       "category": "eMTB, MTB, Gravel, eBike, Fender",
       "detail":"The Steadyrack ProFlex Bike Rack is the ultimate storage solution, featuring an innovative roll-in, roll-out design for secure, space-saving convenience. The all new GearMate SteadySpine included with all ProFlex racks. Available in three sizes, it’s perfect for nearly every bike and adventure.",
       "price": "$119.99",

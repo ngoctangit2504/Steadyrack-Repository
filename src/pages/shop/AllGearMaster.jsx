@@ -1,9 +1,9 @@
 import React from 'react';
 import ShopImg from "../../assets/Shops/hero_ecfe2fe4-374d-4149-8ac2-866a6579f6b6.png";
-import ProductRackList from "../../components/product/ProductRackList";
+import GearMasterList from "../../components/product/ProductGearmateList";
 import CompareModel from '../../components/CompareModel/CompareModel';
 
-function AllBikeRack() {
+function AllGearMaster() {
   return (
     <div>
     <div className="relative w-full">
@@ -15,27 +15,16 @@ function AllBikeRack() {
             className="block text-white text-8xl font-bold italic tracking-wide opacity-100 animate-fade-up"
             data-aos="fade-up"
           >
-            ALL PRODUCTS
+            GearMate Collection
           </span>
         </div>
       </div>
     </div>
 
-    <nav className="flex items-center space-x-2 text-sm">
-      <a to="/collections/proflex-range" title="Shop" aria-label="Shop" className=" transition">
-        Shop
-      </a>
-      <span>/</span>
-      <a to="/collections/proflex-range" title="All Products" aria-label="All Products" className="transition">
-        All Products
-      </a>
-    </nav>
-
-    <ProductRackList/>
+    <GearMasterList/>
     <CompareModel/>
-
     </div>
   )
 }
 
-export default AllBikeRack
+export default AllGearMaster

@@ -9,6 +9,7 @@ import ButtonA from '../../components/buttons/ButtonA';
 import Timeline from '../../components/timeLine/TimeLine';
 import TextCarouselImages from '../../components/carousel/TextCarouselImages';
 
+
 function AboutUs() {
   const videoRef = useRef(null);
   const [showControls, setShowControls] = useState(false);
@@ -42,19 +43,19 @@ function AboutUs() {
 
   return (
     <div>
-    <div className="relative w-full h-screen mb-32">
+    <div data-aos="fade-up" className="relative w-full h-screen mb-32">
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
         <source src={videoIntro} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
       <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 bg-black bg-opacity-40">
-        <h1 className="text-white text-[10rem] leading-none uppercase italic tracking-[-0.1em] skew-x-10 font-zuume whitespace-nowrap">Original Innovators.</h1>
+        <h1 data-aos="fade-up" className="text-white text-[10rem] leading-none uppercase italic tracking-[-0.1em] skew-x-10 font-zuume whitespace-nowrap">Original Innovators.</h1>
         </div>
     </div>
 
     <div className="px-8 md:px-16 lg:px-24 xl:px-32 mb-10">
-  <p className="text-[2rem] md:text-[2.5rem] lg:text-[3rem] 
+  <p data-aos="fade-up" className="text-[2rem] md:text-[2.5rem] lg:text-[3rem] 
                 leading-tight uppercase italic tracking-[-0.05em] skew-x-10 
                 font-zuume break-words whitespace-normal text-center">
     Steadyrack is for Space Savers and Adventure Seekers. 
@@ -69,6 +70,7 @@ function AboutUs() {
     >
 
       <video
+        data-aos="zoom-in"
         ref={videoRef}
         autoPlay
         loop
@@ -104,6 +106,7 @@ function AboutUs() {
 
     <div className="w-full md:w-[40%] relative">
       <img
+        data-aos="fade-left"
         src="https://www.steadyrack.com/cdn/shop/files/About_Page_Global_Leader.png?v=1739935706&width=3840"
         alt="Global Leader in Bike Racks"
         className="w-full h-auto object-cover"
@@ -134,6 +137,7 @@ function AboutUs() {
     <ButtonA text="DISCOVER PROFLEX"/>
   </div>
 </div>
+
 
     </div>
   )

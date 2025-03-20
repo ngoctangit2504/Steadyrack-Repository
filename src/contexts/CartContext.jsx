@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 // Initial state
 const initialState = {
-    isCartOpen: false,
-    items: [] 
-  };
+  isCartOpen: false,
+  items: []
+};
 
 // Actions
 const OPEN_CART = 'OPEN_CART';
@@ -68,7 +68,39 @@ const CartContext = createContext();
 
 // Provider component
 export const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, initialState);
+  // Tải dữ liệu từ localStorage khi component được khởi tạo
+  const getInitialState = () => {
+    if (typeof window === 'undefined') {
+      return initialState;
+    }
+    
+    try {
+      const savedCartItems = localStorage.getItem('cartItems');
+      if (savedCartItems) {
+        return {
+          ...initialState,
+          items: JSON.parse(savedCartItems)
+        };
+      }
+    } catch (error) {
+      console.error('Error loading cart from localStorage:', error);
+    }
+    
+    return initialState;
+  };
+
+  const [state, dispatch] = useReducer(cartReducer, getInitialState());
+  
+  // Lưu trữ items vào localStorage mỗi khi state.items thay đổi
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('cartItems', JSON.stringify(state.items));
+      } catch (error) {
+        console.error('Error saving cart to localStorage:', error);
+      }
+    }
+  }, [state.items]);
   
   // Calculate total items count
   const itemsCount = state.items.reduce((count, item) => count + item.quantity, 0);
@@ -133,3 +165,5 @@ export const useCart = () => {
   }
   return context;
 };
+
+export default CartProvider;

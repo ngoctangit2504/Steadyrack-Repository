@@ -38,8 +38,10 @@ export default function BlogCarousel() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden cursor-pointer">
-        <h2 className="text-4xl font-bold mb-6 text-center md:text-left md:pl-4">The Latest News</h2>
+    <div data-aos="fade-up" className="w-full overflow-hidden cursor-pointer">
+      <h2 className="text-4xl font-bold mb-6 text-center md:text-left md:pl-4">
+        The Latest News
+      </h2>
       <motion.div
         ref={carouselRef}
         className="flex cursor-grab active:cursor-grabbing"
@@ -47,11 +49,17 @@ export default function BlogCarousel() {
         dragConstraints={{ left: -maxDrag, right: 0 }} // Kéo đủ cả 3 ảnh
       >
         {blogData.map((blog, index) => (
-          <motion.div
+          <div
             key={index}
-            className="relative min-w-[30cm] h-[14cm] bg-cover bg-center mx-2 flex items-center "
-            style={{ backgroundImage: `url(${blog.img})` }}
+            className="relative min-w-[30cm] h-[14cm] mx-2 flex items-center overflow-hidden border border-gray-300 rounded-lg group"
           >
+            {/* Ảnh có hiệu ứng zoom khi hover */}
+            <img
+              src={blog.img}
+              alt={blog.title}
+              className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            />
+
             <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center">
               <div className="ml-8 text-white">
                 <h2 className="text-3xl font-bold">{blog.title}</h2>
@@ -61,13 +69,12 @@ export default function BlogCarousel() {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </motion.div>
       <div className="text-center m-5">
-      <ButtonA text={"VIEW MORE"}/>
+        <ButtonA text={"VIEW MORE"} />
       </div>
-    
     </div>
   );
 }

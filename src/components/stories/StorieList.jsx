@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ButtonA from "../../components/buttons/ButtonA";
-import data from "../../storieData.json";
+import data from "../../data/storieData.json";
 
 const allTypes = [...new Set(data.map((story) => story.type))];
 

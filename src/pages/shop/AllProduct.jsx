@@ -6,19 +6,20 @@ function AllProduct() {
   return (
     <div>
     <div className="relative w-full">
-      <img src={ShopImg} alt="Contact Us Banner" className="w-full h-auto" />
+  <img src={ShopImg} alt="Contact Us Banner" className="w-full h-auto" />
 
-      <div className="absolute bottom-0 left-0 w-full flex justify-center bg-gradient-to-t from-black/60 to-transparent p-4">
-        <div className="transition-all w-full text-center">
-          <span
-            className="block text-white text-8xl font-bold italic tracking-wide opacity-100 animate-fade-up"
-            data-aos="fade-up"
-          >
-            ALL PRODUCTS
-          </span>
-        </div>
-      </div>
+  <div className="absolute bottom-0 left-0 w-full flex justify-center bg-gradient-to-t from-black/60 to-transparent p-4">
+    <div className="transition-all w-full text-center">
+      <span
+        className="block text-white font-bold italic tracking-wide opacity-100 animate-fade-up 
+                   text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+        data-aos="fade-up"
+      >
+        ALL PRODUCTS
+      </span>
     </div>
+  </div>
+</div>
 
     <div className='m-6'>
   <nav className="flex items-center space-x-2 text-sm">

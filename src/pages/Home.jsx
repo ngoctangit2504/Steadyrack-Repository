@@ -22,7 +22,7 @@ return (
 
  <div>
 
-    <div className="relative w-full h-screen">
+    <div data-aos="fade-up" className="relative w-full h-screen">
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
         <source src={videoHead} type="video/mp4" />
         Your browser does not support the video tag.
@@ -40,11 +40,11 @@ return (
       </div>
     </div>
   
-    <div className="flex justify-center items-center h-64 bg-white">
-  <h1 className="text-[10rem] leading-none uppercase italic tracking-wide skew-x-10 font-zuume whitespace-nowrap">
-    READY, STEADY, PRO.
-  </h1>
-</div>
+    <div data-aos="fade-up" className="flex justify-center items-center h-64 bg-white px-4 overflow-hidden">
+     <h1 className="text-5xl md:text-[10rem] leading-none uppercase italic tracking-wide skew-x-10 font-zuume whitespace-nowrap">
+      READY, STEADY, PRO.
+     </h1>
+    </div>
 
     <FeaturedProducts/>
 
@@ -55,7 +55,7 @@ return (
     <TolstoyCarousel/>
 
 
-    <div className="relative w-full h-[80vh] flex items-center px-10 md:px-20"
+    <div data-aos="fade-up" className="relative w-full h-[80vh] flex items-center px-10 md:px-20"
       style={{
       backgroundImage: `url(${BackroundAbout})`,
       backgroundSize: "cover",
@@ -70,14 +70,17 @@ return (
       for the first time in history, we're redefining bike storage once again. 
       Welcome to the next era of Steadyrack.
     </p>
+    <a href="/pages/the-steadyrack-story">
     <ButtonA text="ABOUT US" />
+    </a>
+    
   </div>
 </div>
 
 
     <hr class="h-px my-8 mx-6 bg-gray-300 border-0 dark:bg-gray-700"/>
 
-    <div className="flex flex-col items-center justify-center text-center py-16 px-6 bg-white">
+    <div data-aos="fade-up" className="flex flex-col items-center justify-center text-center py-16 px-6 bg-white">
       <h2 className="text-3xl md:text-4xl font-semibold mb-4">Innovation, Redefined.</h2>
       <p className="max-w-2xl text-black font-medium mb-4">
         ProFlex and GearMate are the ultimate storage duo. While the ProFlex is designed to safely 
@@ -98,7 +101,7 @@ return (
 
 
      {/*Find Your Perfect Rack */}
-    <div className="relative w-full h-screen flex flex-col justify-start items-center text-center px-6">
+    <div data-aos="fade-up" className="relative w-full h-screen flex flex-col justify-start items-center text-center px-6">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -122,23 +125,24 @@ return (
 
     <ReviewCarousel/>
 
-    <div className="flex flex-col md:flex-row w-full h-[200px] md:h-[300px] mb-20 mt-10">
+    <div data-aos="fade-up" className="flex flex-col md:flex-row w-full h-[200px] md:h-[300px] mb-20 mt-10">
       
       <div className="relative w-full md:w-1/2">
        <img src={Frame188Img} alt="Get 10% Off" className="w-full h-full object-cover"/>
-        <div className="absolute top-4 left-4 text-white px-4 py-2 rounded-md text-3xl font-bold">
+        <div data-aos="fade-up" className="absolute top-4 left-4 text-white px-4 py-2 rounded-md text-3xl font-bold">
            Get 10% Off
         </div>
     </div>
 
 <div className="w-full md:w-1/2 bg-black text-white p-6 flex flex-col justify-center h-full">
-  <h2 className="text-xl">Join our community today.</h2>
-  <p className="text-lg text-gray-500">
+  <h2 data-aos="fade-up" className="text-xl">Join our community today.</h2>
+  <p data-aos="fade-up" className="text-lg text-gray-500">
     10% off first order. Be the first to hear the latest products news, VIP offers, and sales!
   </p>
 
   <div className="mt-2 flex gap-2">
     <input
+      data-aos="fade-up"
       type="email"
       placeholder="YOUR EMAIL"
       className="flex-1 px-4 py-3 bg-black text-white border border-white rounded-full outline-none placeholder-white"
