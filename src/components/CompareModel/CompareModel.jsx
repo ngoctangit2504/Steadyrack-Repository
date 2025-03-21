@@ -26,7 +26,7 @@ function CompareModel() {
   };
 
   return (
-    <div data-aos="fade-up" className="p-6">
+    <div data-aos="fade-up" className="p-6 my-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
         <h2 className="text-4xl font-bold text-black text-center md:text-left">
           Compare the Models
@@ -51,7 +51,7 @@ function CompareModel() {
           </button>
           <hr className="border-t border-gray-200 my-2" />
           <motion.div
-            initial={{ opacity: 0, height: 0 }} // Ban đầu ẩn
+            initial={{ opacity: 0, height: 0 }}
             animate={{
               opacity: expanded ? 1 : 0,
               height: expanded ? "auto" : 0,

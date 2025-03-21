@@ -5,62 +5,56 @@ const CompareModelItem = ({ product }) => {
 
   return (
     <div
-      className="w-full sm:w-[6cm] md:w-[7cm] lg:w-[8cm] p-2 rounded-lg border border-white shadow-lg transition hover:shadow-xl"
+      className="w-full p-3 rounded-lg border border-white shadow-md transition hover:shadow-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex flex-col">
-        
         <h3 className="text-lg font-semibold">{product.name}</h3>
         <p className="text-sm text-gray-500">{product.category}</p>
 
-        <div className="relative">
+        <div className="relative flex justify-center items-center my-2">
           <img
             src={isHovered ? product.hoverImage : product.primaryImage}
             alt={product.name}
-            className="w-20 h-20 object-cover rounded-md"
+            className="w-24 h-24 object-contain rounded-md"
           />
         </div>
 
         <hr className="my-2" />
 
         {product.wheelDiameter && (
-          <div>
-            <p className="font-medium">Wheel Diameter</p>
-            <p>{product.wheelDiameter}</p>
-            <hr className="my-2" />
+          <div className="mb-2">
+            <p className="font-medium text-sm">Wheel Diameter</p>
+            <p className="text-sm">{product.wheelDiameter}</p>
           </div>
         )}
 
         {product.tireWidth && (
-          <div>
-            <p className="font-medium">Tire Width</p>
-            <p>{product.tireWidth}</p>
-            <hr className="my-2" />
+          <div className="mb-2">
+            <p className="font-medium text-sm">Tire Width</p>
+            <p className="text-sm">{product.tireWidth}</p>
           </div>
         )}
 
         {product.maximumWeight && (
-          <div>
-            <p className="font-medium">Maximum Weight</p>
-            <p>{product.maximumWeight}</p>
-            <hr className="my-2" />
+          <div className="mb-2">
+            <p className="font-medium text-sm">Maximum Weight</p>
+            <p className="text-sm">{product.maximumWeight}</p>
           </div>
         )}
 
         {product.fenders && (
-          <div>
-            <p className="font-medium">Fenders/Mudguards</p>
-            <p>{product.fenders}</p>
-            <hr className="my-2" />
+          <div className="mb-2">
+            <p className="font-medium text-sm">Fenders/Mudguards</p>
+            <p className="text-sm">{product.fenders}</p>
           </div>
         )}
 
         {product.includesGearMateSteadySpine && (
-          <div>
-            <p className="font-medium">Includes GearMate SteadySpine</p>
-            <p>{product.includesGearMateSteadySpine}</p>
-            <hr className="my-2" />
+          <div className="mb-2">
+            <p className="font-medium text-sm">Includes GearMate SteadySpine</p>
+            <p className="text-sm">{product.includesGearMateSteadySpine}</p>
           </div>
         )}
       </div>

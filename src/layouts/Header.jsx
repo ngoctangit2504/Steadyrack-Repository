@@ -452,7 +452,6 @@ const Header = () => {
               )}
             </li>
             
-            {/* Mobile Contact Link */}
             <li>
               <a href="/pages/customer-support" className="px-4 py-3 block border-b border-gray-100">
                 Contact
@@ -462,7 +461,6 @@ const Header = () => {
         </div>
       )}
 
-      {/* Desktop Mega Menu Dropdowns */}
       {!mobileMenuOpen && activeMenu && (
         <div 
           className="mega-dropdown hidden md:block absolute w-full bg-white text-black h-auto md:h-[8cm] lg:h-[9cm] shadow-md transition-all duration-300 z-40"
@@ -504,8 +502,8 @@ const Header = () => {
               <div className="w-full md:w-1/4 mb-4 md:mb-0">
                 <h3 className="font-bold text-lg mb-2">Bike Racks</h3>
                 <ul className="space-y-2 md:space-y-3">
-                  <li><a href="#" className="block hover:text-gray-600">ProFlex Range</a></li>
-                  <li><a href="#" className="block hover:text-gray-600">Classic Range</a></li>
+                  <li><a href="/collections/proflex-range" className="block hover:text-gray-600">ProFlex Range</a></li>
+                  <li><a href="/collections/classic-range" className="block hover:text-gray-600">Classic Range</a></li>
                   <li><a href="/collections/bike-racks" className="block hover:text-gray-600">Shop All</a></li>
                 </ul>
               </div>
@@ -553,11 +551,11 @@ const Header = () => {
               <div className="w-full md:w-1/4 mb-4 md:mb-0">
                 <h3 className="font-bold text-lg mb-2 md:mb-4">Our Solutions</h3>
                 <ul className="space-y-2 md:space-y-3">
-                  <li><a href="#" className="block hover:text-gray-600">Personal Bike Storage</a></li>
-                  <li><a href="#" className="block hover:text-gray-600">Home Indoor</a></li>
-                  <li><a href="#" className="block hover:text-gray-600">Small Space</a></li>
-                  <li><a href="#" className="block hover:text-gray-600">Garage</a></li>
-                  <li><a href="#" className="block hover:text-gray-600">Multirack</a></li>
+                  <li><a href="/pages/personal-bike-storage" className="block hover:text-gray-600">Personal Bike Storage</a></li>
+                  <li><a href="/pages/personal-indoor-bike-rack-storage-solution" className="block hover:text-gray-600">Home Indoor</a></li>
+                  <li><a href="/pages/bike-storage-for-a-small-space-or-balcony" className="block hover:text-gray-600">Small Space</a></li>
+                  <li><a href="/pages/bike-racks-for-your-garage-how-to-save-space-with-steadyrack" className="block hover:text-gray-600">Garage</a></li>
+                  <li><a href="/pages/multiple-bike-rack-storage" className="block hover:text-gray-600">Multirack</a></li>
                 </ul>
               </div>
       

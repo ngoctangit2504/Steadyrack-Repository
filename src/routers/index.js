@@ -33,6 +33,9 @@ import AllProduct from "../pages/shop/AllProduct";
 import AllBikeRack from "../pages/shop/AllBikeRack";
 import AllGearMaster from "../pages/shop/AllGearMaster";
 import AllSpareParts from "../pages/shop/AllSparePart";
+import AllAccessories from "../pages/shop/AllAccessories";
+import ProflexRanger from "../pages/shop/ProflexRanger";
+import ClassicRange from "../pages/shop/ClassicRange";
 
 import ProductDetailPage from "../pages/products/ProductDetail";
 
@@ -74,6 +77,9 @@ const routes = [
   { path: "/collections/bike-racks", element: <MainLayout><AllBikeRack/></MainLayout> },
   { path: "/collections/gearmate-range", element: <MainLayout><AllGearMaster/></MainLayout> },
   { path: "/collections/all-spare-parts", element: <MainLayout><AllSpareParts/></MainLayout> },
+  { path: "/collections/accessories", element: <MainLayout><AllAccessories/></MainLayout> },
+  { path: "/collections/proflex-range", element: <MainLayout><ProflexRanger/></MainLayout> },
+  { path: "/collections/classic-range", element: <MainLayout><ClassicRange/></MainLayout> },
 
 
   { path: "/collections/proflex-gearmate", element: <MainLayout><JustLandedShopAll/></MainLayout> },

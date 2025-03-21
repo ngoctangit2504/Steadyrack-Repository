@@ -4,6 +4,11 @@ import { useCart } from "../../contexts/CartContext";
 import productsData from "../../data/data.json";
 import FeaturedProduct from "../../components/featured products/FeaturedProduct";
 import BrandCarousel from "../../components/carousel/BrandsCarousel";
+import LineVideo from "../../components/videoComponent/LineVideo";
+import FAQ from "../../components/faq/FAQ";
+import ReviewComponent from "../../components/review/ReviewComponent";
+import VideoBannerContent from "../../components/backround Intro/VideoBannerContent";
+import RichTextTitle from "../../components/TextTitle/RichTextTitle";
 
 const ProductDetailPage = () => {
   const { productName } = useParams();
@@ -14,6 +19,7 @@ const ProductDetailPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedProFlexOption, setSelectedProFlexOption] = useState(null);
+
 
   useEffect(() => {
     const decodedName = decodeURIComponent(productName);
@@ -59,13 +65,17 @@ const ProductDetailPage = () => {
   }
 
   const handleAddToCart = () => {
-    addItem({
+    if (!selectedSize && product.sizes && product.sizes.length > 0) {
+      alert("Please select a size.");
+      return;
+  }
+  addItem({
       ...product,
       quantity,
       selectedSize,
       selectedProFlexOption,
-    });
-    openCart();
+  });
+  openCart();
   };
 
   const handleThumbnailClick = (image) => {
@@ -73,6 +83,7 @@ const ProductDetailPage = () => {
   };
 
   const hasSizes = product.sizes && product.sizes.length > 0;
+  
 
   return (
     <div>
@@ -169,7 +180,7 @@ const ProductDetailPage = () => {
         </button>
       </div>
       <button
-        className="col-span-2 bg-black text-white text-lg py-3 px-6 rounded-lg w-full hover:bg-gray-800 transition"
+        className="col-span-2 bg-black text-white text-lg py-3 px-6 rounded-full w-full hover:bg-gray-800 transition"
         onClick={handleAddToCart}
       >
         ADD TO CART
@@ -181,6 +192,50 @@ const ProductDetailPage = () => {
       <span className="font-bold text-black">${(parseFloat(product.price.replace('$', '')) / 4).toFixed(2)}</span>{" "}
       with <span className="text-green-600 font-semibold">Afterpay</span> 🛈
     </p>
+
+    <div 
+      className="grid grid-cols-1 gap-4 py-8 px-4 aos-animate" 
+      data-aos="fade-up" 
+      data-aos-anchor="#product" 
+      data-aos-delay="500"
+    >
+      <div className="flex items-center">
+        <span className="flex items-center justify-center mr-3">
+          <img 
+            src="//www.steadyrack.com/cdn/shop/files/Layer_1-2_1.png?v=1735452416&width=96" 
+            alt="" 
+            srcSet="//www.steadyrack.com/cdn/shop/files/Layer_1-2_1.png?v=1735452416&width=96 96w" 
+            width="96" 
+            height="75" 
+            loading="lazy" 
+            className="w-6 md:w-6"
+          />
+        </span>
+        <div className="text-sm md:text-base">
+          <a href="/pages/shipping" title="Shipping">Free Shipping in Selected Countries*</a>
+        </div>
+      </div>
+      
+      <div className="flex items-center">
+        <span className="flex items-center justify-center mr-3">
+          <img 
+            src="//www.steadyrack.com/cdn/shop/files/Layer_1-2_ffe887cc-df2a-4208-bcda-f35db22154da.png?v=1735452415&width=80" 
+            alt="" 
+            srcSet="//www.steadyrack.com/cdn/shop/files/Layer_1-2_ffe887cc-df2a-4208-bcda-f35db22154da.png?v=1735452415&width=80 80w" 
+            width="80" 
+            height="94" 
+            loading="lazy" 
+            className="w-[18px] md:w-5"
+          />
+        </span>
+        <div className="text-sm md:text-base">
+          <a href="/pages/standard-warranty" title="Standard Warranty">5 Year Warranty</a>
+        </div>
+      </div>
+    </div>
+
+    <LineVideo/>
+
     
     <div className="border-t mt-6">
       {["Why Steadyrack?", "What's Included?", "Shipping & Returns"].map((title) => (
@@ -190,9 +245,31 @@ const ProductDetailPage = () => {
         </div>
       ))}
     </div>
+
   </div>
 </div>
+   
+   <div data-aos="fade-up" className="flex justify-center items-center h-64 bg-white px-4 overflow-hidden">
+  <h1 className="text-4xl sm:text-5xl md:text-[10rem] leading-none uppercase italic tracking-wide skew-x-10 font-zuume whitespace-nowrap bg-gradient-to-r from-black via-gray to-lightgray text-transparent bg-clip-text">
+    READY, STEADY, PRO.
+  </h1>
+</div>
 
+<RichTextTitle title={"Introducing ProFlex. Innovation meets modern design in the all-new ProFlex. Built for convenience and durability, it’s bike storage reimagined."}/>
+
+<VideoBannerContent
+        videoUrl="/videos/Introducing the new ProFlex Bike Rack6.mp4"
+        videoType="video/mp4"
+        title="My Video Banner"
+        text="This is a video banner with text and icon."
+        iconUrl="/images/my-icon.png"
+        autoplay={true}
+        loop={true}
+        muted={true}
+      />
+
+    <ReviewComponent/>
+    <FAQ/>
     <BrandCarousel/>
     <FeaturedProduct/>
 
