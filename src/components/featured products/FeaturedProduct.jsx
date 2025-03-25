@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ShoppingBag, Plus } from "lucide-react";
-import ButtonA from "../buttons/ButtonA";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import productsData from "../../data/data.json";
 import { useNavigate } from "react-router-dom";
 
@@ -36,10 +36,10 @@ export default function FeaturedProducts() {
 
   return (
     <div
-      data-aos="fade-left"
-      className="container-fluid mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12"
+      data-aos="fade-up"
+      className="container-fluid mx-auto pt-12 pb-20 px-5"
     >
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+      <h2 className="text-2xl h-9 sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
         Featured Products
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[3px] ">
@@ -65,27 +65,31 @@ export default function FeaturedProducts() {
                 className="w-full h-48 sm:h-64 md:h-72 lg:h-80 object-cover"
               />
 
-              <div className="absolute bottom-2 right-2">
-                <div className="relative">
-                  <button
-                    className="flex items-center justify-center bg-white p-2 transition-all duration-300"
-                    onClick={(e) => {
-                      console.log("View port button clicked");
-                      e.stopPropagation();
-                    }}
-                    onMouseEnter={() => setHoveredButton(product.id)}
-                    onMouseLeave={() => setHoveredButton(null)}
-                  >
-                    <ShoppingBag size={16} className="flex-shrink-0" />
-                  </button>
-                  {hoveredButton === product.id && (
-                    <div className="absolute right-full bottom-0 mr-2 whitespace-nowrap z-10 bg-white px-2 py-1 rounded-md shadow-sm flex items-center">
-                      <Plus size={14} className="mr-1" />
-                      <span className="text-xs font-medium">VIEW PORT</span>
-                    </div>
-                  )}
-                </div>
-              </div>
+<div className="absolute bottom-4 right-4">
+        <div className="relative">
+          <button
+            className={`
+              flex items-center justify-center
+              rounded-full bg-white p-2
+              transition-all duration-300
+              ${hoveredButton === product.id ? 'px-4' : 'w-12 h-12'} // Thêm padding khi hover
+            `}
+            onClick={(e) => {
+              console.log("Quick View button clicked");
+              e.stopPropagation();
+            }}
+            onMouseEnter={() => setHoveredButton(product.id)}
+            onMouseLeave={() => setHoveredButton(null)}
+          >
+            {hoveredButton !== product.id && (
+              <ShoppingBag size={16} className="flex-shrink-0" />
+            )}
+            {hoveredButton === product.id && (
+              <><ShoppingBag size={14} className="mr-1" /><span className="text-xs font-medium whitespace-nowrap">QUICK VIEW</span></>
+            )}
+          </button>
+        </div>
+      </div>
             </div>
             <div className="p-3 flex flex-col gap-1">
               <div className="flex justify-between items-start">
@@ -106,11 +110,13 @@ export default function FeaturedProducts() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-6">
-        <ButtonA
-          text={"SHOW ALL"}
-          onClick={() => (window.location.href = "/collections/all")}
-        />
+      <div className="flex justify-center mt-10">
+        <button 
+        className="bg-white text-black py-3.5 px-5 rounded-full border-2 border-black font-semibold hover:bg-red-700 hover:text-white transition" 
+        onClick={() => (window.location.href = "/collections/all")}
+      >
+        SHOW ALL
+      </button>
       </div>
     </div>
   );

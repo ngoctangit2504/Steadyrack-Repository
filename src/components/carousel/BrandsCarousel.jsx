@@ -86,8 +86,8 @@ const FullWidthBrandCarousel = () => {
   }, [isPaused]);
 
   return (
-    <div data-aos="fade-up" className="w-full py-12">
-      <h2 className="text-4xl font-bold text-center mb-10">Trusted By World Leading Brands</h2>
+    <div data-aos="fade-up" className="w-full pt-16 pb-11">
+      <h2 className="text-4xl font-semibold text-center mb-8">Trusted By World Leading Brands</h2>
       
       <div 
         className="w-full overflow-hidden cursor-pointer"

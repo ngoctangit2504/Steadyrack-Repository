@@ -33,13 +33,16 @@ export default function BlogCarousel() {
     if (carouselRef.current) {
       const totalWidth = carouselRef.current.scrollWidth;
       const viewportWidth = carouselRef.current.offsetWidth;
-      setMaxDrag(totalWidth - viewportWidth); // Tính khoảng cách cần kéo
+      setMaxDrag(totalWidth - viewportWidth);
     }
   }, []);
 
   return (
-    <div data-aos="fade-up" className="w-full overflow-hidden cursor-pointer">
-      <h2 className="text-4xl font-bold mb-6 text-center md:text-left md:pl-4">
+    <div
+      data-aos="fade-up"
+      className="w-full overflow-hidden cursor-pointer px-5"
+    >
+      <h2 className="text-4xl font-semibold mb-6 text-center md:text-left">
         The Latest News
       </h2>
       <motion.div
@@ -51,7 +54,7 @@ export default function BlogCarousel() {
         {blogData.map((blog, index) => (
           <div
             key={index}
-            className="relative min-w-[30cm] h-[14cm] mx-2 flex items-center overflow-hidden border border-gray-300 rounded-lg group"
+            className="relative min-w-[979px] max-h-[570px] flex items-center gap-4 overflow-hidden border border-gray-300 group mr-4"
           >
             {/* Ảnh có hiệu ứng zoom khi hover */}
             <img
@@ -60,20 +63,41 @@ export default function BlogCarousel() {
               className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
             />
 
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center">
-              <div className="ml-8 text-white">
-                <h2 className="text-3xl font-bold">{blog.title}</h2>
-                <p className="text-lg">{blog.desc}</p>
-                <button className="mt-4 px-4 py-2 bg-white text-black border border-black rounded-full hover:bg-red-700 hover:text-white transition">
-                  Read More
-                </button>
+            {/* Thêm thẻ <a> ở đây */}
+            <a
+              className="absolute top-0 left-0 py-2.5 px-6 text-white bg-black text-xl italic font-bold tracking-tighter"
+              href="/?constraint=bicycle"
+              title="Narrow selection to products matching tag bicycle"
+            >
+              BICYCLE
+            </a>
+
+            <a
+              className="absolute top-0 left-32 py-2.5 px-6 text-white bg-black text-xl italic font-bold tracking-tighter"
+              href="/?constraint=bicycle"
+              title="Narrow selection to products matching tag bicycle"
+            >
+              BIKE RACK
+            </a>
+
+            <div className="absolute inset-0 bg-opacity-40 flex items-center">
+              <div className="absolute left-0 max-w-[720px] p-4">
+                <div className="text-white">
+                  <h2 className="text-5xl font-semibold">{blog.title}</h2>
+                  <p className="text-lg">{blog.desc}</p>
+                  <button className="mt-4 px-4 py-2 bg-white text-black hover:bg-red-700 hover:text-white transition rounded-full">
+                    Read More
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </motion.div>
       <div className="text-center m-5">
-        <ButtonA text={"VIEW MORE"} />
+        <button className="bg-white text-sm text-black py-3.5 px-5 rounded-full border-2 border-black font-semibold hover:bg-red-700 hover:text-white transition">
+          VIEW MORE
+        </button>
       </div>
     </div>
   );

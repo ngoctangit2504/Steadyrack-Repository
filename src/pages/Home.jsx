@@ -64,106 +64,119 @@ const Home = () => {
 
   return (
     <div>
-      <div data-aos="fade-up" className="relative w-full h-screen">
+      <div data-aos="fade-up" className="relative w-full h-[772px]">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-[772px] object-cover"
         >
           <source src={videoHead} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 bg-black bg-opacity-40">
-          <h1 className="text-white text-4xl md:text-5xl font-bold text-center px-4 mb-6">
+        <div className="absolute inset-0 flex flex-col items-center justify-end px-5 pt-20 pb-10 bg-black bg-opacity-40">
+          <h1 className="text-white text-7xl font-bold text-center px-4 mb-6">
             The Future of Bike Storage is Here.
           </h1>
 
-          <div className="flex space-x-4">
+          <div className="flex space-x-1 mt-20px">
             <ButtonA
               text="DISCOVER PROFLEX"
               onClick={() => alert("Clicked Proflex")}
             />
-            <ButtonB
-              text="DISCOVER GEARMATE"
-              onClick={() => alert("Clicked GearMate")}
-            />
+            <button className="text-white py-3 px-5 rounded-full border font-semibold bg-[#ffffff1a] shadow-md hover:text-red-700 transition">
+              DISCOVER GEARMATE
+            </button>
           </div>
         </div>
       </div>
 
-      <div
-        data-aos="fade-up"
-        className="flex justify-center items-center h-64 bg-white px-4 overflow-hidden"
-      >
-        <h1 className="text-5xl md:text-[10rem] leading-none uppercase italic tracking-wide skew-x-10 font-zuume whitespace-nowrap">
+      <div data-aos="fade-up" className="pt-5">
+        <h1 className="text-11xl px-5 py-0.5 uppercase font-bold italic font-impact whitespace-nowrap">
           READY, STEADY, PRO.
         </h1>
       </div>
 
       <FeaturedProducts />
 
-      <VideoOverlay
-        videoSrc={VideoBody}
-        title="The Evolution of a Revolution"
-      />
+      <div className="">
+        <VideoOverlay
+          videoSrc={VideoBody}
+          title="The Evolution of a Revolution"
+        />
+      </div>
 
-      <TolstoyCarousel
-        videos={videoData}
-        title="ProFlex & GearMate: The Ultimate Duo"
-      />
+      <div>
+        <TolstoyCarousel
+          videos={videoData}
+          title="ProFlex & GearMate: The Ultimate Duo"
+        />
+      </div>
 
-      <div
-        data-aos="fade-up"
-        className="relative w-full h-[80vh] flex items-center px-10 md:px-20"
-        style={{
-          backgroundImage: `url(${BackroundAbout})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="relative z-10 max-w-2xl text-white">
-          <h1 className="text-xl md:text-6xl leading-tight">
-            We're Innovators, Not Imitators.
-          </h1>
-          <p className="mt-2 mb-6 text-base text-white">
-            Since 2009, Steadyrack has led the way in bike storage globally.
-            Now, for the first time in history, we're redefining bike storage
-            once again. Welcome to the next era of Steadyrack.
-          </p>
-          <a href="/pages/the-steadyrack-story">
-            <ButtonA text="ABOUT US" />
-          </a>
+      <div className="pt-14">
+        <div
+          data-aos="fade-up"
+          className="relative w-full h-[550px] flex items-center pt-14"
+          style={{
+            backgroundImage: `url(${BackroundAbout})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="relative z-10 max-w-2xl text-white px-5">
+            <h1 className="text-xl md:text-6xl leading-tigh">
+              We're Innovators, Not Imitators.
+            </h1>
+            <p className="mt-2 mb-6 text-base text-white">
+              Since 2009, Steadyrack has led the way in bike storage globally.
+              Now, for the first time in history, we're redefining bike storage
+              once again. Welcome to the next era of Steadyrack.
+            </p>
+            <a href="/pages/the-steadyrack-story">
+              <ButtonA text="ABOUT US" />
+            </a>
+          </div>
         </div>
       </div>
 
-      <hr class="h-px my-8 mx-6 bg-gray-300 border-0 dark:bg-gray-700" />
+      <div className="pt-12 px-5">
+        <hr class="px-5" />
+      </div>
 
-      <div
-        data-aos="fade-up"
-        className="flex flex-col items-center justify-center text-center py-16 px-6 bg-white"
-      >
-        <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-          Innovation, Redefined.
-        </h2>
-        <p className="max-w-2xl text-black font-medium mb-4">
-          ProFlex and GearMate are the ultimate storage duo. While the ProFlex
-          is designed to safely and securely store your bike, the GearMate lets
-          you store the rest, including gloves, shoes, helmets, gels, and more.
-        </p>
-        <p className="max-w-3xl text-black font-medium mb-6">
-          Featuring a new modern design, increased load capacity, pivot
-          function, and SteadySaddle for bikes with fenders and mudguards, the
-          ProFlex is the future of bike storage. Designed to seamlessly work
-          with all Steadyrack bike racks, the GearMate can be customized over
-          200 ways to suit your needs and is the perfect companion to your
-          ProFlex.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <ButtonC text="EXPLORE PROFLEX" />
-          <ButtonC text="EXPLORE GEARMATE" />
+      <div className="py-20">
+        <div
+          data-aos="fade-up"
+          className="items-center justify-center text-center px-5 mx-[290px] bg-white"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-7">
+            Innovation, Redefined.
+          </h2>
+          <div></div>
+          <p className="max-w-2xl text-black font-medium mb-4 mx-auto">
+            ProFlex and GearMate are the ultimate storage duo. While the ProFlex
+            is designed to safely and securely store your bike, the GearMate
+            lets you store the rest, including gloves, shoes, helmets, gels, and
+            more.
+          </p>
+          <p className="max-w-3xl text-black font-medium mt-4 mx-auto">
+            Featuring a new modern design, increased load capacity, pivot
+            function, and SteadySaddle for bikes with fenders and mudguards, the
+            ProFlex is the future of bike storage. Designed to seamlessly work
+            with all Steadyrack bike racks, the GearMate can be customized over
+            200 ways to suit your needs and is the perfect companion to your
+            ProFlex.
+          </p>
+          <div className="items-center flex gap-2 justify-center mt-4">
+            <button className="py-3.5 px-5 bg-white text-black text-sm font-semibold rounded-full shadow-md border-2 border-black hover:bg-black hover:text-white hover:border-white transition inline-flex items-center justify-center min-w-[40px]">
+              EXPLORE PROFLEX
+            </button>
+
+            <button className="py-3.5 px-5 bg-white text-black text-sm font-semibold rounded-full shadow-md border-2 border-black hover:bg-black hover:text-white hover:border-white transition inline-flex items-center justify-center min-w-[40px]">
+              EXPLORE GEARMATE
+            </button>
+          </div>
         </div>
       </div>
 
@@ -178,11 +191,11 @@ const Home = () => {
             backgroundImage: `url(${BackroundFind})`,
           }}
         ></div>
-        <div className="relative z-10 flex flex-col items-center text-white mt-auto mb-20">
-          <h1 className="text-4xl md:text-5xl font-bold">
+        <div className="relative z-10 flex flex-col items-center text-white mt-auto mb-10">
+          <h1 className="text-5xl mb-auto font-semibold">
             Find Your Perfect Rack
           </h1>
-          <p className="text-lg pb-8 md:text-xl mt-3">
+          <p className="text-lg pb-4 md:text-xl whitespace-nowrap">
             ProFlex Range or Classic Range? We've got you covered.
           </p>
           <ButtonA text="LEARN MORE" />
@@ -197,9 +210,9 @@ const Home = () => {
 
       <div
         data-aos="fade-up"
-        className="flex flex-col md:flex-row w-full h-[200px] md:h-[300px] mb-20 mt-10"
+        className="flex flex-col md:flex-row w-full h-[350px] mb-20 mt-10 relative" // Thêm "relative" để có thể định vị "Get 10% Off" chính xác
       >
-        <div className="relative w-full md:w-1/2">
+        <div className="relative w-full h-[350px] md:w-1/2">
           <img
             src={Frame188Img}
             alt="Get 10% Off"
@@ -207,37 +220,37 @@ const Home = () => {
           />
           <div
             data-aos="fade-up"
-            className="absolute top-4 left-4 text-white px-4 py-2 rounded-md text-3xl font-bold"
+            className="absolute top-9 left-10 text-white text-4xl font-semibold"
           >
             Get 10% Off
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 bg-black text-white p-6 flex flex-col justify-center h-full">
+        <div className="w-full h-[350px] md:w-1/2 bg-black text-white p-10 flex flex-col justify-start md:justify-start">
+          {" "}
+          {/* Thay đổi justify-center thành justify-start */}
           <h2 data-aos="fade-up" className="text-xl">
             Join our community today.
           </h2>
-          <p data-aos="fade-up" className="text-lg text-gray-500">
+          <p data-aos="fade-up" className="text-lg text-gray-400">
             10% off first order. Be the first to hear the latest products news,
             VIP offers, and sales!
           </p>
-
           <div className="mt-2 flex gap-2">
             <input
               data-aos="fade-up"
               type="email"
               placeholder="YOUR EMAIL"
-              className="flex-1 px-4 py-3 bg-black text-white border border-white rounded-full outline-none placeholder-white"
+              className="flex-1 px-5 py-3 bg-black text-white border border-white rounded-full outline-none placeholder-white"
             />
             <ButtonA
               text="SUBSCRIBE"
-              className="px-6 py-3 bg-white text-black rounded-full"
+              className="px-5 py-3.5 bg-white text-black rounded-full"
             />
           </div>
-
-          <p className="mt-2 text-gray-500 text-sm">
+          <p className="mt-2 text-gray-400 text-sm">
             By submitting this form and signing up for texts, you consent to{" "}
-            <a href="#" className="underline text-white">
+            <a href="#" className="underline text-gray-400">
               Terms & Conditions
             </a>
           </p>
