@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ButtonA from "../buttons/ButtonA";
-import ButtonC from "../buttons/ButtonC";
-import ButtonD from "../../components/buttons/ButtonD";
 
 class ReviewCarousel extends Component {
   state = {
@@ -105,7 +102,7 @@ class ReviewCarousel extends Component {
                     initial={{ x: direction === "next" ? "100%" : "-100%" }}
                     animate={{ x: "0%" }}
                     exit={{ x: direction === "next" ? "-100%" : "100%" }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    transition={{ duration: 0.1, ease: "easeInOut" }}
                     className="bg-white w-full text-center rounded-lg"
                   >
                     <p className="text-xs font-bold">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ShoppingBag, Plus } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import productsData from "../../data/data.json";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,8 @@ export default function FeaturedProducts() {
   const [products, setProducts] = useState([]);
   const [activeProductId, setActiveProductId] = useState(null);
   const [hoveredButton, setHoveredButton] = useState(null);
+  const [hoveredImage, setHoveredImage] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +31,6 @@ export default function FeaturedProducts() {
     navigate(`/product/${encodeURIComponent(productName)}`);
   };
 
-  // Handle touch events for mobile
   const handleProductTouch = (productId) => {
     setActiveProductId(productId === activeProductId ? null : productId);
   };
@@ -37,7 +38,7 @@ export default function FeaturedProducts() {
   return (
     <div
       data-aos="fade-up"
-      className="container-fluid mx-auto pt-12 pb-20 px-5"
+      className="container-fluid mx-auto pt-12 pb-20 px-5 lg:px-[2cm]" // Thêm padding cho màn hình desktop
     >
       <h2 className="text-2xl h-9 sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
         Featured Products
@@ -51,8 +52,14 @@ export default function FeaturedProducts() {
           >
             <div
               className="relative bg-gray-100 overflow-hidden"
-              onMouseEnter={() => setActiveProductId(product.id)}
-              onMouseLeave={() => setActiveProductId(null)}
+              onMouseEnter={() => {
+                setActiveProductId(product.id);
+                setHoveredImage(product.id);
+              }}
+              onMouseLeave={() => {
+                setActiveProductId(null);
+                setHoveredImage(null);
+              }}
               onTouchStart={() => handleProductTouch(product.id)}
             >
               <img
@@ -65,31 +72,36 @@ export default function FeaturedProducts() {
                 className="w-full h-48 sm:h-64 md:h-72 lg:h-80 object-cover"
               />
 
-<div className="absolute bottom-4 right-4">
-        <div className="relative">
-          <button
-            className={`
-              flex items-center justify-center
-              rounded-full bg-white p-2
-              transition-all duration-300
-              ${hoveredButton === product.id ? 'px-4' : 'w-12 h-12'} // Thêm padding khi hover
-            `}
-            onClick={(e) => {
-              console.log("Quick View button clicked");
-              e.stopPropagation();
-            }}
-            onMouseEnter={() => setHoveredButton(product.id)}
-            onMouseLeave={() => setHoveredButton(null)}
-          >
-            {hoveredButton !== product.id && (
-              <ShoppingBag size={16} className="flex-shrink-0" />
-            )}
-            {hoveredButton === product.id && (
-              <><ShoppingBag size={14} className="mr-1" /><span className="text-xs font-medium whitespace-nowrap">QUICK VIEW</span></>
-            )}
-          </button>
-        </div>
-      </div>
+              <div className="absolute bottom-4 right-4">
+                <div className="relative">
+                  <button
+                    className={`
+                      flex items-center justify-center
+                      rounded-full bg-white p-2
+                      transition-all duration-300
+                      ${hoveredImage === product.id ? (hoveredButton === product.id ? 'px-4 min-h-12' : 'w-12 h-12') : 'w-12 h-12 opacity-0'}
+                    `}
+                    onClick={(e) => {
+                      console.log("Quick View button clicked");
+                      e.stopPropagation();
+                    }}
+                    onMouseEnter={() => setHoveredButton(product.id)}
+                    onMouseLeave={() => setHoveredButton(null)}
+                  >
+                    {hoveredButton !== product.id && hoveredImage === product.id && (
+                      <ShoppingBag size={16} className="flex-shrink-0" />
+                    )}
+                    {hoveredButton === product.id && hoveredImage === product.id && (
+                      <>
+                        <ShoppingBag size={14} className="mr-1" />
+                        <span className="text-sm font-medium whitespace-nowrap">
+                          ADD TO CARD
+                        </span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="p-3 flex flex-col gap-1">
               <div className="flex justify-between items-start">
@@ -111,12 +123,12 @@ export default function FeaturedProducts() {
         ))}
       </div>
       <div className="flex justify-center mt-10">
-        <button 
-        className="bg-white text-black py-3.5 px-5 rounded-full border-2 border-black font-semibold hover:bg-red-700 hover:text-white transition" 
-        onClick={() => (window.location.href = "/collections/all")}
-      >
-        SHOW ALL
-      </button>
+        <button
+          className="bg-white text-black py-3.5 px-5 rounded-full border-2 border-black font-semibold hover:bg-red-700 hover:text-white transition"
+          onClick={() => (window.location.href = "/collections/all")}
+        >
+          SHOW ALL
+        </button>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ function AllProduct() {
         <div className="absolute bottom-0 left-0 w-full flex justify-center bg-gradient-to-t from-black/60 to-transparent p-4">
           <div className="transition-all w-full text-center">
             <span
-              className="block text-white font-bold italic tracking-wide opacity-100 animate-fade-up 
+              className="block text-white font-bold italic font-impact tracking-wide opacity-100 animate-fade-up 
                    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
               data-aos="fade-up"
             >
@@ -21,8 +21,9 @@ function AllProduct() {
         </div>
       </div>
 
-      <div className="m-6">
-        <nav className="flex items-center space-x-2 text-sm">
+      <div className="absolute left-6 py-2.5 w-full">
+      <div>
+      <nav className=" flex items-center font-semibold space-x-2 text-sm">
           <a href="#" title="Shop" aria-label="Shop" className="transition">
             Shop
           </a>
@@ -37,8 +38,11 @@ function AllProduct() {
           </a>
         </nav>
       </div>
-
+        
+      </div>
+      <div className="pt-2.5">
       <ProductList />
+      </div>
     </div>
   );
 }

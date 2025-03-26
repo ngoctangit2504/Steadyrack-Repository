@@ -49,21 +49,21 @@ export default function BlogCarousel() {
         ref={carouselRef}
         className="flex cursor-grab active:cursor-grabbing"
         drag="x"
-        dragConstraints={{ left: -maxDrag, right: 0 }} // Kéo đủ cả 3 ảnh
+        dragConstraints={{ left: -maxDrag, right: 0 }}
       >
         {blogData.map((blog, index) => (
           <div
             key={index}
             className="relative min-w-[979px] max-h-[570px] flex items-center gap-4 overflow-hidden border border-gray-300 group mr-4"
           >
-            {/* Ảnh có hiệu ứng zoom khi hover */}
+            
             <img
               src={blog.img}
               alt={blog.title}
               className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
             />
 
-            {/* Thêm thẻ <a> ở đây */}
+            
             <a
               className="absolute top-0 left-0 py-2.5 px-6 text-white bg-black text-xl italic font-bold tracking-tighter"
               href="/?constraint=bicycle"

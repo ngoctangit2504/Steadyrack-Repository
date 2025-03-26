@@ -69,7 +69,7 @@ class SteadyrackAmbassador extends Component {
                 data-aos="fade-left"
                 src={style.image}
                 alt={style.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-opacity-30 flex flex-col justify-end p-4">
                 <h3 className="text-white text-4xl font-semibold">
