@@ -245,9 +245,9 @@ const Header = () => {
                   <div className="w-full md:w-1/4 mb-4 md:mb-0">
                     <h3 className=" font-semibold text-lg mb-2">New Releases</h3>
                     <ul className="space-y-1 md:space-y-2">
-                      <li><a href="#" className="">ProFlex Range</a></li>
-                      <li><a href="#" className="">GearMate</a></li>
-                      <li><a href="#" className="">Behind The Scenes</a></li>
+                      <li><a href="/pages/proflex-ready-steady-pro" className="">ProFlex Range</a></li>
+                      <li><a href="/pages/gearmate-ready-to-ride" className="">GearMate</a></li>
+                      <li><a href="/pages/proflex-gearmate-behind-the-scenes" className="">Behind The Scenes</a></li>
                       <li><a href="/collections/proflex-gearmate" className="">Shop All</a></li>
                     </ul>
                   </div>

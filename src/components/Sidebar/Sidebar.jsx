@@ -47,8 +47,8 @@ export function Sidebar() {
             onClick={() => toggleSection('type')}
           >
             <p className="block">Type</p>
-            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black">
-              {expandedSections.type ? '➖' : '➕'}
+            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black text-3xl font-semibold">
+              {expandedSections.type ? '-' : '+'}
             </span>
           </button>
           <motion.div
@@ -82,8 +82,8 @@ export function Sidebar() {
             onClick={() => toggleSection('bikeType')}
           >
             <p className="block">Bike Type</p>
-            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black">
-              {expandedSections.bikeType ? '➖' : '➕'}
+            <span className="flex items-center justify-center w-6 h-6 rounded-full text-3xl font-semibold">
+              {expandedSections.bikeType ? '-' : '+'}
             </span>
           </button>
           <motion.div
@@ -173,8 +173,8 @@ export function Sidebar() {
             onClick={() => toggleSection('fenders')}
           >
             <p className="block">Fenders, Mudguards</p>
-            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black">
-              {expandedSections.fenders ? '➖' : '➕'}
+            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black text-3xl font-semibold">
+              {expandedSections.fenders ? '-' : '+'}
             </span>
           </button>
           <motion.div
@@ -209,8 +209,8 @@ export function Sidebar() {
             onClick={() => toggleSection('tyreWidth')}
           >
             <p className="block">Tyre Width</p>
-            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black">
-              {expandedSections.tyreWidth ? '➖' : '➕'}
+            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black text-3xl font-semibold">
+              {expandedSections.tyreWidth ? '-' : '+'}
             </span>
           </button>
 

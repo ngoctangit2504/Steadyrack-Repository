@@ -1,12 +1,10 @@
 import React from "react";
 import videoHead from "../assets/videos/Introducing-the-new-ProFlex-Bike-Rack2.mp4";
-import VideoBody from "../assets/videos/Introducing the new ProFlex Bike Rack6.mp4";
+import VideoBody from "../assets/videos/Bike Storage_ Steadyrack s Journey with Founder Dave _ Hang Your.mp4";
 import BackroundFind from "../assets/Choosing_right_rack_Home_page_2160_x_1440_px.png";
 import BackroundAbout from "../assets/NEW_Home_Page_About_Us_Desktop_1.png";
 import Frame188Img from "../assets/Frame_188.png";
 import ButtonA from "../components/buttons/ButtonA";
-import ButtonB from "../components/buttons/ButtonB";
-import ButtonC from "../components/buttons/ButtonC";
 import FeaturedProducts from "../components/featured products/FeaturedProduct";
 import TolstoyCarousel from "../components/carousel/TolstoyCarousel";
 import BrandCarousel from "../components/carousel/BrandsCarousel";
@@ -101,7 +99,7 @@ const Home = () => {
 
       <FeaturedProducts />
 
-      <div className="">
+      <div className="h-[900px]">
         <VideoOverlay
           videoSrc={VideoBody}
           title="The Evolution of a Revolution"

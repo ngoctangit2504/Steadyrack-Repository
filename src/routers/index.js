@@ -40,6 +40,9 @@ import ClassicRange from "../pages/shop/ClassicRange";
 import ProductDetailPage from "../pages/products/ProductDetail";
 
 import JustLandedShopAll from "../pages/JustLanded/ShopAll.jsx";
+import JustLanderProflexRanger from "../pages/JustLanded/ProflexRanger.jsx";
+import JustLanderGearMate from "../pages/JustLanded/GearMate.jsx";
+import JustLanderBehindTheScenes from "../pages/JustLanded/BehindTheScenes.jsx";
 
 
 
@@ -71,6 +74,10 @@ const routes = [
   { path: "/pages/faq", element: <MainLayout><Faq/></MainLayout> },
   { path: "/pages/installation-advice", element: <MainLayout><Installation/></MainLayout> },
   { path: "/pages/wall-placement-guide", element: <MainLayout><WallPlacementGuide/></MainLayout> },
+
+  { path: "/pages/proflex-ready-steady-pro", element: <MainLayout><JustLanderProflexRanger/></MainLayout> },
+  { path: "/pages/gearmate-ready-to-ride", element: <MainLayout><JustLanderGearMate/></MainLayout> },
+  { path: "/pages/proflex-gearmate-behind-the-scenes", element: <MainLayout><JustLanderBehindTheScenes/></MainLayout>},
 
 
   { path: "/collections/all", element: <MainLayout><AllProduct/></MainLayout> },

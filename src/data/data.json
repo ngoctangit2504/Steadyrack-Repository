@@ -94,7 +94,8 @@
         "/asset/Classic_ebike_fullset.png"
       ],
       "primaryImage": "/asset/eBikewithBike.webp",
-      "hoverImage": "/asset/Classic_ebike_fullset.png"
+      "hoverImage": "/asset/Classic_ebike_fullset.png",
+      "sizes": ["Narrow", "Wide","Fat"]
     },
     {
       "id": 7,
@@ -250,6 +251,7 @@
         "/asset/ProFlexFenderBikeOriginal.webp"
       ],
       "primaryImage": "/asset/ProFlexRack.webp",
-      "hoverImage": "/asset/Classic_ebike_fullset.png"
+      "hoverImage": "/asset/Classic_ebike_fullset.png",
+      "sizes": ["Narrow", "Wide","Fat"]
     }
   ]

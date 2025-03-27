@@ -89,10 +89,10 @@ function AboutUs() {
     <div className="container mx-auto flex flex-col md:flex-row gap-8 relative">
     <div className="w-full md:w-[60%] flex flex-col items-start text-left text-white px-6">
       <h2 className="text-[40px] md:text-[70px] lg:text-[100px] font-zuume italic font-bold tracking-tighter whitespace-normal max-w-full leading-tight">
-        A <strong className="text-black drop-shadow-[2px_2px_0px_white]">GLOBAL LEADER</strong> IN BIKE RACKS.
+        A <span style={{ WebkitTextStroke: "0.5px white", WebkitTextFillColor: "transparent" }}> GLOBAL LEADER </span> IN BIKE RACKS.
       </h2>
 
-      <div className="leading-none text-lg md:text-xl mt-4">
+      <div className="leading-none text-lg md:text-xl mt-11">
         <p className="w-1/2">Since 2009, Steadyrack has led the way in bike storage globally as the pivoting pioneers. Born in an Australian garage, our journey started with a cyclist's simple need for smarter storage.</p>
         <p className="w-1/2 mt-10">Steadyrack is a family-owned and operated business that has grown into a global brand, proudly headquartered in our hometown of Perth, Western Australia.</p>
         <p className="w-1/2 mt-10">Now, for the first time in history, we're redefining bike storage once again. Welcome to the next era of Steadyrack.</p>

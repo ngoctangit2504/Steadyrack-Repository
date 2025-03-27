@@ -68,7 +68,7 @@ const VideoOverlay = ({ videoSrc, title }) => {
     <div
       ref={containerRef}
       data-aos="fade-up"
-      className="relative w-full h-[900px] overflow-hidden pb-10"
+      className="relative w-full h-full overflow-hidden pb-10"
     >
       <video
         ref={videoRef}

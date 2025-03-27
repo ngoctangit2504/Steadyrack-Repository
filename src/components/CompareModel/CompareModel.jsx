@@ -45,8 +45,8 @@ function CompareModel() {
                 ({selectedProducts.length})
               </span>
             )}
-            <span className="flex items-center justify-center w-6 h-6 rounded-full text-black">
-              {expanded ? "➖" : "➕"}
+            <span className="flex items-center justify-center w-8 h-8 rounded-full text-black text-xl font-bold bg-gray-200">
+              {expanded ? "-" : "+"}
             </span>
           </button>
           <hr className="border-t border-gray-200 my-2" />
