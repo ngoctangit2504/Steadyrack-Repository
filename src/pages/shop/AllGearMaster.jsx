@@ -12,7 +12,7 @@ function AllGearMaster() {
       <div className="absolute bottom-0 left-0 w-full flex justify-center bg-gradient-to-t from-black/60 to-transparent p-4">
         <div className="transition-all w-full text-center">
           <span
-            className="block text-white text-8xl font-bold italic tracking-wide opacity-100 animate-fade-up"
+            className="block text-white text-8xl font-bold italic font-impact tracking-tight opacity-100 animate-fade-up"
             data-aos="fade-up"
           >
             GearMate Collection
@@ -21,7 +21,10 @@ function AllGearMaster() {
       </div>
     </div>
 
+    <div className='my-10'>
     <GearMasterList/>
+    </div>
+    
     <CompareModel/>
     </div>
   )

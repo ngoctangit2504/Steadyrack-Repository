@@ -40,10 +40,10 @@ export default function FeaturedProducts() {
       data-aos="fade-up"
       className="container-fluid mx-auto pt-12 pb-20 px-5 lg:px-[2cm]" // Thêm padding cho màn hình desktop
     >
-      <h2 className="text-2xl h-9 sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
+      <h2 data-aos="fade-up" className="text-2xl h-9 sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
         Featured Products
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[3px] ">
+      <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[3px] ">
         {products.map((product) => (
           <div
             key={product.id}

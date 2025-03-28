@@ -6,6 +6,8 @@ import videoHead from "../../assets/videos/Introducing-the-new-ProFlex-Bike-Rack
 import CompareModel from '../../components/CompareModel/CompareModel';
 import ProductNewList from '../../components/product/ProductNewList';
 
+
+
 function ShopAll() {
   return (
     <div>
@@ -15,7 +17,7 @@ function ShopAll() {
       <div className="absolute bottom-0 left-0 w-full flex justify-center bg-gradient-to-t from-black/60 to-transparent p-4">
         <div className="transition-all w-full text-center">
           <span
-            className="block text-white text-8xl font-bold italic uppercase tracking-wide opacity-100 animate-fade-up"
+            className="block text-white text-8xl font-bold italic tracking-tight uppercase font-impact opacity-100 animate-fade-up"
             data-aos="fade-up"
           >
             ProFlex & GearMate
@@ -24,7 +26,28 @@ function ShopAll() {
       </div>
     </div>
 
-    <ProductNewList/>
+    <div className="absolute left-6 py-2.5 w-full">
+        <div>
+          <nav className=" flex items-center font-semibold space-x-2 text-sm">
+            <a href="#" title="Shop" aria-label="Shop" className="transition">
+              Shop
+            </a>
+            <span>/</span>
+            <a
+              href="#"
+              title="All Products"
+              aria-label="All Products"
+              className="transition"
+            >
+              All Products
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div className='py-5'>
+      <ProductNewList/>
+      </div>
 
 
     <div data-aos="fade-up" className="relative w-full h-screen">

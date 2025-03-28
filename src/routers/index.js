@@ -44,6 +44,12 @@ import JustLanderProflexRanger from "../pages/JustLanded/ProflexRanger.jsx";
 import JustLanderGearMate from "../pages/JustLanded/GearMate.jsx";
 import JustLanderBehindTheScenes from "../pages/JustLanded/BehindTheScenes.jsx";
 
+import PersonalBikeStorage from "../pages/Solutions/PersonalBikeStorage.jsx";
+import HomeIndoor from "../pages/Solutions/HomeIndoor";
+import SmallSpace from "../pages/Solutions/SmallSpace";
+import Garage from "../pages/Solutions/Garage";
+import Multirack from "../pages/Solutions/Multirack";
+
 
 
 const routes = [
@@ -78,6 +84,12 @@ const routes = [
   { path: "/pages/proflex-ready-steady-pro", element: <MainLayout><JustLanderProflexRanger/></MainLayout> },
   { path: "/pages/gearmate-ready-to-ride", element: <MainLayout><JustLanderGearMate/></MainLayout> },
   { path: "/pages/proflex-gearmate-behind-the-scenes", element: <MainLayout><JustLanderBehindTheScenes/></MainLayout>},
+
+  { path: "/pages/personal-bike-storage", element: <MainLayout><PersonalBikeStorage/></MainLayout>},
+  { path: "/pages/personal-indoor-bike-rack-storage-solution", element: <MainLayout><HomeIndoor/></MainLayout>},
+  { path: "/pages/bike-storage-for-a-small-space-or-balcony", element: <MainLayout><SmallSpace/></MainLayout>},
+  { path: "/pages/bike-racks-for-your-garage-how-to-save-space-with-steadyrack", element: <MainLayout><Garage/></MainLayout>},
+  { path: "/pages/multiple-bike-rack-storage", element: <MainLayout><Multirack/></MainLayout>},
 
 
   { path: "/collections/all", element: <MainLayout><AllProduct/></MainLayout> },

@@ -88,19 +88,19 @@ function AboutUs() {
     <div className="bg-black py-8 md:py-28 overflow-hidden">
     <div className="container mx-auto flex flex-col md:flex-row gap-8 relative">
     <div className="w-full md:w-[60%] flex flex-col items-start text-left text-white px-6">
-      <h2 className="text-[40px] md:text-[70px] lg:text-[100px] font-zuume italic font-bold tracking-tighter whitespace-normal max-w-full leading-tight">
+      <h2 className="text-[40px] md:text-[70px] lg:text-[100px] font-zuume italic font-bold tracking-tight whitespace-normal max-w-full leading-tight">
         A <span style={{ WebkitTextStroke: "0.5px white", WebkitTextFillColor: "transparent" }}> GLOBAL LEADER </span> IN BIKE RACKS.
       </h2>
 
       <div className="leading-none text-lg md:text-xl mt-11">
-        <p className="w-1/2">Since 2009, Steadyrack has led the way in bike storage globally as the pivoting pioneers. Born in an Australian garage, our journey started with a cyclist's simple need for smarter storage.</p>
-        <p className="w-1/2 mt-10">Steadyrack is a family-owned and operated business that has grown into a global brand, proudly headquartered in our hometown of Perth, Western Australia.</p>
-        <p className="w-1/2 mt-10">Now, for the first time in history, we're redefining bike storage once again. Welcome to the next era of Steadyrack.</p>
+        <p className="w-1/2 leading-tight tracking-tight">Since 2009, Steadyrack has led the way in bike storage globally as the pivoting pioneers. Born in an Australian garage, our journey started with a cyclist's simple need for smarter storage.</p>
+        <p className="w-1/2 leading-tight mt-10 tracking-tight">Steadyrack is a family-owned and operated business that has grown into a global brand, proudly headquartered in our hometown of Perth, Western Australia.</p>
+        <p className="w-1/2 leading-tight mt-10 tracking-tight">Now, for the first time in history, we're redefining bike storage once again. Welcome to the next era of Steadyrack.</p>
       </div>
 
       <div className="text-base mt-24">
-        <p>Fueled by innovation and passion, Steadyrack has set the global standard in bike storage. Our commitment to cutting-edge, reliable solutions makes us the top choice now and in the future.</p>
-        <p className='mt-5'>Today, we've earned the trust of cyclists and organizers worldwide, including some of the most iconic brands and largest organizations including offices, museums, End-of-Trip (EoT) facilities, cafes, apartment buildings, government buildings, hospitals, Airbnb's, and superyachts.</p>
+        <p className='leading-tight tracking-tight'>Fueled by innovation and passion, Steadyrack has set the global standard in bike storage. Our commitment to cutting-edge, reliable solutions makes us the top choice now and in the future.</p>
+        <p className='leading-tight tracking-tight mt-5'>Today, we've earned the trust of cyclists and organizers worldwide, including some of the most iconic brands and largest organizations including offices, museums, End-of-Trip (EoT) facilities, cafes, apartment buildings, government buildings, hospitals, Airbnb's, and superyachts.</p>
       </div>
     </div>
 
@@ -115,29 +115,23 @@ function AboutUs() {
   </div>
 </div>
 
-<VideoOverlay videoSrc={VideoFounder} title={"From Our Founder"}/>
+<div>
+ <VideoOverlay videoSrc={VideoFounder} title={"From Our Founder"}/>
+</div>
+
 <TextCarouselImages/>
 <Timeline/>
 <SteadyrackAmbassador records={2}/>
 
-<div className="relative w-full h-screen flex flex-col justify-center items-center text-center px-6">
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{
-      backgroundImage: `url(${NewEraSteadyrackImg})`,
-    }}>
-  </div>
-  <div className="relative z-10 flex flex-col items-center justify-center text-white gap-6">
-    <h1 className="text-[40px] md:text-[70px] lg:text-[100px] font-zuume italic font-bold tracking-tighter whitespace-normal max-w-full leading-tight">
-      READY <strong className="text-black drop-shadow-[2px_2px_0px_white]">STEADY</strong> PRO.
-    </h1>
-    <h2 className="text-4xl md:text-5xl font-bold mb-8">
-      New Era of Steadyrack.
-    </h2>
-    <ButtonA text="DISCOVER PROFLEX"/>
-  </div>
-</div>
-
+<div data-aos="fade-up" className="w-full h-screen bg-[url('https://eu.steadyrack.com/cdn/shop/files/Solutions_2.png?v=1739873754&width=600')] bg-cover bg-center">
+      <div data-aos="fade-up" className='py-5 px-5 w-full h-full bg-transparent flex flex-col justify-center'>
+         <div data-aos="fade-up" className="text-9xl font-bold mb-7 font-zuume tracking-normal uppercase italic text-white text-center">READY<span style={{ WebkitTextStroke: "0.5px white", WebkitTextFillColor: "transparent" }}> STEADY </span>PRO</div>
+         <p data-aos="fade-up" className="text-4xl text-white font-semibold mb-7 text-center">New Era of Steadyrack.</p>
+           <button className="bg-transparent border border-white text-white py-3.5 px-5 rounded-full font-semibold hover:bg-red-700 hover:text-white transition">
+             Alo
+           </button>
+      </div>
+     </div>
 
     </div>
   )

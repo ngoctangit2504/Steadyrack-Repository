@@ -18,6 +18,7 @@ const Header = () => {
   const aboutRef = useRef(null);
   const commercialRef = useRef(null);
   const supportRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null); // Ref for the timeout
 
 
   useEffect(() => {
@@ -39,14 +40,27 @@ const Header = () => {
   const isDarkColor = isScrolled || isHovered;
   const isFixedPosition = isScrolled;
 
-    const getDropdownStyle = (ref) => {
+  const getDropdownStyle = (ref) => {
     if (!ref.current) return {};
-        const rect = ref.current.getBoundingClientRect();
+    const rect = ref.current.getBoundingClientRect();
     return {
-            top: rect.bottom,
+      top: rect.bottom,
       left: rect.left,
-      };
+    };
   };
+
+    const handleMouseEnter = (menu) => {
+        clearTimeout(dropdownTimeoutRef.current); // Clear any existing timeout
+        setActiveMenu(menu);
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        dropdownTimeoutRef.current = setTimeout(() => {
+            setActiveMenu(null);
+            setIsHovered(false);
+        }, 100); // Short delay, adjust as needed
+    };
 
   return (
     <>
@@ -57,11 +71,7 @@ const Header = () => {
         } ${
           isDarkColor ? "bg-white shadow-md text-black" : "bg-transparent text-white"
         }`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => {
-          setIsHovered(false);
-          setActiveMenu(null);
-        }}
+        onMouseLeave={handleMouseLeave} // Moved onMouseLeave here
       >
         <div className="overflow-hidden transition-max-h duration-5000 ease-in-out">
           <nav className="px-5 md:px-5 flex items-center justify-between md:grid md:grid-cols-3">
@@ -79,125 +89,48 @@ const Header = () => {
             {/* Desktop Navigation Links */}
             <ul className="hidden md:flex justify-center text-sm font-medium">
               {/* Just Landed */}
-              <li className="px-3 py-4">
+              <li className="px-3 py-4" onMouseEnter={() => handleMouseEnter("justLanded")}>
                 <a
                   href="#"
                   className={`hover:underline ${activeMenu === "justLanded" ? "font-bold" : ""}`}
-                  onMouseEnter={() => setActiveMenu("justLanded")}
                 >
                   Just Landed
                 </a>
               </li>
 
               {/* Shop */}
-              <li className="px-3 py-4">
+              <li className="px-3 py-4" onMouseEnter={() => handleMouseEnter("shop")}>
                 <a
                   href="#"
                   className={`hover:underline ${activeMenu === "shop" ? "font-bold" : ""}`}
-                  onMouseEnter={() => setActiveMenu("shop")}
                 >
                   Shop
                 </a>
               </li>
 
               {/* Solutions */}
-              <li className="px-3 py-4">
+              <li className="px-3 py-4" onMouseEnter={() => handleMouseEnter("solutions")}>
                 <a
                   href="#"
                   className={`hover:underline ${activeMenu === "solutions" ? "font-bold" : ""}`}
-                  onMouseEnter={() => setActiveMenu("solutions")}
                 >
                   Solutions
                 </a>
               </li>
 
               {/* About */}
-                            <li className="group px-3 py-4" ref={aboutRef}>
-                <a className="hover:underline" onMouseEnter={() => setActiveMenu("about")}>About</a>
-                {activeMenu === "about" && (
-                                    <div
-                                        className="absolute bg-white text-black shadow-md z-50 w-56"
-                                        style={getDropdownStyle(aboutRef)}
-                                    >
-                  {[
-                    { name: "About Us", path: "/pages/the-steadyrack-story" },
-                    { name: "Reviews", path: "/pages/steadyrack-bike-rack-reviews" },
-                    { name: "Ambassadors", path: "/pages/steadyrack-ambassadors" },
-                    { name: "Stories", path: "/blogs/stories" },
-                    { name: "Gallery", path: "/pages/personal-gallery" },
-                    { name: "Press", path: "/pages/press" },
-                    { name: "Community Support", path: "/pages/charities-we-support" }
-                  ].map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.path}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                      onMouseLeave={() => setActiveMenu(null)}
-
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                )}
+              <li className="group px-3 py-4" ref={aboutRef} onMouseEnter={() => handleMouseEnter("about")}>
+                <a className="hover:underline">About</a>
               </li>
 
               {/* Commercial */}
-              <li className="group px-3 py-4" ref={commercialRef}>
-                <a className="hover:underline" onMouseEnter={() => setActiveMenu("commercial")}>Commercial</a>
-                {activeMenu === "commercial" && (
-                <div
-                                        className="absolute bg-white text-black shadow-md z-50 w-56"
-                                        style={getDropdownStyle(commercialRef)}
-                                    >
-                  {[
-                    { name: "Commercial Bike Parking", path: "/pages/commercial-bike-parking" },
-                    { name: "Indoor Bike Parking", path: "/pages/commercial-indoor-bike-parking" },
-                    { name: "Design Files & Guidelines", path: "/pages/design-guidelines" },
-                    { name: "Project Gallery", path: "/pages/project-gallery" },
-                    { name: "Become A Dealer", path: "/pages/become-a-dealer" },
-                    { name: "Commercial Enquiries", path: "/pages/commercial-enquiries" },
-                    { name: "Request Revit Files", path: "/pages/revit-files" }
-                  ].map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.path}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                      onMouseLeave={() => setActiveMenu(null)}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                )}
+              <li className="group px-3 py-4" ref={commercialRef} onMouseEnter={() => handleMouseEnter("commercial")}>
+                <a className="hover:underline">Commercial</a>
               </li>
 
               {/* Support */}
-              <li className="group px-3 py-4" ref={supportRef}>
-                <a className="hover:underline" onMouseEnter={() => setActiveMenu("support")}>Support</a>
-                {activeMenu === "support" && (
-                <div
-                                        className="absolute bg-white text-black shadow-md z-50 w-56"
-                                        style={getDropdownStyle(supportRef)}
-                                    >
-                  {[
-                    { name: "Need Help Choosing A Rack", path: "/pages/choosing-the-correct-bike-rack" },
-                    { name: "Shipping", path: "/pages/shipping" },
-                    { name: "FAQs", path: "/pages/faq" },
-                    { name: "Installation", path: "/pages/installation-advice" },
-                    { name: "Wall Placement Guide", path: "/pages/wall-placement-guide" }
-                  ].map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.path}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                      onMouseLeave={() => setActiveMenu(null)}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                )}
+              <li className="group px-3 py-4" ref={supportRef} onMouseEnter={() => handleMouseEnter("support")}>
+                <a className="hover:underline">Support</a>
               </li>
             </ul>
 
@@ -237,8 +170,8 @@ const Header = () => {
             <div
               className="mega-dropdown hidden md:block absolute w-full bg-white text-black h-auto md:h-[8cm] lg:h-[9cm] shadow-md transition-all duration-300 z-40"
               style={{ top: `${headerHeight}px` }}
-              onMouseEnter={() => setActiveMenu(activeMenu)}
-              onMouseLeave={() => setActiveMenu(null)}
+              onMouseEnter={() => handleMouseEnter(activeMenu)} // Keep menu open on hover
+              onMouseLeave={handleMouseLeave} // Moved onMouseLeave here
             >
               {activeMenu === "justLanded" && (
                 <div className="container mx-auto px-4 md:px-6 py-6 md:py-8 flex flex-col md:flex-row">
@@ -324,11 +257,11 @@ const Header = () => {
                   <div className="w-full md:w-1/4 mb-4 md:mb-0">
                     <h3 className="font-semibold text-lg mb-2">Our Solutions</h3>
                     <ul className="space-y-1 md:space-y-2">
-                      <li><a href="/pages/personal-bike-storage" className="block hover:text-gray-600">Personal Bike Storage</a></li>
-                      <li><a href="/pages/personal-indoor-bike-rack-storage-solution" className="block hover:text-gray-600">Home Indoor</a></li>
-                      <li><a href="/pages/bike-storage-for-a-small-space-or-balcony" className="block hover:text-gray-600">Small Space</a></li>
-                      <li><a href="/pages/bike-racks-for-your-garage-how-to-save-space-with-steadyrack" className="block hover:text-gray-600">Garage</a></li>
-                      <li><a href="/pages/multiple-bike-rack-storage" className="block hover:text-gray-600">Multirack</a></li>
+                      <li><a href="/pages/personal-bike-storage" className="">Personal Bike Storage</a></li>
+                      <li><a href="/pages/personal-indoor-bike-rack-storage-solution" className="block">Home Indoor</a></li>
+                      <li><a href="/pages/bike-storage-for-a-small-space-or-balcony" className="block">Small Space</a></li>
+                      <li><a href="/pages/bike-racks-for-your-garage-how-to-save-space-with-steadyrack" className="block">Garage</a></li>
+                      <li><a href="/pages/multiple-bike-rack-storage" className="block">Multirack</a></li>
                     </ul>
                   </div>
 
@@ -348,6 +281,68 @@ const Header = () => {
                   </div>
                 </div>
               )}
+              {activeMenu === "about" && (
+                <div className="absolute bg-white text-black shadow-md z-50 w-56" style={getDropdownStyle(aboutRef)}>
+                  {[
+                    { name: "About Us", path: "/pages/the-steadyrack-story" },
+                    { name: "Reviews", path: "/pages/steadyrack-bike-rack-reviews" },
+                    { name: "Ambassadors", path: "/pages/steadyrack-ambassadors" },
+                    { name: "Stories", path: "/blogs/stories" },
+                    { name: "Gallery", path: "/pages/personal-gallery" },
+                    { name: "Press", path: "/pages/press" },
+                    { name: "Community Support", path: "/pages/charities-we-support" }
+                  ].map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.path}
+                      className="block px-4 py-2 hover:bg-gray-100"
+
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+              {activeMenu === "commercial" && (
+                <div className="absolute bg-white text-black shadow-md z-50 w-56" style={getDropdownStyle(commercialRef)}>
+                  {[
+                    { name: "Commercial Bike Parking", path: "/pages/commercial-bike-parking" },
+                    { name: "Indoor Bike Parking", path: "/pages/commercial-indoor-bike-parking" },
+                    { name: "Design Files & Guidelines", path: "/pages/design-guidelines" },
+                    { name: "Project Gallery", path: "/pages/project-gallery" },
+                    { name: "Become A Dealer", path: "/pages/become-a-dealer" },
+                    { name: "Commercial Enquiries", path: "/pages/commercial-enquiries" },
+                    { name: "Request Revit Files", path: "/pages/revit-files" }
+                  ].map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.path}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+              {activeMenu === "support" && (
+                <div className="absolute bg-white text-black shadow-md z-50 w-56" style={getDropdownStyle(supportRef)}>
+                  {[
+                    { name: "Need Help Choosing A Rack", path: "/pages/choosing-the-correct-bike-rack" },
+                    { name: "Shipping", path: "/pages/shipping" },
+                    { name: "FAQs", path: "/pages/faq" },
+                    { name: "Installation", path: "/pages/installation-advice" },
+                    { name: "Wall Placement Guide", path: "/pages/wall-placement-guide" }
+                  ].map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.path}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -356,7 +351,6 @@ const Header = () => {
         <div style={{ paddingTop: headerHeight }} />
       )}
     </>
-
   );
 };
 

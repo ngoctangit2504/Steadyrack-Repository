@@ -55,7 +55,7 @@ const TextCarouselImages = () => {
             }`}
             style={{ minHeight: "400px" }}
              >
-            <h2 className="text-5xl md:text-6xl lg:text-8xl font-black text-black leading-tight italic">
+            <h2 className="text-5xl md:text-6xl lg:text-8xl font-black text-black leading-tight font-impact italic">
              {item.heading}
             </h2>
             <p className="text-lg md:text-xl font-medium text-black max-w-md">
@@ -80,7 +80,7 @@ const TextCarouselImages = () => {
                     alt="" 
                     className="w-full h-full object-cover"
                   />
-                  <span className="absolute text-white bottom-4 left-4 text-8xl font-medium">
+                  <span className="absolute text-white bottom-4 left-4 text-8xl font-medium font-impact">
                     /0{index + 1}
                   </span>
                 </div>
