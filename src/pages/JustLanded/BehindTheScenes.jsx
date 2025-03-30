@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import FeaturedProduct from "../../components/featured products/FeaturedProduct";
 
 function BehindTheScenes() {
+
+  const videoRefs = [useRef(null), useRef(null)];
+  const containerRefs = [useRef(null), useRef(null)];
+  const [isExpanded, setIsExpanded] = useState([false, false]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const newStates = isExpanded.map((state, index) => {
+        if (!videoRefs[index].current || !containerRefs[index].current) return state;
+
+        const videoTop = videoRefs[index].current.getBoundingClientRect().top;
+        const triggerHeight = window.innerHeight * 0.5; // Kích hoạt khi video cách 70% chiều cao màn hình
+
+        return videoTop < triggerHeight;
+      });
+
+      setIsExpanded(newStates);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isExpanded]);
+
   return (
     <div>
       <div data-aos="fade-up" className="w-full h-screen bg-[url('https://www.steadyrack.com/cdn/shop/files/Choosing_right_rack_Home_page_2160_x_1440_px_1.png?v=1740462596&width=3840')] bg-cover bg-center">
@@ -35,6 +59,23 @@ function BehindTheScenes() {
      </div>
     </div>
 
+    <div className='mt-20 mb-5'>
+      <div ref={containerRefs[0]} className="relative w-full flex items-center justify-center">
+        <video
+          ref={videoRefs[0]}
+          className={`transition-all duration-700 ease-out ${
+            isExpanded[0] ? "w-[96%]" : "w-3/4"
+          } h-auto opacity-100 translate-y-0`}
+          src="https://www.steadyrack.com/cdn/shop/videos/c/vp/1aa7ba81f5e74a958a2ebfa65ba4ca40/1aa7ba81f5e74a958a2ebfa65ba4ca40.HD-1080p-7.2Mbps-43182600.mp4?v=0"
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+        />
+      </div>
+      </div>
+
     <div className="bg-black py-8 md:py-28 overflow-hidden">
     <div className="container mx-auto flex flex-col md:flex-row gap-8 relative">
     <div className="w-full md:w-[60%] flex flex-col items-start text-left text-white px-6">
@@ -53,13 +94,16 @@ function BehindTheScenes() {
     </div>
 
     <div className="w-full md:w-[40%] relative">
-      <img
-        data-aos="fade-left"
-        src="https://www.steadyrack.com/cdn/shop/files/About_Page_Global_Leader.png?v=1739935706&width=3840"
-        alt="Global Leader in Bike Racks"
-        className="w-full h-auto object-cover"
-      />
-    </div>
+  <video
+    data-aos="fade-left"
+    src="https://www.steadyrack.com/cdn/shop/videos/c/vp/669930ee4751436ca302dcbb52d20fe1/669930ee4751436ca302dcbb52d20fe1.HD-720p-1.6Mbps-43174898.mp4?v=0" // Thay bằng link video của bạn
+    className="w-full h-auto object-cover"
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+</div>
   </div>
 </div>
 
@@ -136,6 +180,10 @@ function BehindTheScenes() {
       />
     </div>
   </div>
+</div>
+
+<div>
+  <FeaturedProduct/>
 </div>
 
     </div>

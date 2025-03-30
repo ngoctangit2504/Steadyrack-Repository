@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import BoxText from '../../components/carousel/BoxTextCarousel';
 import VideoOverlay from '../../components/videoComponent/VideoOverlay';
 import VideoBody from "../../assets/videos/Bike Storage_ Steadyrack s Journey with Founder Dave _ Hang Your.mp4";
@@ -6,6 +6,29 @@ import ProductDetailCut from '../../components/product/ProductDetailCut';
 
 
 function GearMate() {
+  const videoRefs = [useRef(null), useRef(null)];
+  const containerRefs = [useRef(null), useRef(null)];
+  const [isExpanded, setIsExpanded] = useState([false, false]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const newStates = isExpanded.map((state, index) => {
+        if (!videoRefs[index].current || !containerRefs[index].current) return state;
+
+        const videoTop = videoRefs[index].current.getBoundingClientRect().top;
+        const triggerHeight = window.innerHeight * 0.5; // Kích hoạt khi video cách 70% chiều cao màn hình
+
+        return videoTop < triggerHeight;
+      });
+
+      setIsExpanded(newStates);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isExpanded]);
+
+
     const items = [
         { 
             image: '//www.steadyrack.com/cdn/shop/files/steadyrack_ready.png?v=1737353296&width=34',
@@ -38,6 +61,24 @@ function GearMate() {
          <p data-aos="fade-up" className="text-4xl text-white font-semibold mb-7 text-center">Ready to Ride</p>
       </div>
      </div>
+
+     <div className='mt-20'>
+      <div ref={containerRefs[0]} className="relative w-full flex items-center justify-center">
+        <video
+          ref={videoRefs[0]}
+          className={`transition-all duration-700 ease-out ${
+            isExpanded[0] ? "w-[96%]" : "w-3/4"
+          } h-auto opacity-100 translate-y-0`}
+          src="https://www.steadyrack.com/cdn/shop/videos/c/vp/baf9d73c104b4c199ab1d4678c5cb033/baf9d73c104b4c199ab1d4678c5cb033.HD-1080p-7.2Mbps-42040357.mp4?v=0"
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+        />
+      </div>
+      </div>
+
 
      <div className=' pt-24 pb-10'>
      <div className='px-5  grid grid-flow-row-dense grid-cols-3'>
@@ -83,6 +124,76 @@ function GearMate() {
       />
     </div>
   </div>
+</div>
+
+<div className='pt-11 pb-20'>
+    <div className='px-5 mb-4'>
+        <div data-aos="fade-up" className='mb-5'>
+            <h1 className='text-4xl font-semibold text-black'>The Ultimate Features</h1>
+        </div>
+        <div className='mx-10 px-5'>
+            <div className='grid grid-cols-12 gap-4'> {/* Loại bỏ h-screen, để nội dung tự điều chỉnh */}
+                <div className="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
+                    
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyBracket™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>A 3-hook system creates a secure support to either side of the SteadySpine, Available in three sizes.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyBin™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Functional design to maximize access to your gear. Available in three sizes.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadySpine™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>An innovative robust glass-filled nylon spine designed to support your gear.</p>
+                    </div>
+
+
+                </div>
+                <div class="col-span-6 p-4 text-white flex items-center justify-center"> {/* Thêm items-center và justify-center vào đây */}
+                    <img src='https://www.steadyrack.com/cdn/shop/files/image_1_3dca60f8-7ee0-4d68-97f8-fdce33ebc067.png?v=1737354642&width=2000'
+                         className='w-full'/>  {/* Make image responsive */}
+                </div>
+                <div class="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
+                <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyHook™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>These versatile hooks can be flipped 180° to maximize use.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">Easy Access</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Obtuse exit angle allows for easy access and removal of smaller items.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyLoop™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>A hook and loop fastener for easy attachment of your gear.</p>
+                    </div>
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">Grub Screws</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Allows for lockable positioning on all bins.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

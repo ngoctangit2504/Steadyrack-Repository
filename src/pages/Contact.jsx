@@ -56,73 +56,47 @@ function Contact() {
       </div>
     </div>
 
-    <div className="bg-white max-w-4xl mx-auto px-8 md:px-14 py-10">
-      <h2 className="text-black text-xl md:text-2xl font-semibold leading-tight mb-6">
-        Submit An Inquiry
-      </h2>
+    <div className='pt-7 pb-14'>
+      <div className='mx-12 px-5 flex flex-col justify-center items-center'>
+        <form className='w-[65%]'>
+         <div className='flex flex-col px-1 mb-6 w-full'>
+         <label className=' tracking-tight mb-1'>Full Name</label>
+         <input type='text' className='h-12 rounded-full shadow-lg bg-gray-100 shadow-gray-200 px-5'></input>
+         </div>
 
-      <form className="space-y-4">
-        <input
-          type="text"
-          placeholder="Name*"
-          className="w-full bg-gray-200 text-black p-3 rounded-md outline-none placeholder:text-black"
-        />
+         <div className='flex flex-col px-1 mb-6 w-full'>
+         <label className=' tracking-tight mb-1'>Email</label>
+         <input type='text' className='h-12 rounded-full shadow-lg bg-gray-100 shadow-gray-200 px-5'></input>
+         </div>
 
-        <input
-          type="email"
-          placeholder="Email*"
-          className="w-full bg-gray-200 text-black p-3 rounded-md outline-none placeholder:text-black"
-        />
+         <div className='flex flex-row'>
+           <div className='flex flex-col px-1 mb-6 w-full'>
+           <label className=' tracking-tight mb-1'>Phone *</label>
+           <input type='text' className='h-12 rounded-full shadow-lg bg-gray-100 shadow-gray-200 px-5'></input>
+           </div>
 
-        <div className="flex gap-3">
-          <select className="w-1/2 bg-gray-200 text-black p-3 rounded-md outline-none">
-            <option>Country</option>
-            <option>USA</option>
-            <option>Australia</option>
-            <option>UK</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Phone"
-            className="w-1/2 bg-gray-200 text-black p-3 rounded-md outline-none placeholder:text-black"
-          />
-        </div>
+           <div className='flex flex-col px-1 mb-6 w-full'>
+           <label className=' tracking-tight mb-1'>Country *</label>
+           <input type='text' className='h-12 rounded-full shadow-lg bg-gray-100 shadow-gray-200 px-5' placeholder='Please select'></input>
+           </div>
+         </div>
 
-        <textarea
-          placeholder="Message*"
-          rows="4"
-          className="w-full bg-gray-200 text-black p-3 rounded-md outline-none placeholder:text-black"
-        ></textarea>
+         <div className='flex flex-col px-1 mb-6 w-full'>
+         <label className=' tracking-tight mb-1'>Message</label>
+         <textarea type='text' className='h-28 rounded-lg shadow-lg bg-gray-100 shadow-gray-200 p-5'></textarea>
+         </div>
 
-        <button className="w-fit bg-black text-white font-semibold px-6 py-2 rounded-full hover:bg-red-600 hover:text-white transition">
-          SUBMIT
-        </button>
-      </form>
+         <div className='flex flex-col px-1 mb-6'>
+          <h1 className=' font-bold tracking-tight'>DISCLAIMER</h1>
+          <p className=' tracking-tight'>If you are a business/commercial customer, do not submit this form.</p>
+          <p className=' tracking-tight'>Please navigate to the Commercial Enquiries page to submit an enquiry.</p>
+         </div>
 
-      <hr class="h-px my-8 bg-gray-300 border-0 dark:bg-gray-700"/>
-      
-      <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between text-black text-sm">
-        
-        <div className="flex items-center gap-2">
-          <span className="text-xl">💬</span>
-          <span>Chat with us</span>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <span className="text-xl">📱</span>
-          <span>Call us</span>
-          <span className="font-semibold">+61 8 9435 2435</span>
-        </div>
-
-        <div className="text-right">
-          <p>Our team is available</p>
-          <p>Monday to Friday, 9am - 5pm AWST</p>
-          <p>(Australian Western Standard Time)</p>
-        </div>
+         <div className='flex flex-col px-1 mb-6'>
+         <button type='submit' className='bg-black text-white rounded-full h-10 w-28'>Send</button>
+         </div>
+        </form>
       </div>
-
-      <hr class="h-px my-8 bg-gray-300 border-0 dark:bg-gray-700"/>
-
     </div>
       
     </div>

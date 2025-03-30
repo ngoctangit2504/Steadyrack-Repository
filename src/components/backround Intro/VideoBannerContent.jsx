@@ -27,9 +27,9 @@ const VideoBannerContent = ({
         <img
           src={iconUrl}
           alt="Icon"
-          className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2"
+          className="w-32 h-16"
         />
-        <span className="block text-white text-sm sm:text-xl font-bold">
+        <span className="block font-semibold tracking-tight text-2xl text-white mb-5">
           {title}
         </span>
         <p className="text-white text-xs sm:text-base">{text}</p>

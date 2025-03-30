@@ -283,42 +283,42 @@ const Footer = () => {
             <h3 className="mb-3">Support</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/customer-support" className="hover:underline">
                   Customer Support
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/commercial-enquiries" className="hover:underline">
                   Commercial Enquiries
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/faq" className="hover:underline">
                   FAQs
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/shipping" className="hover:underline">
                   Shipping
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/returns" className="hover:underline">
                   Returns & Warranty Claims
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/standard-warranty" className="hover:underline">
                   Standard Warranty
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/wall-placement-guide" className="hover:underline">
                   Wall Placement
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/pages/installation-advice" className="hover:underline">
                   Installation
                 </a>
               </li>
@@ -328,7 +328,10 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a 
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://account.steadyrack.com/" className="hover:underline">
                   B2B Login
                 </a>
               </li>

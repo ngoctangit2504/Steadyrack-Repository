@@ -68,11 +68,11 @@ const VideoOverlay = ({ videoSrc, title }) => {
     <div
       ref={containerRef}
       data-aos="fade-up"
-      className="relative w-screen h-screen overflow-hidden pb-10"
+      className="relative w-full h-screen overflow-hidden pb-10"
     >
       <video
         ref={videoRef}
-        className="absolute top-0 left-0 w-full h-[900px] object-cover cursor-pointer"
+        className="absolute top-0 left-0 w-full h-screen object-cover cursor-pointer"
         src={videoSrc}
         muted
         playsInline

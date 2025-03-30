@@ -9,6 +9,12 @@ import FAQ from "../../components/faq/FAQ";
 import ReviewComponent from "../../components/review/ReviewComponent";
 import VideoBannerContent from "../../components/backround Intro/VideoBannerContent";
 import RichTextTitle from "../../components/TextTitle/RichTextTitle";
+import BackroundFind from "../../assets/Choosing_right_rack_Home_page_2160_x_1440_px.png";
+import VideoOverlay from '../../components/videoComponent/VideoOverlay';
+import VideoBody from "../../assets/videos/introducing-the-new-proflex-bike-rack3.mp4";
+
+
+
 
 const ProductDetailPage = () => {
   const { productName } = useParams();
@@ -250,7 +256,7 @@ const ProductDetailPage = () => {
 </div>
    
    <div data-aos="fade-up" className="flex justify-center items-center h-64 bg-white px-4 overflow-hidden">
-  <h1 className="text-4xl sm:text-5xl md:text-[10rem] leading-none uppercase italic tracking-wide skew-x-10 font-zuume whitespace-nowrap bg-gradient-to-r from-black via-gray to-lightgray text-transparent bg-clip-text">
+  <h1 className="text-11xl leading-none uppercase italic skew-x-10 font-impact tracking-tight whitespace-nowrap bg-gradient-to-r from-black via-gray to-lightgray text-transparent bg-clip-text">
     READY, STEADY, PRO.
   </h1>
 </div>
@@ -260,15 +266,126 @@ const ProductDetailPage = () => {
 <VideoBannerContent
         videoUrl="/videos/Introducing the new ProFlex Bike Rack6.mp4"
         videoType="video/mp4"
-        title="My Video Banner"
-        text="This is a video banner with text and icon."
-        iconUrl="/images/my-icon.png"
+        title="Steadyrack Ready"
+        text="Designed to work seamlessly with all Steadyrack bike racks."
+        iconUrl="https://www.steadyrack.com/cdn/shop/files/Icons_8.png?v=1739416076&width=194"
         autoplay={true}
         loop={true}
         muted={true}
       />
 
-    <ReviewComponent/>
+<div className='pt-11 pb-20'>
+    <div className='px-5 mb-4'>
+        <div data-aos="fade-up" className='mb-5'>
+            <h1 className='text-4xl font-semibold text-black tracking-tight'>The Features You Need</h1>
+        </div>
+        <div className='mx-10 px-5'>
+            <div className='grid grid-cols-12 gap-4'> {/* Loại bỏ h-screen, để nội dung tự điều chỉnh */}
+                <div className="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
+                    
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyBracket™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>A 3-hook system creates a secure support to either side of the SteadySpine, Available in three sizes.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyBin™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Functional design to maximize access to your gear. Available in three sizes.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadySpine™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>An innovative robust glass-filled nylon spine designed to support your gear.</p>
+                    </div>
+
+
+                </div>
+                <div class="col-span-6 p-4 text-white flex items-center justify-center"> {/* Thêm items-center và justify-center vào đây */}
+                    <img src='https://www.steadyrack.com/cdn/shop/files/image_1_3dca60f8-7ee0-4d68-97f8-fdce33ebc067.png?v=1737354642&width=2000'
+                         className='w-full'/>  {/* Make image responsive */}
+                </div>
+                <div class="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
+                <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyHook™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>These versatile hooks can be flipped 180° to maximize use.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">Easy Access</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Obtuse exit angle allows for easy access and removal of smaller items.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyLoop™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>A hook and loop fastener for easy attachment of your gear.</p>
+                    </div>
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">Grub Screws</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Allows for lockable positioning on all bins.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+     <div data-aos="fade-up" className="relative w-full h-screen flex flex-col justify-start items-center text-center px-6 mx-6">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${BackroundFind})`,
+          }}
+        ></div>
+      </div>
+
+      <div className='pt-9 pb-5'>
+        <div className='px-5 grid grid-cols-2'>
+           <div className='px-1.5'>
+            <img src='https://www.steadyrack.com/cdn/shop/files/200_Arrangements_-_GearMate_PDP.png?v=1739416974&width=2000'/>
+           </div>
+           <div className=' flex px-1.5 items-center justify-center'>
+             <div data-aos="fade-up" className='py-10 px-20'>
+                <h1 className='text-black text-4xl font-semibold tracking-tight mb-5'>200+ Arrangements</h1>
+                <p className='text-base test-black mb-5 leading-tight'>With over 200 arrangements, the GearMate storage organizer system lets you store your bike gear, your way.</p>
+                <img src="https://www.steadyrack.com/cdn/shop/files/200_Arrangements_-_GearMate_PDP_2.png?v=1739417242&width=668"/>
+                <button className="py-3.5 px-5 bg-white text-black text-sm font-semibold rounded-full shadow-md border-2 border-black hover:bg-red-600 hover:text-white hover:border-white transition inline-flex items-center justify-center min-w-[40px]">
+                Learn More
+                </button>
+             </div>
+           </div>
+        </div>
+     </div>
+
+<div className="my-6"> 
+<div className="w-full h-full object-cover">
+        <VideoOverlay
+          videoSrc={VideoBody}
+          title="Steadyrack Ready"
+        />
+      </div>
+</div>
+     
+
+    <div className="my-6 relative z-10">
+      <ReviewComponent/>
+    </div>
+
     <FAQ/>
     <BrandCarousel/>
     <FeaturedProduct/>

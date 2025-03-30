@@ -1,11 +1,11 @@
-import React from 'react';
-import VideoZoomComponent from '../../components/videoComponent/VideoZoom';
+import React, { useEffect, useRef, useState } from 'react';
 import BoxText from '../../components/carousel/BoxTextCarousel';
 import VideoOverlay from '../../components/videoComponent/VideoOverlay';
 import VideoBody from "../../assets/videos/Bike Storage_ Steadyrack s Journey with Founder Dave _ Hang Your.mp4";
 import ProductDetailCut from '../../components/product/ProductDetailCut';
 
 function ProflexRanger() {
+
   const items = [
     { title: 'Narrow, Wide & Fat', text: 'ProFlex is available in three sizes: Narrow, for road, city, gravel, commuter and BMX bikes; Wide, for eBikes, mountain bikes, and gravel bikes; and Fat, for plus, cruiser or fat bikes. All sizes are compatible with fenders and mudguards.' },
     { title: 'New Modern Finish', text: 'Enhanced with a black nickel finish, ProFlex showcases a bold and premium aesthetic.' },
@@ -13,6 +13,30 @@ function ProflexRanger() {
     { title: 'GearMate Ready', text: 'Featuring an integrated spine, ProFlex is GearMate ready, offering a seamless solution to store both your cycling gear and bike in one organized space.' },
     { title: 'Stronger', text: 'ProFlex has been designed with an increased load capacity of 121lbs, compared to 77lbs.' },
   ];
+
+
+  const videoRefs = [useRef(null), useRef(null)];
+  const containerRefs = [useRef(null), useRef(null)];
+  const [isExpanded, setIsExpanded] = useState([false, false]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const newStates = isExpanded.map((state, index) => {
+        if (!videoRefs[index].current || !containerRefs[index].current) return state;
+
+        const videoTop = videoRefs[index].current.getBoundingClientRect().top;
+        const triggerHeight = window.innerHeight * 0.5; // Kích hoạt khi video cách 50% chiều cao màn hình
+
+        return videoTop < triggerHeight;
+      });
+
+      setIsExpanded(newStates);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isExpanded]);
+
 
   return (
     <div>
@@ -23,17 +47,25 @@ function ProflexRanger() {
       </div>
      </div>
 
-    <div className=''>
-    <div>
-     <VideoZoomComponent 
-        videoSrc="/path/to/your/video.mp4"
-        defaultWidth="w-64"
-        defaultHeight="h-36"
-        zoomedWidth="w-full"
-        zoomedHeight="h-full"
-      />
-     </div>
-    </div>
+     
+      <div className='mt-20'>
+      <div ref={containerRefs[0]} className="relative w-full flex items-center justify-center">
+        <video
+          ref={videoRefs[0]}
+          className={`transition-all duration-700 ease-out ${
+            isExpanded[0] ? "w-[96%]" : "w-3/4"
+          } h-auto opacity-100 translate-y-0`}
+          src="https://www.steadyrack.com/cdn/shop/videos/c/vp/aa0e99ecd6a24d229e0aee5e03072eda/aa0e99ecd6a24d229e0aee5e03072eda.HD-1080p-7.2Mbps-41127795.mp4?v=0" // Thay bằng link video 1 của bạn
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+        />
+      </div>
+      </div>
+      
+    
 
     <div className=' pt-24 pb-10'>
      <div className='px-5  grid grid-flow-row-dense grid-cols-3'>
@@ -72,6 +104,89 @@ function ProflexRanger() {
       />
     </div>
   </div>
+</div>
+
+<div className='pt-11 pb-20'>
+    <div className='px-5 mb-4'>
+        <div data-aos="fade-up" className='mb-5'>
+            <h1 className='text-4xl font-semibold text-black'>Revolutionizing Features</h1>
+        </div>
+        <div className='mx-10 px-5'>
+            <div className='grid grid-cols-12 gap-4'> {/* Loại bỏ h-screen, để nội dung tự điều chỉnh */}
+                <div className="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
+                    
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyPiv﻿ot™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Patented Steadyrack pivot capability enabling far greater space saving, and easy bike access.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadySpine™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Glass-filled nylon spine with 28 bracket positions, offering over 200 GearMate storage combinations.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyClick™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Simplified assembly with slide-and-click system for end caps.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyFold™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Steadyrack patented clip lock system which allows the rack to fold up out of the way when not in use.</p>
+                    </div>
+
+
+                </div>
+                <div class="col-span-6 p-4 text-white flex items-center justify-center"> {/* Thêm items-center và justify-center vào đây */}
+                    <img src='https://www.steadyrack.com/cdn/shop/files/PROFLEX_-_Wide_-_Open_-_Complete_Rack_1.png?v=1733839074&width=2000'
+                         className='w-full'/>  {/* Make image responsive */}
+                </div>
+                <div class="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
+                <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyHold™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Patented Steadyrack ‘cradle’ which securely holds the bike in the rack, drastically minimizing the risk of fall. Avoiding damage to bikes, cars and people.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyFlex™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Flexible rack ‘arms’ which move to allow clearance for bikes with fenders/mudguards.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyLoad™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Patented Steadyrack easy loading roll-in-roll-out innovation that allows user to rack their bike without lifting off the ground.</p>
+                    </div>
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadySaddle™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Flexible reinforced nylon entry point ‘saddle’ which enables bikes with fenders/mudguards to use the rack.</p>
+                    </div>
+
+                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
+                        <div className="flex items-center mb-3.5 border-black border-b">
+                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyRest™</h3>
+                        </div>
+                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Removable and innovative rear tire rest reduces wall scuffs and serves as a pivot point.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div className='px-5 grid grid-cols-2 bg-black'>
@@ -147,6 +262,22 @@ function ProflexRanger() {
       </div>
     </div>
    </div>
+
+   <div ref={containerRefs[1]} className="relative w-full flex items-center justify-center">
+        <video
+          ref={videoRefs[1]}
+          className={`transition-all duration-700 ease-out ${
+            isExpanded[1] ? "w-[96%]" : "w-3/4"
+          } h-auto opacity-100 translate-y-0`}
+          src="https://www.steadyrack.com/cdn/shop/videos/c/vp/81a42ccc77034c1c80d14c2165c5a042/81a42ccc77034c1c80d14c2165c5a042.HD-1080p-7.2Mbps-41241536.mp4?v=0" // Thay bằng link video 2 của bạn
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+        />
+      </div>
+
 
    <div>
     <div className=' pt-28 pb-11'>

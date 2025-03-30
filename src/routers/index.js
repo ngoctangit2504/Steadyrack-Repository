@@ -5,6 +5,8 @@ import Home from "../pages/Home.jsx";
 import LoginCard from "../pages/login/Login.jsx";
 
 import Contact from "../pages/Contact";
+import Return from "../pages/Return";
+import StandardWarranty from "../pages/StandardWarranty";
 
 import AboutUs from "../pages/about/AboutUs.jsx";
 import Reviews from "../pages/about/Reviews.jsx";
@@ -58,6 +60,8 @@ const routes = [
   { path: "/login", element:<LoginCard/> },
 
   { path: "/pages/customer-support", element: <MainLayout><Contact/></MainLayout> },
+  { path: "/pages/returns", element: <MainLayout><Return/></MainLayout> },
+  { path: "/pages/standard-warranty", element: <MainLayout><StandardWarranty/></MainLayout> },
 
   { path: "/pages/the-steadyrack-story", element: <MainLayout><AboutUs/></MainLayout> },
   { path: "/pages/steadyrack-bike-rack-reviews", element: <MainLayout><Reviews/></MainLayout> },

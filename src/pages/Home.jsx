@@ -99,7 +99,7 @@ const Home = () => {
 
       <FeaturedProducts />
 
-      <div className="h-[900px]">
+      <div className=" h-screen">
         <VideoOverlay
           videoSrc={VideoBody}
           title="The Evolution of a Revolution"

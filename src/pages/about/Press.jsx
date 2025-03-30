@@ -1,25 +1,39 @@
 import React, { useEffect, useState } from "react";
 import BackRoundIntroComponent from "../../components/backround Intro/BackRoundIntro";
 import BgIntroImage from "../../assets/press_desktop.webp";
-import pressLogoData from "../../data/pressLogo.json";
 import pressInforData from "../../data/pressInfor.json";
 import ButtonD from "../../components/buttons/ButtonD";
 
 function Press() {
-  const [logos, setLogos] = useState([]);
+
+  const logos = [
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo-1.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--2.png?v=1733685260&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--3.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--4.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--5.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--6.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--7.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--8.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--9.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--10.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--11.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--12.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--13.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--14.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--15.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--16.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--17.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--18.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--19.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--20.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--21.png?v=1733685261&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/mudblood_360x_jpg.png?v=1733686772&width=400" },
+    { image: "https://www.steadyrack.com/cdn/shop/files/logo--22.png?v=1733685261&width=400" },
+
+  ];
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    if (pressLogoData && Array.isArray(pressLogoData)) {
-      const formattedLogos = pressLogoData.map((item, index) => ({
-        id: index + 1,
-        src: item.image, // Lấy ảnh từ JSON
-        alt: `Logo ${index + 1}`,
-        delay: (index + 2) * 50,
-      }));
-      setLogos(formattedLogos);
-    }
-  }, []);
 
   // Chia danh sách logo thành từng hàng tối đa 7 phần tử
   const logoRows = [];
@@ -75,16 +89,16 @@ function Press() {
     <div className="relative overflow-hidden">
       
       <div className="flex flex-wrap lg:hidden">
-        {logos.map((logo) => (
+        {logos.map((logo, index) => (
           <div
-            key={logo.id}
+            key={index}
             className="w-1/2 md:w-1/4 flex items-center justify-center p-4"
             data-aos="fade-up"
-            data-aos-delay={logo.delay}
+            data-aos-delay={(index + 1) * 50} // Adjust delay as needed
           >
             <img
-              src={logo.src}
-              alt={logo.alt}
+              src={logo.image} // Sử dụng logo.image trực tiếp
+              alt={`Logo ${index + 1}`} // Tạo alt text mặc định
               className="object-contain w-full h-auto"
               loading="lazy"
             />
@@ -95,13 +109,14 @@ function Press() {
       <div className="hidden lg:block">
         {logoRows.map((row, rowIndex) => (
           <div key={rowIndex} className="grid grid-cols-7 gap-4 mb-4">
-            {row.map((logo) => (
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="object-contain w-full h-auto"
-                  loading="lazy"
-                />
+            {row.map((logo, logoIndex) => (
+              <img
+                key={logoIndex}
+                src={logo.image} // Sử dụng logo.image trực tiếp
+                alt={`Logo ${rowIndex * 7 + logoIndex + 1}`} // Tạo alt text mặc định
+                className="object-contain w-full h-auto"
+                loading="lazy"
+              />
             ))}
             
             {Array.from({ length: 7 - row.length }).map((_, i) => (

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ButtonA from "../../components/buttons/ButtonA";
 import data from "../../data/storieData.json";
+import ButtonD from "../../components/buttons/ButtonD";
 
 const allTypes = [...new Set(data.map((story) => story.type))];
 
@@ -59,18 +60,34 @@ export default function StoriesList() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {visibleStories.map((story, index) => (
           <div key={index} className="relative h-[14cm] overflow-hidden group">
+            
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
               style={{ backgroundImage: `url(${story.img})` }}
-            ></div>
+            >
+              
+            </div>
+            <a
+              className="absolute top-0 left-0 py-2.5 px-6 text-white bg-black text-xl italic font-bold tracking-tighter"
+              href="/?constraint=bicycle"
+              title="Narrow selection to products matching tag bicycle"
+            >
+              BICYCLE
+            </a>
+
+            <a
+              className="absolute top-0 left-32 py-2.5 px-6 text-white bg-black text-xl italic font-bold tracking-tighter"
+              href="/?constraint=bicycle"
+              title="Narrow selection to products matching tag bicycle"
+            >
+              BIKE RACK
+            </a>
 
             <div className="absolute inset-0 transition-opacity duration-300 group-hover:bg-opacity-50"></div>
 
             <div className="absolute bottom-4 left-4 text-white">
               <h2 className="text-2xl font-bold">{story.title}</h2>
-              <button className="mt-2 px-4 py-2 bg-white text-black rounded-full transition duration-300 group-hover:bg-red-700 group-hover:text-white">
-                D
-              </button>
+              <ButtonD/>
             </div>
           </div>
         ))}
@@ -81,7 +98,6 @@ export default function StoriesList() {
           <ButtonA
             text={"LOAD MORE"}
             onClick={loadMore}
-            className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
           />
         </div>
       )}

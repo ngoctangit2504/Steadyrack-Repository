@@ -9,9 +9,9 @@ export default function GalleryList() {
   const filteredStories = selectedType ? data.filter((story) => story.type === selectedType) : data;
 
   return (
-    <div className="w-full px-4 py-6">
+    <div className="w-full pt-28 pb-24">
     
-      <div className="flex items-center gap-2 mb-6 flex-wrap">
+      <div className="flex items-center gap-2 mb-6 flex-wrap px-5">
         <span className="font-bold">Browse:</span>
         <button
           className={`px-4 py-2 rounded-full border transition ${
@@ -34,7 +34,7 @@ export default function GalleryList() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 border-t border-gray-400">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 px-5">
         {filteredStories.map((story, index) => (
           <div
             key={index}
