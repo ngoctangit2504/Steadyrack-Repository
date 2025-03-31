@@ -14,8 +14,6 @@ import VideoOverlay from '../../components/videoComponent/VideoOverlay';
 import VideoBody from "../../assets/videos/introducing-the-new-proflex-bike-rack3.mp4";
 
 
-
-
 const ProductDetailPage = () => {
   const { productName } = useParams();
   const [product, setProduct] = useState(null);

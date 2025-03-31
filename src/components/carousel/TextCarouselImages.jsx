@@ -58,7 +58,7 @@ const TextCarouselImages = () => {
             <h2 className="text-5xl md:text-6xl lg:text-8xl font-black text-black leading-tight font-impact italic">
              {item.heading}
             </h2>
-            <p className="text-lg md:text-xl font-medium text-black max-w-md">
+            <p className="text-lg md:text-xl tracking-tight text-black max-w-md">
            {item.text}
            </p>
           </div>

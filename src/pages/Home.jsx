@@ -82,9 +82,11 @@ const Home = () => {
           <div className="flex space-x-1 mt-20px">
             <ButtonA
               text="DISCOVER PROFLEX"
-              onClick={() => alert("Clicked Proflex")}
+              onClick={() => (window.location.href = "/pages/proflex-ready-steady-pro")}
             />
-            <button className="text-white py-3 px-5 rounded-full border font-semibold bg-[#ffffff1a] shadow-md hover:text-red-700 transition">
+            <button 
+            onClick={() =>(window.location.href = "/pages/gearmate-ready-to-ride")}
+            className="text-white py-3 px-5 rounded-full border font-semibold bg-[#ffffff1a] shadow-md hover:text-red-700 transition">
               DISCOVER GEARMATE
             </button>
           </div>

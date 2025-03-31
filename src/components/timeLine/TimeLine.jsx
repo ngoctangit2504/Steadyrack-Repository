@@ -35,13 +35,19 @@ const timelineData = [
     year: "2023",
     description:
       "The release of our eBike Rack (now discontinued), a valuable member of the collection. The launch of our eBike Rack was a game-changer, as it allowed for larger tire capacities and weights, compared to our original Fender Rack (discontinued).",
-    image: "//www.steadyrack.com/cdn/shop/files/2022.png?v=1737011698&width=3200",
+    image: "https://www.steadyrack.com/cdn/shop/files/2023_72bbf6d9-4357-4228-a811-147fdb5f165f.png?v=1737013162&width=2000",
   },
   {
     year: "2024",
     description:
       "The release of our eBike Rack (now discontinued), a valuable member of the collection. The launch of our eBike Rack was a game-changer, as it allowed for larger tire capacities and weights, compared to our original Fender Rack (discontinued).",
-    image: "//www.steadyrack.com/cdn/shop/files/2022.png?v=1737011698&width=3200",
+    image: "https://www.steadyrack.com/cdn/shop/files/2024.png?v=1737014860&width=2000",
+  },
+  {
+    year: "2025",
+    description:
+      "The release of our eBike Rack (now discontinued), a valuable member of the collection. The launch of our eBike Rack was a game-changer, as it allowed for larger tire capacities and weights, compared to our original Fender Rack (discontinued).",
+    image: "https://www.steadyrack.com/cdn/shop/files/2025.png?v=1739935878&width=2000",
   },
 ];
 

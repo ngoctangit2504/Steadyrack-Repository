@@ -74,7 +74,6 @@ const VideoOverlay = ({ videoSrc, title }) => {
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-screen object-cover cursor-pointer"
         src={videoSrc}
-        muted
         playsInline
         loop
         onClick={togglePlay}

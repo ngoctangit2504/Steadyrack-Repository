@@ -6,6 +6,72 @@ import ProductDetailCut from '../../components/product/ProductDetailCut';
 
 
 function GearMate() {
+  const contentRef = useRef(null);
+const imageRefs = [useRef(null)];
+const containerImgRefs = [useRef(null)];
+const [isExpandedImg, setIsExpandedImg] = useState([false]);
+const [textHidden, setTextHidden] = useState(false); // Thêm state để theo dõi trạng thái ẩn/hiện text
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (!contentRef.current || !containerImgRefs[0].current) return;
+
+    const contentTop = contentRef.current.getBoundingClientRect().top;
+    const imageTop = containerImgRefs[0].current.getBoundingClientRect().top;
+    const imageHeight = containerImgRefs[0].current.offsetHeight;
+    const triggerHeight = imageTop + imageHeight * 0.01; //ngưỡng kết thúc text
+
+    // Tính toán vị trí tương đối của text so với hình ảnh
+    const contentRect = contentRef.current.getBoundingClientRect();
+    const imageRect = containerImgRefs[0].current.getBoundingClientRect();
+    
+    // Xác định mức độ chồng lấp giữa text và hình ảnh
+    const overlapStart = Math.max(contentRect.top, imageRect.top);
+    const overlapEnd = Math.min(contentRect.bottom, imageRect.bottom);
+    const isOverlapping = overlapEnd > overlapStart;
+    
+    if (contentTop <= triggerHeight) {
+      contentRef.current.style.position = 'sticky';
+      contentRef.current.style.top = '20px';
+      contentRef.current.style.zIndex = '40';
+      contentRef.current.style.width = '100%';
+      setTextHidden(false); // Hiển thị text
+      
+      // Nếu text đang chồng lên hình ảnh, đổi thành màu trắng
+      if (isOverlapping) {
+        contentRef.current.style.color = 'white';
+      } else {
+        contentRef.current.style.color = 'black';
+      }
+    } else {
+      contentRef.current.style.position = 'static';
+      contentRef.current.style.top = 'auto';
+      contentRef.current.style.zIndex = 'auto';
+      contentRef.current.style.width = 'auto';
+      setTextHidden(true); // Ẩn text
+      contentRef.current.style.color = 'black'; // Reset về màu đen
+    }
+
+    // Xử lý hình ảnh
+    const newStates = isExpandedImg.map((state, index) => {
+      if (!imageRefs[index].current || !containerImgRefs[index].current) return state;
+
+      const imageTop = imageRefs[index].current.getBoundingClientRect().top;
+      const triggerHeightImg = window.innerHeight * 0.5;
+
+      return imageTop < triggerHeightImg;
+    });
+
+    setIsExpandedImg(newStates);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+
+  return () => window.removeEventListener('scroll', handleScroll);
+}, [isExpandedImg]);
+
+
   const videoRefs = [useRef(null), useRef(null)];
   const containerRefs = [useRef(null), useRef(null)];
   const [isExpanded, setIsExpanded] = useState([false, false]);
@@ -57,7 +123,7 @@ function GearMate() {
     <div>
       <div data-aos="fade-up" className="w-full h-screen bg-[url('https://www.steadyrack.com/cdn/shop/files/GearMate_hero_banner_desktop_1.png?v=1739408483&width=3840')] bg-cover bg-center">
       <div data-aos="fade-up" className='py-5 px-5 w-full h-full bg-transparent flex flex-col justify-center'>
-         <div data-aos="fade-up" className="text-9xl font-bold mb-7 font-zuume tracking-normal uppercase italic text-white text-center">Gear<span style={{ WebkitTextStroke: "0.5px white", WebkitTextFillColor: "transparent" }}>MATE </span></div>
+         <div data-aos="fade-up" className="text-9xl mb-7 font-impact tracking-normal uppercase italic text-white text-center">Gear<span style={{ WebkitTextStroke: "0.5px white", WebkitTextFillColor: "transparent" }}>MATE </span></div>
          <p data-aos="fade-up" className="text-4xl text-white font-semibold mb-7 text-center">Ready to Ride</p>
       </div>
      </div>
@@ -78,6 +144,34 @@ function GearMate() {
         />
       </div>
       </div>
+
+      <div>
+  <div 
+    ref={contentRef} 
+    className='px-5' 
+    style={{ 
+      display: textHidden ? 'none' : 'block',
+      transition: 'color 0.3s ease' // Thêm transition cho hiệu ứng mượt mà
+    }}
+  > 
+    <div className='pt-28 pb-10 px-5 text-center'>
+      <h1 className='font-impact tracking-tight text-6xl uppercase italic w-[80%] mx-auto'>Meet GearMate—the ultimate solution for organizing your bike gear.</h1>
+    </div>
+  </div>
+
+  <div className='mt-10'>
+    <div ref={containerImgRefs[0]} className="relative w-full flex items-center justify-center">
+      <img
+        ref={imageRefs[0]}
+        className={`transition-all duration-700 ease-out ${
+          isExpandedImg[0] ? "w-[96%]" : "w-3/4"
+        } h-auto opacity-100 translate-y-0`}
+        src="https://www.steadyrack.com/cdn/shop/files/gearmate-all-2.gif?v=1737352183&width=2000"
+        alt="Mô tả hình ảnh"
+      />
+    </div>
+  </div>
+</div>
 
 
      <div className=' pt-24 pb-10'>
@@ -278,9 +372,9 @@ function GearMate() {
      </div>
    </div>
 
-   <div className="h-[540px]">
+   <div className="">
         <VideoOverlay
-          videoSrc={VideoBody}
+          videoSrc="https://www.steadyrack.com/cdn/shop/videos/c/vp/d028508dc6e64fea9b521c8b9232e82e/d028508dc6e64fea9b521c8b9232e82e.HD-1080p-7.2Mbps-40938829.mp4?v=0"
           title="Organise Your Gear, Your Way"
         />
       </div>
