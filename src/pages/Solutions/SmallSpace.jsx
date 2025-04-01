@@ -113,7 +113,7 @@ function SmallSpace() {
         <hr className=' border border-gray-300 mx-5'></hr>
      </div>
 
-     <div className='pt-9 pb-5'>
+     <div className='pt-9 pb-5 sticky top-0 z-[-5]'>
   <div className='px-5 grid grid-cols-2'>
     <div className='px-1.5'>
       <video 
@@ -139,7 +139,7 @@ function SmallSpace() {
   </div>
 </div>
 
-<div className='pt-9 pb-5 bg-black'>
+<div className='pt-9 pb-5 bg-black sticky top-0 z-[-5]'>
         <div className='px-5 grid grid-cols-2'>
         <div className=' flex px-1.5 items-center justify-center'>
              <div data-aos="fade-up" className='py-10 px-20'>
@@ -156,11 +156,11 @@ function SmallSpace() {
         </div>
      </div>
 
-     <div className=''>
+     <div className='bg-white'>
     <div className='px-5 relative w-full h-screen flex items-center justify-center text-white'>
     <iframe
         allow="autoplay; loop; muted; fullscreen"
-        className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         src="https://www.youtube.com/embed/ke8D4GoohQc?autoplay=1&loop=1&mute=1&playlist=ke8D4GoohQc"
         title="YouTube video"
       >
@@ -176,11 +176,11 @@ function SmallSpace() {
     </div>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
      <CompareModel/>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
      <BrandsCarousel/>
      <div className=' mx-96 px-5 flex justify-center items-center'>
      <button className="py-3.5 px-5 bg-white text-black text-sm font-semibold rounded-full shadow-md border-2 border-black hover:bg-red-600 hover:text-white hover:border-white transition inline-flex items-center justify-center min-w-[40px]">
@@ -189,7 +189,7 @@ function SmallSpace() {
      </div>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
     <div className='mx-10'>
         <div className='my-20 flex flex-col justify-center items-center'>
            <h1 data-aos="fade-up" className='text-4xl text-black font-semibold mb-10'>Common Questions</h1>
@@ -208,7 +208,7 @@ function SmallSpace() {
     </div>
    </div>
 
-    <div>
+    <div className='py-1 bg-white'>
         <FeaturedProducts/>
     </div>
 

@@ -124,7 +124,7 @@ function PersonalBikeStorage() {
         <hr className=' border border-gray-300 mx-5'></hr>
      </div>
 
-     <div className='pt-9 pb-5'>
+     <div className='pt-9 pb-5 sticky top-0 z-[-5]'>
         <div className='px-5 grid grid-cols-2'>
            <div className='px-1.5'>
             <img src='https://www.steadyrack.com/cdn/shop/files/classic--assistance.webm_af262f83-d875-4be4-b563-43cdc2bc6a6e.png?v=1734126431&width=2000'/>
@@ -141,7 +141,7 @@ function PersonalBikeStorage() {
         </div>
      </div>
 
-     <div className='pt-9 pb-5 bg-black'>
+     <div className='pt-9 pb-5 bg-black sticky top-0 z-[-4]'>
         <div className='px-5 grid grid-cols-2'>
         <div className=' flex px-1.5 items-center justify-center'>
              <div data-aos="fade-up" className='py-10 px-20'>
@@ -158,7 +158,7 @@ function PersonalBikeStorage() {
         </div>
      </div>
 
-     <div className='pt-11 pb-20'>
+     <div className='pt-11 pb-20 bg-white'>
        <div className='px-5 mb-4'>
          <div data-aos="fade-up" className='mb-5'>
             <h1 className='text-4xl font-semibold text-black'>The Features You Need</h1>
@@ -201,9 +201,9 @@ function PersonalBikeStorage() {
                    <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Even if you’re not a handy person, Steadyracks are easy to install. Each rack comes with all the fixings you’ll need for timber or masonry (brick) installations. They can be mounted to any structurally sound wall.</p>
                  </div>
                   
-                  
-
               </div>
+
+
               <div class="col-span-6 p-4 text-white flex flex-col items-center justify-center">
                <img src='https://www.steadyrack.com/cdn/shop/files/Copy_of_2020_CLASSIC_RACK_Road_Racing_Bike_Wilier_03_2.png?v=1733754473&width=2000'/>
               </div>
@@ -248,11 +248,11 @@ function PersonalBikeStorage() {
        </div>
      </div>
 
-     <div className='px-5'>
+     <div className='px-5 bg-white'>
     <div className='px-5 relative w-full h-screen flex items-center justify-center text-white'>
     <iframe
         allow="autoplay; loop; muted; fullscreen"
-        className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         src="https://www.youtube.com/embed/ke8D4GoohQc?autoplay=1&loop=1&mute=1&playlist=ke8D4GoohQc"
         title="YouTube video"
       >
@@ -268,11 +268,11 @@ function PersonalBikeStorage() {
     </div>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
      <CompareModel/>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
      <BrandsCarousel/>
      <div className=' mx-96 px-5 flex justify-center items-center'>
      <button className="py-3.5 px-5 bg-white text-black text-sm font-semibold rounded-full shadow-md border-2 border-black hover:bg-red-600 hover:text-white hover:border-white transition inline-flex items-center justify-center min-w-[40px]">
@@ -281,8 +281,8 @@ function PersonalBikeStorage() {
      </div>
    </div>
 
-   <div>
-    <div className='mx-10'>
+   <div className='py-1 bg-white'>
+    <div className='mx-10 bg-white'>
         <div className='my-20 flex flex-col justify-center items-center'>
            <h1 data-aos="fade-up" className='text-4xl text-black font-semibold mb-10'>Common Questions</h1>
            <div className="w-full max-w-9xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10">
@@ -300,7 +300,7 @@ function PersonalBikeStorage() {
     </div>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
      <FeatureProduct/>
    </div>
 

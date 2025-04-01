@@ -158,7 +158,7 @@ function IndoorBikeParking() {
         </div>
      </div>
 
-     <div className='pt-9 pb-5'>
+     <div className='pt-9 pb-5 sticky top-0 z-[-5]'>
         <div className='px-5 grid grid-cols-2'>
            <div className='px-1.5'>
             <img src='https://www.steadyrack.com/cdn/shop/files/Office_buildings.png?v=1737091835&width=2000'/>
@@ -175,7 +175,7 @@ function IndoorBikeParking() {
         </div>
      </div>
 
-     <div className='pt-9 pb-5 bg-black'>
+     <div className='pt-9 pb-5 bg-black sticky top-0 z-[-4]'>
         <div className='px-5 grid grid-cols-2'>
         <div className=' flex px-1.5 items-center justify-center'>
              <div data-aos="fade-up" className='py-10 px-20'>
@@ -192,7 +192,7 @@ function IndoorBikeParking() {
         </div>
      </div>
 
-     <div className='pt-11 pb-20'>
+     <div className='pt-11 pb-20 bg-white'>
        <div className='px-5 mb-4'>
          <div data-aos="fade-up" className='mb-5'>
             <h1 className='text-4xl font-semibold text-black'>Packed With Features</h1>
@@ -236,7 +236,6 @@ function IndoorBikeParking() {
                  </div>
                   
                   
-
               </div>
               <div class="col-span-6 p-4 text-white flex flex-col items-center justify-center">
                <img src='https://www.steadyrack.com/cdn/shop/files/About_page.png?v=1737073780&width=2000'/>
@@ -282,11 +281,13 @@ function IndoorBikeParking() {
        </div>
      </div>
 
-     <div className='px-5'>
+
+     
+    <div className='px-5 bg-white'>
     <div className='px-5 relative w-full h-screen flex items-center justify-center text-white'>
     <iframe
         allow="autoplay; loop; muted; fullscreen"
-        className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         src="https://www.youtube.com/embed/ke8D4GoohQc?autoplay=1&loop=1&mute=1&playlist=ke8D4GoohQc"
         title="YouTube video"
       >
@@ -301,11 +302,9 @@ function IndoorBikeParking() {
       </div>
     </div>
    </div>
-
-   <div
-  data-aos="fade-up"
-  className="w-full overflow-hidden cursor-pointer px-5 m-10"
->
+   
+     <div className='py-1 bg-white'> 
+     <div data-aos="fade-up" className="w-full overflow-hidden cursor-pointer px-5 m-10 bg-white">
   <h2 className="text-5xl font-semibold mb-6 text-center md:text-left tracking-tight">
     Our Indoor Bike Parking Projects
   </h2>
@@ -334,8 +333,9 @@ function IndoorBikeParking() {
     <div></div>
   </motion.div>
 </div>
+     </div>
 
-<div className='py-20'>
+<div className='py-20 bg-white'>
         <div data-aos="fade-up" className=' mx-96 px-5'>
         <p className='text-black text-base tracking-tight text-center mb-4'><span className=' font-bold'>Please note:</span> We can customize colours to suit your building fit out. Minimum order quantities apply. Contact us to enquire.</p>
            <p className='text-black text-base tracking-tight text-center mb-4'>Every end of trip indoor bike parking project is unique so we have created a suite of design guidelines, floor plans, elevations and perspectives which will help you to plan the most efficient use of the space and optimize the parking in each of your projects. Alternatively get in contact with us to discuss your commercial project.</p>
@@ -349,9 +349,9 @@ function IndoorBikeParking() {
         </div>
      </div>
 
-
-     <div>
-    <div className='mx-10 mb-10'>
+     
+     <div className='py-1 bg-white'>
+    <div className='mx-10 mb-10 bg-white'>
         <div className='mt-20 flex flex-col justify-center items-center'>
            <h1 data-aos="fade-up" className='text-4xl text-black font-semibold mb-10'>Common Questions</h1>
            <div className="w-full max-w-9xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10">
@@ -372,6 +372,7 @@ function IndoorBikeParking() {
       </button>
     </div>
    </div>
+     
     
     </div>
   )

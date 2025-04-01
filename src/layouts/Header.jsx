@@ -523,6 +523,7 @@ const Header = () => {
                       <li><a href="/pages/proflex-ready-steady-pro" className="">ProFlex Range</a></li>
                       <li><a href="/pages/gearmate-ready-to-ride" className="">GearMate</a></li>
                       <li><a href="/pages/proflex-gearmate-behind-the-scenes" className="">Behind The Scenes</a></li>
+                      <li><a href="/pages/gearmate-and-classic-range" className="">GearMate & Classic Range</a></li>
                       <li><a href="/collections/proflex-gearmate" className="">Shop All</a></li>
                     </ul>
                   </div>

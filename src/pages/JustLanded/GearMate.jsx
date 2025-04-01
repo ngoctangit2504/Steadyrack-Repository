@@ -1,11 +1,69 @@
 import React, { useEffect, useRef, useState } from 'react';
 import BoxText from '../../components/carousel/BoxTextCarousel';
 import VideoOverlay from '../../components/videoComponent/VideoOverlay';
-import VideoBody from "../../assets/videos/Bike Storage_ Steadyrack s Journey with Founder Dave _ Hang Your.mp4";
 import ProductDetailCut from '../../components/product/ProductDetailCut';
+
+import { motion, AnimatePresence } from "framer-motion";
+
+const features = [
+  { id: 1, title: "SteadyBracket™", content: "A 3-hook system creates a secure support to either side of the SteadySpine, Available in three sizes." },
+  { id: 2, title: "SteadyBin™", content: "Functional design to maximize access to your gear. Available in three sizes." },
+  { id: 3, title: "SteadySpine™", content: "An innovative robust glass-filled nylon spine designed to support your gear." },
+  { id: 4, title: "SteadyHook™", content: "These versatile hooks can be flipped 180° to maximize use." },
+  { id: 5, title: "Easy Access", content: "Obtuse exit angle allows for easy access and removal of smaller items." },
+  { id: 6, title: "SteadyLoop™", content: "A hook and loop fastener for easy attachment of your gear." },
+  { id: 7, title: "Grub Screws", content: "Allows for lockable positioning on all bins." }
+];
+
+const FeatureBlock = ({ feature, isActive, toggleBlock, isRightColumn }) => {
+  return (
+      <div className='w-full max-w-[320px]'>
+          <div className="flex items-start mb-3.5 relative">
+              <button 
+                  className="mr-2 text-xl bg-gray-200 font-bold text-black rounded-full w-8 h-8 flex items-center justify-center"
+                  onClick={() => toggleBlock(feature.id)}
+              >
+                  {isActive ? "-" : "+"}
+              </button>
+              <h3 className="text-black text-lg font-semibold tracking-tight pb-5 relative z-10">
+                  {feature.title}
+              </h3>
+              {/* Đường kẻ chạy có điều kiện */}
+              <motion.div
+                  className="absolute bottom-0 h-[2px] bg-black"
+                  initial={{ width: 0, right: isRightColumn ? 0 : "auto", left: isRightColumn ? "auto" : 0 }}
+                  animate={isActive ? { width: "100%" } : { width: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+          </div>
+          <AnimatePresence>
+              {isActive && (
+                  <motion.p 
+                      data-aos="fade-left"
+                      className='text-black leading-tight text-sm font-semibold'
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                  >
+                      {feature.content}
+                  </motion.p>
+              )}
+          </AnimatePresence>
+      </div>
+  );
+};
 
 
 function GearMate() {
+
+  const [activeId, setActiveId] = useState(null);
+
+    const toggleBlock = (id) => {
+        setActiveId(activeId === id ? null : id);
+    };
+
+
   const contentRef = useRef(null);
 const imageRefs = [useRef(null)];
 const containerImgRefs = [useRef(null)];
@@ -121,6 +179,7 @@ useEffect(() => {
 
   return (
     <div>
+    
       <div data-aos="fade-up" className="w-full h-screen bg-[url('https://www.steadyrack.com/cdn/shop/files/GearMate_hero_banner_desktop_1.png?v=1739408483&width=3840')] bg-cover bg-center">
       <div data-aos="fade-up" className='py-5 px-5 w-full h-full bg-transparent flex flex-col justify-center'>
          <div data-aos="fade-up" className="text-9xl mb-7 font-impact tracking-normal uppercase italic text-white text-center">Gear<span style={{ WebkitTextStroke: "0.5px white", WebkitTextFillColor: "transparent" }}>MATE </span></div>
@@ -220,70 +279,44 @@ useEffect(() => {
   </div>
 </div>
 
-<div className='pt-11 pb-20'>
-    <div className='px-5 mb-4'>
-        <div data-aos="fade-up" className='mb-5'>
-            <h1 className='text-4xl font-semibold text-black'>The Ultimate Features</h1>
+<div className='pt-4 pb-8'> 
+    <div className='px-5 mb-3'>
+        <div data-aos="fade-up" className='mb-4'>
+            <h1 className='text-4xl font-semibold text-black'>Revolutionizing Features</h1>
         </div>
         <div className='mx-10 px-5'>
-            <div className='grid grid-cols-12 gap-4'> {/* Loại bỏ h-screen, để nội dung tự điều chỉnh */}
-                <div className="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
-                    
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyBracket™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>A 3-hook system creates a secure support to either side of the SteadySpine, Available in three sizes.</p>
-                    </div>
-
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyBin™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Functional design to maximize access to your gear. Available in three sizes.</p>
-                    </div>
-
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadySpine™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>An innovative robust glass-filled nylon spine designed to support your gear.</p>
-                    </div>
-
-
+            <div className='grid grid-cols-12 gap-3'>
+                {/* Cột 1 */}
+                <div className="col-span-3 p-3 text-white flex flex-col justify-evenly h-full">
+                    {features.slice(0, 3).map((feature) => (
+                        <FeatureBlock 
+                            key={feature.id} 
+                            feature={feature} 
+                            isActive={activeId === feature.id} 
+                            toggleBlock={toggleBlock} 
+                        />
+                    ))}
                 </div>
-                <div class="col-span-6 p-4 text-white flex items-center justify-center"> {/* Thêm items-center và justify-center vào đây */}
-                    <img src='https://www.steadyrack.com/cdn/shop/files/image_1_3dca60f8-7ee0-4d68-97f8-fdce33ebc067.png?v=1737354642&width=2000'
-                         className='w-full'/>  {/* Make image responsive */}
+
+                {/* Ảnh giữa */}
+                <div className="col-span-6 p-3 text-white flex items-center justify-center"> 
+                    <img 
+                        src='https://www.steadyrack.com/cdn/shop/files/image_1_3dca60f8-7ee0-4d68-97f8-fdce33ebc067.png?v=1737354642&width=2000'
+                        className='w-full'
+                    /> 
                 </div>
-                <div class="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
-                <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyHook™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>These versatile hooks can be flipped 180° to maximize use.</p>
-                    </div>
 
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">Easy Access</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Obtuse exit angle allows for easy access and removal of smaller items.</p>
-                    </div>
-
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyLoop™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>A hook and loop fastener for easy attachment of your gear.</p>
-                    </div>
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">Grub Screws</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Allows for lockable positioning on all bins.</p>
-                    </div>
-
+                {/* Cột 2 */}
+                <div className="col-span-3 p-3 text-white flex flex-col justify-evenly h-full"> 
+                    {features.slice(3).map((feature) => (
+                        <FeatureBlock 
+                            key={feature.id} 
+                            feature={feature} 
+                            isActive={activeId === feature.id} 
+                            toggleBlock={toggleBlock}
+                            isRightColumn={true} 
+                        />
+                    ))}
                 </div>
             </div>
         </div>

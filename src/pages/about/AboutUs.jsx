@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useRef, useState } from "react";
 import videoIntro from "../../assets/videos/introducing-the-new-proflex-bike-rack-5.mp4";
 import VideoOverlay from '../../components/videoComponent/VideoOverlay';
-import VideoFounder from '../../assets/videos/Bike Storage_ Steadyrack s Journey with Founder Dave _ Hang Your.mp4';
 import Timeline from '../../components/timeLine/TimeLine';
 import TextCarouselImages from '../../components/carousel/TextCarouselImages';
 
@@ -70,36 +69,6 @@ function AboutUs() {
   }, [isExpandedVideo]);
 
 
-  const videoRef = useRef(null);
-  const [showControls, setShowControls] = useState(false);
-  let clickTimeout = null;
-
-  const togglePlay = () => {
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-    } else {
-      videoRef.current.pause();
-    }
-  };
-
-  const handleClick = () => {
-    if (clickTimeout) {
-      clearTimeout(clickTimeout);
-      clickTimeout = null;
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      } else if (videoRef.current.webkitRequestFullscreen) {
-        videoRef.current.webkitRequestFullscreen();
-      }
-    } else {
-      clickTimeout = setTimeout(() => {
-        togglePlay();
-        clickTimeout = null;
-      }, 300);
-    }
-  };
-
-
   return (
     <div>
     <div data-aos="fade-up" className="relative w-full h-screen mb-32">
@@ -123,9 +92,10 @@ function AboutUs() {
         }}
       >
         <div className='pt-28 pb-10 px-5 text-center'>
-          <h1 className='font-impact tracking-tight text-6xl uppercase italic w-[80%] mx-auto'>
-          Steadyrack is for Space Savers and Adventure Seekers. Our clever, innovative solutions maximize space and make room for your next great adventure.
-          </h1>
+          <h1 className='font-impact tracking-tight text-6xl uppercase italic w-[80%] mx-auto'>Steadyrack is for Space Savers and Adventure  </h1>
+          <h1 className='font-impact tracking-tight text-6xl uppercase italic w-[80%] mx-auto'>Seekers. Our clever, innovative solutions</h1>
+          <h1 className='font-impact tracking-tight text-6xl uppercase italic w-[80%] mx-auto'>maximize space and make room for your next</h1>
+          <h1 className='font-impact tracking-tight text-6xl uppercase italic w-[80%] mx-auto'>great adventure.</h1>
         </div>
       </div>
 

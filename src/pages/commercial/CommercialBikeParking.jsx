@@ -111,7 +111,7 @@ function CommercialBikeParking() {
 
     <BrandsCarousel/>
       
-    <div className='pt-9 pb-5'>
+    <div className='pt-9 pb-5 sticky top-0 z-[-5]'>
         <div className='px-5 grid grid-cols-2'>
            <div className='px-1.5'>
             <img src='https://www.steadyrack.com/cdn/shop/files/classic--assistance.webm_fc7c1a74-c1e6-4811-aca0-6aad445472a1.png?v=1734072894&width=2000'/>
@@ -131,7 +131,7 @@ function CommercialBikeParking() {
         </div>
      </div>
 
-     <div className='pt-9 pb-5 bg-black'>
+     <div className='pt-9 pb-5 sticky top-0 z-[-4] bg-black'>
         <div className='px-5 grid grid-cols-2'>
         <div className=' flex px-1.5 items-center justify-center'>
              <div data-aos="fade-up" className='py-10 px-20'>
@@ -150,7 +150,7 @@ function CommercialBikeParking() {
         </div>
      </div>
 
-     <div className='pt-11 pb-20'>
+     <div className='pt-11 pb-20 bg-white'>
        <div className='px-5 mb-4'>
          <div data-aos="fade-up" className='mb-5'>
             <h1 className='text-4xl font-semibold text-black'>Packed With Features</h1>
@@ -260,7 +260,7 @@ function CommercialBikeParking() {
     </div>
    </div>
 
-   <div className='pt-9 pb-5'>
+   <div className='pt-9 pb-5 bg-white sticky top-0 z-[-3]'>
         <div className='px-5 grid grid-cols-2'>
            <div className='px-1.5'>
             <img src='https://www.steadyrack.com/cdn/shop/files/Packed_with_features_commercial_page_922_x_694_px_1398_x_1401_px.png?v=1737076399&width=2000'/>
@@ -280,7 +280,7 @@ function CommercialBikeParking() {
         </div>
      </div>
 
-     <div className='pt-9 pb-5 bg-black'>
+     <div className='pt-9 pb-5 bg-black sticky top-0 z-[-2]'>
         <div className='px-5 grid grid-cols-2'>
         <div className=' flex px-1.5 items-center justify-center'>
              <div data-aos="fade-up" className='py-10 px-20'>
@@ -302,8 +302,8 @@ function CommercialBikeParking() {
         </div>
      </div>
 
-     <div>
-    <div className='mx-10 mb-10'>
+     <div className='bg-white'>
+    <div className='mx-10 mb-10 bg-white'>
         <div className='mt-20 flex flex-col justify-center items-center'>
            <h1 data-aos="fade-up" className='text-4xl text-black font-semibold mb-10'>Common Questions</h1>
            <div className="w-full max-w-9xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10">

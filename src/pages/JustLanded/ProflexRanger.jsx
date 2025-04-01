@@ -1,11 +1,72 @@
 import React, { useEffect, useRef, useState } from 'react';
 import BoxText from '../../components/carousel/BoxTextCarousel';
 import VideoOverlay from '../../components/videoComponent/VideoOverlay';
-import VideoBody from "../../assets/videos/Bike Storage_ Steadyrack s Journey with Founder Dave _ Hang Your.mp4";
 import ProductDetailCut from '../../components/product/ProductDetailCut';
 
+import { motion, AnimatePresence } from "framer-motion";
+import TextLineIn from '../../components/videoComponent/TextLineIn';
+
+const features = [
+  { id: 1, title: "SteadyPivot™", content: "Patented Steadyrack pivot capability enabling far greater space saving, and easy bike access." },
+  { id: 2, title: "SteadySpine™", content: "Glass-filled nylon spine with 28 bracket positions, offering over 200 GearMate storage combinations." },
+  { id: 3, title: "SteadyClick™", content: "Simplified assembly with slide-and-click system for end caps." },
+  { id: 4, title: "SteadyFold™", content: "Steadyrack patented clip lock system which allows the rack to fold up out of the way when not in use." },
+  { id: 5, title: "SteadyHold™", content: "Patented Steadyrack ‘cradle’ which securely holds the bike in the rack, drastically minimizing the risk of fall." },
+  { id: 6, title: "SteadyFlex™", content: "Flexible rack ‘arms’ which move to allow clearance for bikes with fenders/mudguards." },
+  { id: 7, title: "SteadyLoad™", content: "Patented Steadyrack easy loading roll-in-roll-out innovation that allows user to rack their bike without lifting off the ground." },
+  { id: 8, title: "SteadySaddle™", content: "Flexible reinforced nylon entry point ‘saddle’ which enables bikes with fenders/mudguards to use the rack." },
+  { id: 9, title: "SteadyRest™", content: "Removable and innovative rear tire rest reduces wall scuffs and serves as a pivot point." }
+];
+
+const FeatureBlock = ({ feature, isActive, toggleBlock, isRightColumn }) => {
+  return (
+      <div className='w-full max-w-[320px]'>
+          <div className="flex items-start mb-3.5 relative">
+              <button 
+                  className="mr-2 text-lg bg-gray-200 font-bold text-black rounded-full w-8 h-8 flex items-center justify-center"
+                  onClick={() => toggleBlock(feature.id)}
+              >
+                  {isActive ? "-" : "+"}
+              </button>
+              <h3 className="text-black text-lg font-semibold tracking-tight pb-5 relative z-10">
+                  {feature.title}
+              </h3>
+              {/* Đường kẻ chạy có điều kiện */}
+              <motion.div
+                  className="absolute bottom-0 h-[2px] bg-black"
+                  initial={{ width: 0, right: isRightColumn ? 0 : "auto", left: isRightColumn ? "auto" : 0 }}
+                  animate={isActive ? { width: "100%" } : { width: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+          </div>
+          <AnimatePresence>
+              {isActive && (
+                  <motion.p 
+                      data-aos="fade-left"
+                      className='text-black leading-tight text-sm font-semibold'
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                  >
+                      {feature.content}
+                  </motion.p>
+              )}
+          </AnimatePresence>
+      </div>
+  );
+};
+
+
 function ProflexRanger() {
-  const contentRef = useRef(null);
+
+  const [activeId, setActiveId] = useState(null);
+
+    const toggleBlock = (id) => {
+        setActiveId(activeId === id ? null : id);
+    };
+  
+const contentRef = useRef(null);
 const imageRefs = [useRef(null)];
 const containerImgRefs = [useRef(null)];
 const [isExpandedImg, setIsExpandedImg] = useState([false]);
@@ -196,87 +257,48 @@ useEffect(() => {
 </div>
 
 <div className='pt-11 pb-20'>
-    <div className='px-5 mb-4'>
-        <div data-aos="fade-up" className='mb-5'>
-            <h1 className='text-4xl font-semibold text-black'>Revolutionizing Features</h1>
-        </div>
-        <div className='mx-10 px-5'>
-            <div className='grid grid-cols-12 gap-4'> {/* Loại bỏ h-screen, để nội dung tự điều chỉnh */}
-                <div className="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
-                    
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyPiv﻿ot™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Patented Steadyrack pivot capability enabling far greater space saving, and easy bike access.</p>
-                    </div>
-
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadySpine™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Glass-filled nylon spine with 28 bracket positions, offering over 200 GearMate storage combinations.</p>
-                    </div>
-
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyClick™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Simplified assembly with slide-and-click system for end caps.</p>
-                    </div>
-
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyFold™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Steadyrack patented clip lock system which allows the rack to fold up out of the way when not in use.</p>
-                    </div>
-
-
+            <div className='px-5 mb-4'>
+                <div data-aos="fade-up" className='mb-5'>
+                    <h1 className='text-4xl font-semibold text-black'>Revolutionizing Features</h1>
                 </div>
-                <div class="col-span-6 p-4 text-white flex items-center justify-center"> {/* Thêm items-center và justify-center vào đây */}
-                    <img src='https://www.steadyrack.com/cdn/shop/files/PROFLEX_-_Wide_-_Open_-_Complete_Rack_1.png?v=1733839074&width=2000'
-                         className='w-full'/>  {/* Make image responsive */}
-                </div>
-                <div class="col-span-3 p-4 text-white flex flex-col"> {/* Loại bỏ items-center và justify-center từ đây */}
-                <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyHold™</h3>
+                <div className='mx-10 px-5'>
+                    <div className='grid grid-cols-12 gap-4'>
+                        {/* Cột 1 */}
+                        <div className="col-span-3 p-4 text-white flex flex-col justify-between h-full">
+                            {features.slice(0, 4).map((feature) => (
+                                <FeatureBlock 
+                                    key={feature.id} 
+                                    feature={feature} 
+                                    isActive={activeId === feature.id} 
+                                    toggleBlock={toggleBlock} 
+                                />
+                            ))}
                         </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Patented Steadyrack ‘cradle’ which securely holds the bike in the rack, drastically minimizing the risk of fall. Avoiding damage to bikes, cars and people.</p>
-                    </div>
 
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyFlex™</h3>
+                        {/* Ảnh giữa */}
+                        <div className="col-span-6 p-4 text-white flex items-center justify-center"> 
+                            <img 
+                                src='https://www.steadyrack.com/cdn/shop/files/PROFLEX_-_Wide_-_Open_-_Complete_Rack_1.png?v=1733839074&width=2000'
+                                className='w-full'
+                            />  
                         </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Flexible rack ‘arms’ which move to allow clearance for bikes with fenders/mudguards.</p>
-                    </div>
 
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyLoad™</h3>
+                        {/* Cột 2 */}
+                        <div className="col-span-3 p-4 text-white flex flex-col justify-between h-full"> 
+                            {features.slice(4).map((feature) => (
+                                <FeatureBlock 
+                                    key={feature.id} 
+                                    feature={feature} 
+                                    isActive={activeId === feature.id} 
+                                    toggleBlock={toggleBlock}
+                                    isRightColumn={true} 
+                                />
+                            ))}
                         </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Patented Steadyrack easy loading roll-in-roll-out innovation that allows user to rack their bike without lifting off the ground.</p>
-                    </div>
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadySaddle™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Flexible reinforced nylon entry point ‘saddle’ which enables bikes with fenders/mudguards to use the rack.</p>
-                    </div>
-
-                    <div className='flex-shrink-0 w-full max-w-[320px] mb-14'>
-                        <div className="flex items-center mb-3.5 border-black border-b">
-                            <h3 className="text-black text-lg font-semibold tracking-tight pb-5">SteadyRest™</h3>
-                        </div>
-                        <p data-aos="fade-left" className='text-black leading-tight text-sm font-semibold'>Removable and innovative rear tire rest reduces wall scuffs and serves as a pivot point.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 <div className='px-5 grid grid-cols-2 bg-black'>
   <div className='px-2.5'>
@@ -352,21 +374,9 @@ useEffect(() => {
     </div>
    </div>
 
-   <div ref={containerRefs[1]} className="relative w-full flex items-center justify-center">
-        <video
-          ref={videoRefs[1]}
-          className={`transition-all duration-700 ease-out ${
-            isExpanded[1] ? "w-[96%]" : "w-3/4"
-          } h-auto opacity-100 translate-y-0`}
-          src="https://www.steadyrack.com/cdn/shop/videos/c/vp/81a42ccc77034c1c80d14c2165c5a042/81a42ccc77034c1c80d14c2165c5a042.HD-1080p-7.2Mbps-41241536.mp4?v=0" // Thay bằng link video 2 của bạn
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls
-        />
-      </div>
-
+   <div>
+     <TextLineIn/>
+   </div>
 
    <div>
     <div className=' pt-28 pb-11'>

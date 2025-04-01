@@ -113,7 +113,7 @@ function Multirack() {
         <hr className=' border border-gray-300 mx-5'></hr>
      </div>
 
-     <div className='pt-9 pb-5'>
+     <div className='pt-9 pb-5 sticky top-0 z-[-5]'>
         <div className='px-5 grid grid-cols-2'>
            <div className='px-1.5'>
             <img src='https://www.steadyrack.com/cdn/shop/files/classic--assistance.webm_af262f83-d875-4be4-b563-43cdc2bc6a6e.png?v=1734126431&width=2000'/>
@@ -130,7 +130,7 @@ function Multirack() {
         </div>
      </div>
 
-     <div className='pt-11 pb-20'>
+     <div className='pt-11 pb-20 bg-white'>
        <div className='px-5 mb-4'>
          <div data-aos="fade-up" className='mb-5'>
             <h1 className='text-4xl font-semibold text-black'>The Features You Need</h1>
@@ -294,15 +294,15 @@ function Multirack() {
    </div>
 
    
-   <div>
+   <div className='py-1 bg-white'>
     <CompareModel/>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
     <BrandsCarousel/>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
     <div className='mx-10'>
         <div className='my-20 flex flex-col justify-center items-center'>
            <h1 data-aos="fade-up" className='text-4xl text-black font-semibold mb-10'>Common Questions</h1>
@@ -321,7 +321,7 @@ function Multirack() {
     </div>
    </div>
 
-   <div>
+   <div className='py-1 bg-white'>
     <FeatureProduct/>
    </div>
      

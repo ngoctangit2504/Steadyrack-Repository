@@ -7,6 +7,7 @@ import LoginCard from "../pages/login/Login.jsx";
 import Contact from "../pages/Contact";
 import Return from "../pages/Return";
 import StandardWarranty from "../pages/StandardWarranty";
+import HelpCenter from "../pages/HelpCenter.jsx"
 
 import AboutUs from "../pages/about/AboutUs.jsx";
 import Reviews from "../pages/about/Reviews.jsx";
@@ -15,6 +16,10 @@ import Stories from "../pages/about/Stories.jsx";
 import Gallery from "../pages/about/Gallery.jsx";
 import Press from "../pages/about/Press.jsx";
 import CommunitySupport from "../pages/about/CommunitySupport.jsx";
+
+import TermsConditions from "../pages/Terms&Conditions";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import CookiesPolicy from "../pages/CookiesPolicy";
 
 import CommercialBikeParking from "../pages/commercial/CommercialBikeParking.jsx";
 import IndoorBikeParking from "../pages/commercial/IndoorBikeParking.jsx";
@@ -45,6 +50,7 @@ import JustLandedShopAll from "../pages/JustLanded/ShopAll.jsx";
 import JustLanderProflexRanger from "../pages/JustLanded/ProflexRanger.jsx";
 import JustLanderGearMate from "../pages/JustLanded/GearMate.jsx";
 import JustLanderBehindTheScenes from "../pages/JustLanded/BehindTheScenes.jsx";
+import JustLanderGearMateClassicRange from "../pages/JustLanded/GearMate&ClassicRange.jsx";
 
 import PersonalBikeStorage from "../pages/Solutions/PersonalBikeStorage.jsx";
 import HomeIndoor from "../pages/Solutions/HomeIndoor";
@@ -71,6 +77,10 @@ const routes = [
   { path: "/pages/press", element: <MainLayout><Press/></MainLayout> },
   { path: "/pages/charities-we-support", element: <MainLayout><CommunitySupport/></MainLayout> },
 
+  { path: "/policies/terms-of-service", element: <MainLayout><TermsConditions/></MainLayout> },
+  { path: "/policies/privacy-policy", element: <MainLayout><PrivacyPolicy/></MainLayout> },
+  { path: "/policies/privacy-policy", element: <MainLayout><CookiesPolicy/></MainLayout> },
+
   { path: "/pages/commercial-bike-parking", element: <MainLayout><CommercialBikeParking/></MainLayout> },
   { path: "/pages/commercial-indoor-bike-parking", element: <MainLayout><IndoorBikeParking/></MainLayout> },
   { path: "/pages/design-guidelines", element: <MainLayout><DesignFilesGuidelines/></MainLayout> },
@@ -88,6 +98,7 @@ const routes = [
   { path: "/pages/proflex-ready-steady-pro", element: <MainLayout><JustLanderProflexRanger/></MainLayout> },
   { path: "/pages/gearmate-ready-to-ride", element: <MainLayout><JustLanderGearMate/></MainLayout> },
   { path: "/pages/proflex-gearmate-behind-the-scenes", element: <MainLayout><JustLanderBehindTheScenes/></MainLayout>},
+  { path: "/pages/gearmate-and-classic-range", element: <MainLayout><JustLanderGearMateClassicRange/></MainLayout>},
 
   { path: "/pages/personal-bike-storage", element: <MainLayout><PersonalBikeStorage/></MainLayout>},
   { path: "/pages/personal-indoor-bike-rack-storage-solution", element: <MainLayout><HomeIndoor/></MainLayout>},

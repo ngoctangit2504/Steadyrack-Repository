@@ -94,7 +94,6 @@ const ProductDetailPage = () => {
          <div className="max-w-screen-2xl mx-auto px-2 py-8 grid md:grid-cols-3 gap-12">
  
   <div className="flex col-span-2">
-    
     <div className="flex flex-col gap-2 mr-4">
       {product.images?.map((image, index) => (
         <div 
