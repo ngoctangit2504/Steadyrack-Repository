@@ -2,6 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import BoxText from '../../components/carousel/BoxTextCarousel';
 import VideoOverlay from '../../components/videoComponent/VideoOverlay';
 import ProductDetailCut from '../../components/product/ProductDetailCut';
+import Banner from "../../layouts/Banner";
+import SubHeader from "../../layouts/SubHeader";
+import Fotter from "../../layouts/Footer";
+
+import { CartProvider } from "../../contexts/CartContext";
+import Cart from "../../components/cart/Cart";
 
 import { motion, AnimatePresence } from "framer-motion";
 import TextLineIn from '../../components/videoComponent/TextLineIn';
@@ -163,7 +169,18 @@ useEffect(() => {
   }, [isExpanded]);
 
   return (
+    <CartProvider>
     <div>
+
+    <div>
+      <Banner/>
+    </div>
+
+    <div>
+      <SubHeader/>
+    </div>
+    <Cart/>
+
      <div data-aos="fade-up" className="w-full h-screen bg-[url('https://www.steadyrack.com/cdn/shop/files/1_f095e61b-a447-4f48-92a9-e7c8a0f728e8.png?v=1737101291&width=3840')] bg-cover bg-center">
       <div data-aos="fade-up" className='py-5 px-5 w-full h-full bg-transparent flex flex-col justify-end'>
          <div data-aos="fade-up" className="text-8xl font-bold mb-7 font-zuume tracking-normal italic text-white text-center">READY<span style={{ WebkitTextStroke: "0.5px white", WebkitTextFillColor: "transparent" }}> STEADY </span>PRO</div>
@@ -430,8 +447,13 @@ useEffect(() => {
           </div>
         </div>
       </div>
+
+      <div>
+        <Fotter/>
+      </div>
     
     </div>
+    </CartProvider>
   )
 }
 

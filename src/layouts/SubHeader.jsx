@@ -3,42 +3,40 @@ import { UserIcon, MagnifyingGlassIcon, ShoppingBagIcon } from "@heroicons/react
 import { useCart } from '../contexts/CartContext';
 import ButtonA from "../components/buttons/ButtonA";
 import LogoBlack from "../assets/Header/logo-black.png";
-import LogoWhite from "../assets/Header/logo-white.png";
 import JustLandedImg from "../assets/Header/GearMateWithRack_Accessories_1b29874c-f3c3-4796-affa-1e53db795747.png";
 import Shop6Img from "../assets/Header/Shop_6.png";
 import Solution2Img from "../assets/Header/Solutions_2.png";
 
+
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const { openCart, itemsCount } = useCart();
   const headerRef = useRef(null);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   const aboutRef = useRef(null);
   const commercialRef = useRef(null);
   const supportRef = useRef(null);
   const dropdownTimeoutRef = useRef(null); // Ref for the timeout
 
   useEffect(() => {
-    const handleScroll = () => {
-      const bannerHeight = 82;
-      setIsScrolled(window.scrollY > bannerHeight);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     if (headerRef.current) {
       setHeaderHeight(headerRef.current.offsetHeight);
     }
-  }, []);
 
-  // Combine isScrolled and isHovered for background and text color
-  const isDarkColor = isScrolled || isHovered;
-  const isFixedPosition = isScrolled;
+    const handleScroll = () => {
+      if (window.scrollY > headerHeight) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerHeight]);
 
   const getDropdownStyle = (ref) => {
     if (!ref.current) return {};
@@ -52,13 +50,11 @@ const Header = () => {
   const handleMouseEnter = (menu) => {
     clearTimeout(dropdownTimeoutRef.current); // Clear any existing timeout
     setActiveMenu(menu);
-    setIsHovered(true); // Set isHovered to true
   };
 
   const handleMouseLeave = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-      setIsHovered(false); // Set isHovered to false
     }, 100); // Short delay, adjust as needed
   };
 
@@ -66,12 +62,7 @@ const Header = () => {
     <>
       <header
         ref={headerRef}
-        className={`w-full z-40 ${
-          isFixedPosition ? "fixed top-0" : "absolute top-[36px] md:top-[30px]"
-        } ${
-          isDarkColor ? "bg-white shadow-md text-black" : "bg-transparent text-white"
-        }`}
-        onMouseEnter={() => setIsHovered(true)} // Apply hover effect on header
+        className="w-full bg-white shadow-md text-black z-40 relative"
         onMouseLeave={handleMouseLeave}
       >
         <div className="overflow-hidden transition-max-h duration-5000 ease-in-out">
@@ -80,7 +71,7 @@ const Header = () => {
             {/* Logo */}
             <div className="flex-1 md:flex-none flex items-center justify-center md:justify-start">
               <img
-                src={isDarkColor ? LogoBlack : LogoWhite}
+                src={LogoBlack}
                 alt="Steadyrack"
                 className="my-4 pr-5 w-[170px] h-[25px] object-contain cursor-pointer"
                 onClick={() => window.location.href = "/"}
@@ -127,18 +118,16 @@ const Header = () => {
 
             {/* Header Right Icons */}
             <div className="hidden md:flex items-center justify-end md:px-3 rounded-full transition-all duration-500">
-              <div className={`flex items-center md:px-3 rounded-full transition-all duration-500 ${
-                isDarkColor ? "bg-[#0000001a] text-black" : "bg-transparent text-white "
-              } hover:bg-gray-300 hover:text-black mr-2`}>
+              <div className="flex items-center md:px-3 rounded-full transition-all duration-500 bg-[#0000001a] text-black hover:bg-gray-300 hover:text-black mr-2">
                 <MagnifyingGlassIcon className="h-4 w-4 md:h-5 md:w-5" />
                 <span className="px-2 py-1 font-semibold text-xs md:text-sm hidden lg:inline">Search</span>
               </div>
 
-              <a href="/pages/customer-support" className={`hidden lg:block ${isDarkColor ? "text-black" : "text-white"} mr-2`}>
+              <a href="/pages/customer-support" className="hidden lg:block text-black mr-2">
                 <span className="text-sm px-3 py-0.5 font-semibold">Contact</span>
               </a>
 
-              <a href="/login" className={`transition-all duration-500 ${isDarkColor ? "text-black" : "text-white"} mr-2`}>
+              <a href="/login" className="transition-all duration-500 text-black mr-2">
                 <UserIcon className="h-5 w-5 md:h-5 md:w-5" />
               </a>
 
@@ -157,7 +146,7 @@ const Header = () => {
           </nav>
 
           {/* Mega Menu */}
-          {isHovered && activeMenu && (
+          {activeMenu && (
             <div
               className="mega-dropdown hidden md:block absolute w-full bg-white text-black h-auto md:h-[8cm] lg:h-[9cm] shadow-md transition-all duration-300 z-40"
               style={{ top: `${headerHeight}px` }}
@@ -189,8 +178,8 @@ const Header = () => {
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold pb-2">ProFlex & GearMate</h2>
                         <p className="text-base md:text-lg">The Ultimate Duo</p>
                         <ButtonA
-                        onClick={() => window.location.href = "/collections/proflex-gearmate"}
-                        text="SHOP NOW" />
+                          onClick={() => window.location.href = "/collections/proflex-gearmate"}
+                          text="SHOP NOW" />
                       </div>
                     </div>
                   </div>
@@ -290,7 +279,6 @@ const Header = () => {
                       key={item.name}
                       href={item.path}
                       className="block px-4 py-2 hover:bg-gray-100"
-
                     >
                       {item.name}
                     </a>
@@ -341,9 +329,18 @@ const Header = () => {
           )}
         </div>
       </header>
-      {isFixedPosition && (
-        <div style={{ paddingTop: headerHeight }} />
-      )}
+
+      
+      <div className={`w-full bg-black h-[53px] flex items-center justify-between px-6 z-30 ${scrolled ? 'fixed top-0 left-0' : ''}`}>
+        <a className="text-white font-semibold text-2xl tracking-tight ml-6">Pro Flex</a>
+        <button className="bg-white text-black px-4 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors">
+          SHOP NOW
+        </button>
+      </div>
+
+      
+      {/* Add margin/padding to create space between header and subheader */}
+      <div style={{ height: scrolled ? '53px' : '0px' }}></div>
     </>
   );
 };

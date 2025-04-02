@@ -95,8 +95,8 @@ const routes = [
   { path: "/pages/installation-advice", element: <MainLayout><Installation/></MainLayout> },
   { path: "/pages/wall-placement-guide", element: <MainLayout><WallPlacementGuide/></MainLayout> },
 
-  { path: "/pages/proflex-ready-steady-pro", element: <MainLayout><JustLanderProflexRanger/></MainLayout> },
-  { path: "/pages/gearmate-ready-to-ride", element: <MainLayout><JustLanderGearMate/></MainLayout> },
+  { path: "/pages/proflex-ready-steady-pro", element: <JustLanderProflexRanger/> },
+  { path: "/pages/gearmate-ready-to-ride", element: <JustLanderGearMate/> },
   { path: "/pages/proflex-gearmate-behind-the-scenes", element: <MainLayout><JustLanderBehindTheScenes/></MainLayout>},
   { path: "/pages/gearmate-and-classic-range", element: <MainLayout><JustLanderGearMateClassicRange/></MainLayout>},
 
