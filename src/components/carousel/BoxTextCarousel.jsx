@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from "react";
 
 const BoxText = ({ items }) => {
   const carouselRef = useRef(null);
@@ -43,22 +43,29 @@ const BoxText = ({ items }) => {
       onMouseMove={handleMouseMove}
     >
       <div className="flex space-x-7">
-  {items.map((item, index) => (
-    <div key={index} className="flex-shrink-0 w-[320px]">
-      <div className="flex items-center mb-3.5 border-white border-b">
-        {item.image && (
-          <img 
-            src={item.image} 
-            alt={item.title} 
-            className="mr-3 w-10 h-10" // Thêm margin phải để tạo khoảng cách với title
-          />
-        )}
-        <h3 className="text-white text-lg font-semibold pb-5">{item.title}</h3>
+        {items.map((item, index) => (
+          <div key={index} className="flex-shrink-0 w-[320px]">
+            <div className="flex items-center mb-3.5 border-white border-b">
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="mr-3 w-10 h-10" // Thêm margin phải để tạo khoảng cách với title
+                />
+              )}
+              <h3 className="text-white text-lg font-semibold pb-5">
+                {item.title}
+              </h3>
+            </div>
+            <p
+              data-aos="fade-left"
+              className="text-white leading-tight text-sm font-semibold"
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
       </div>
-      <p data-aos="fade-left" className='text-white leading-tight text-sm font-semibold'>{item.text}</p>
-    </div>
-  ))}
-</div>
     </div>
   );
 };

@@ -36,7 +36,9 @@ export default function StoriesList() {
         <span className="font-bold">Browse:</span>
         <button
           className={`px-4 py-2 rounded-full border transition ${
-            selectedTypes.length === 0 ? "bg-black text-white" : "bg-gray-200 text-black"
+            selectedTypes.length === 0
+              ? "bg-black text-white"
+              : "bg-gray-200 text-black"
           }`}
           onClick={() => setSelectedTypes([])}
         >
@@ -60,13 +62,10 @@ export default function StoriesList() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {visibleStories.map((story, index) => (
           <div key={index} className="relative h-[14cm] overflow-hidden group">
-            
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
               style={{ backgroundImage: `url(${story.img})` }}
-            >
-              
-            </div>
+            ></div>
             <a
               className="absolute top-0 left-0 py-2.5 px-6 text-white bg-black text-xl italic font-bold tracking-tighter"
               href="/?constraint=bicycle"
@@ -87,7 +86,7 @@ export default function StoriesList() {
 
             <div className="absolute bottom-4 left-4 text-white">
               <h2 className="text-2xl font-bold">{story.title}</h2>
-              <ButtonD/>
+              <ButtonD />
             </div>
           </div>
         ))}
@@ -95,10 +94,7 @@ export default function StoriesList() {
 
       {visibleStories.length < filteredStories.length && (
         <div className="text-center mt-6">
-          <ButtonA
-            text={"LOAD MORE"}
-            onClick={loadMore}
-          />
+          <ButtonA text={"LOAD MORE"} onClick={loadMore} />
         </div>
       )}
     </div>

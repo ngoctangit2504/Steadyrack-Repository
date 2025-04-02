@@ -10,7 +10,6 @@ export default function CompareModelList({ selectedProducts }) {
   const scrollLeft = useRef(0);
 
   useEffect(() => {
-    
     const filteredLocalData =
       selectedProducts.length > 0
         ? data.filter((product) => selectedProducts.includes(product.name))
@@ -23,15 +22,16 @@ export default function CompareModelList({ selectedProducts }) {
       .then((fetchedData) => {
         const filteredData =
           selectedProducts.length > 0
-            ? fetchedData.filter((product) => selectedProducts.includes(product.name))
+            ? fetchedData.filter((product) =>
+                selectedProducts.includes(product.name)
+              )
             : fetchedData.filter((product) => product.type === "pro");
 
         setProducts(filteredData);
       })
       .catch((error) => console.error("Lỗi tải dữ liệu:", error));
-  }, [selectedProducts]); 
+  }, [selectedProducts]);
 
-  
   const handleMouseDown = (e) => {
     isDown.current = true;
     startX.current = e.pageX - scrollContainerRef.current.offsetLeft;

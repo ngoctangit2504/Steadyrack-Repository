@@ -70,12 +70,14 @@ const FAQ = () => {
         "If you have installed your existing rack onto a timber surface and have used the vertical mounting holes (timber installation), the ProFlex can be installed using the same holes. If it is installed using the horizontal mounting holes (masonry installation), you will need to mark out the vertical mounting holes on your existing rack before removing, and then the ProFlex rack can be installed by drilling new vertical mounting holes.",
     },
     {
-      question: "Can I use my existing drilled holes for my Classic rack to install my new ProFlex?",
+      question:
+        "Can I use my existing drilled holes for my Classic rack to install my new ProFlex?",
       answer:
         "Yes! While the Classic range racks could hold up to 35kg/77lbs, the new ProFlex can hold bikes up to 55kg/121lbs.",
     },
     {
-      question: "Will my Fat rack with fender be compatible with the ProFlex bike rack?",
+      question:
+        "Will my Fat rack with fender be compatible with the ProFlex bike rack?",
       answer:
         "Yes, our innovative SteadySaddle allows for bikes with or without fenders or mudguards. If you have a minimum of 20mm or 3/4 Inch clearance between tire & stays, then your bike will be compatible.",
     },

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 const YouTubeBackground = ({ videoId, text }) => {
-  const [videoHeight, setVideoHeight] = useState('100%');
+  const [videoHeight, setVideoHeight] = useState("100%");
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -14,9 +14,9 @@ const YouTubeBackground = ({ videoId, text }) => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -37,7 +37,9 @@ const YouTubeBackground = ({ videoId, text }) => {
       {/* Nội dung văn bản */}
       <div className="relative z-10 flex items-center justify-center h-full text-center">
         <div className=" absolute bottom-20">
-          <h1 className="text-9xl text-white font-bold font-impact uppercase italic tracking-tight">{text.heading}</h1>
+          <h1 className="text-9xl text-white font-bold font-impact uppercase italic tracking-tight">
+            {text.heading}
+          </h1>
         </div>
       </div>
     </div>

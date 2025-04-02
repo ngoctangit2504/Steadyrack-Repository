@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
-import { useCart } from '../../contexts/CartContext';
-import { useNavigate } from 'react-router-dom';
+import { useCart } from "../../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const ProductItem = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -13,7 +13,7 @@ const ProductItem = ({ product }) => {
     e.stopPropagation();
     addItem({
       ...product,
-      quantity: 1
+      quantity: 1,
     });
     openCart();
   };

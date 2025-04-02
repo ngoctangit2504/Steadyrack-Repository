@@ -11,39 +11,38 @@ const ProductSteps = ({ steps }) => {
   useEffect(() => {
     const handleScroll = () => {
       lastScrollPosition.current = window.scrollY;
-      
+
       if (!ticking.current) {
         window.requestAnimationFrame(() => {
           updateStepPosition();
           ticking.current = false;
         });
-        
+
         ticking.current = true;
       }
     };
 
     const updateStepPosition = () => {
-      
       const viewportMiddle = window.innerHeight / 2;
-      
+
       const distances = [];
-      
+
       stepRefs.current.forEach((stepRef, index) => {
         if (stepRef && stepRef.getBoundingClientRect) {
           const titleElement = stepRef.querySelector(".text-4xl");
           if (titleElement) {
             const titleRect = titleElement.getBoundingClientRect();
-            const titleMiddle = titleRect.top + (titleRect.height / 2);
+            const titleMiddle = titleRect.top + titleRect.height / 2;
             distances.push({
               index,
-              distance: Math.abs(titleMiddle - viewportMiddle)
+              distance: Math.abs(titleMiddle - viewportMiddle),
             });
           }
         }
       });
-      
+
       distances.sort((a, b) => a.distance - b.distance);
-      
+
       if (distances.length > 0) {
         setActiveStep(distances[0].index);
       }
@@ -53,31 +52,30 @@ const ProductSteps = ({ steps }) => {
     const handleStepsContainerPosition = () => {
       if (stepsContainerRef.current && contentContainerRef.current) {
         const contentRect = contentContainerRef.current.getBoundingClientRect();
-        const parentRect = contentContainerRef.current.parentElement.getBoundingClientRect();
-        
+        const parentRect =
+          contentContainerRef.current.parentElement.getBoundingClientRect();
+
         const contentTop = contentRect.top;
         const contentBottom = contentRect.bottom;
         const viewportHeight = window.innerHeight;
         const stepsHeight = stepsContainerRef.current.offsetHeight;
-        
+
         const maxTop = contentRect.height - stepsHeight;
-        const containerTopOffset = contentRect.top < 0 ? Math.abs(contentRect.top) : 0;
-        
+        const containerTopOffset =
+          contentRect.top < 0 ? Math.abs(contentRect.top) : 0;
+
         let newTop = Math.min(Math.max(containerTopOffset, 0), maxTop);
         const initialPadding = 60;
-        
+
         if (contentTop < initialPadding && contentBottom > viewportHeight) {
-          
           stepsContainerRef.current.style.position = "absolute";
           stepsContainerRef.current.style.top = `${newTop}px`;
           stepsContainerRef.current.style.transition = "top 0.3s ease-out";
         } else if (contentBottom <= viewportHeight) {
-          
           stepsContainerRef.current.style.position = "absolute";
           stepsContainerRef.current.style.top = `${maxTop}px`;
           stepsContainerRef.current.style.transition = "top 0.3s ease-out";
         } else {
-          
           stepsContainerRef.current.style.position = "absolute";
           stepsContainerRef.current.style.top = `${initialPadding}px`;
           stepsContainerRef.current.style.transition = "top 0.3s ease-out";
@@ -86,7 +84,7 @@ const ProductSteps = ({ steps }) => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     setTimeout(() => {
       updateStepPosition();
     }, 100);
@@ -99,9 +97,11 @@ const ProductSteps = ({ steps }) => {
   return (
     <div className="l-product-steps l-relative px-[5mm]">
       <div className="l-product-steps__container l-container">
-        
-        <div className="l-product-steps__desktop hidden md:flex relative" ref={contentContainerRef}>
-          <div 
+        <div
+          className="l-product-steps__desktop hidden md:flex relative"
+          ref={contentContainerRef}
+        >
+          <div
             className="l-product-steps__steps l-flex l-flex-col w-1/4 absolute"
             ref={stepsContainerRef}
             style={{ top: "60px", transition: "top 0.3s ease-out" }}
@@ -125,7 +125,9 @@ const ProductSteps = ({ steps }) => {
               <div
                 key={index}
                 ref={(el) => (stepRefs.current[index] = el)}
-                className={`l-product-steps__row ${activeStep === index ? "active" : ""} flex flex-col mb-32`}
+                className={`l-product-steps__row ${
+                  activeStep === index ? "active" : ""
+                } flex flex-col mb-32`}
                 data-step-content=""
               >
                 <div className="mb-4">
@@ -136,14 +138,20 @@ const ProductSteps = ({ steps }) => {
                   <div className="flex">
                     <div className="w-1/4">
                       <picture className="l-product-steps__row-media l-media-ratio l-block l-text-none">
-                        <img src={step.image} alt={step.title} className="w-full" />
+                        <img
+                          src={step.image}
+                          alt={step.title}
+                          className="w-full"
+                        />
                       </picture>
                     </div>
                     <div className="w-3/4 ml-4">
                       <div className="l-product-steps__row-content rte mb-16">
-                        {step.description.split("\n").map((paragraph, pIndex) => (
-                          <p key={pIndex}>{paragraph}</p>
-                        ))}
+                        {step.description
+                          .split("\n")
+                          .map((paragraph, pIndex) => (
+                            <p key={pIndex}>{paragraph}</p>
+                          ))}
                       </div>
                     </div>
                   </div>
@@ -153,13 +161,14 @@ const ProductSteps = ({ steps }) => {
           </div>
         </div>
 
-        
         <div className="l-product-steps__mobile md:hidden">
           {steps.map((step, index) => (
             <div
               key={index}
               ref={(el) => (stepRefs.current[index] = el)}
-              className={`l-product-steps__row ${activeStep === index ? "active" : ""} flex flex-col mb-8`}
+              className={`l-product-steps__row ${
+                activeStep === index ? "active" : ""
+              } flex flex-col mb-8`}
               data-step-content=""
             >
               <div className="mb-4">

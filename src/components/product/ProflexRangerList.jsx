@@ -34,8 +34,9 @@ export default function ProductList() {
       .catch((error) => console.error("Lỗi tải dữ liệu:", error));
   }, []);
 
-  const filteredProducts = products.filter(product => 
-    product.name && product.name.toLowerCase().includes("proflex rack")
+  const filteredProducts = products.filter(
+    (product) =>
+      product.name && product.name.toLowerCase().includes("proflex rack")
   );
 
   return (
@@ -95,7 +96,6 @@ export default function ProductList() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-
     </div>
   );
 }

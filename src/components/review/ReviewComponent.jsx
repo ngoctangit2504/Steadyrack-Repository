@@ -26,7 +26,9 @@ const ReviewComponent = () => {
       {/* Thanh đánh giá chi tiết */}
       <div className="space-y-2 mb-4 justify-start">
         <div className="flex items-center w-full sm:w-96">
-          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16 text-left">5 ★</span>
+          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16 text-left">
+            5 ★
+          </span>
           <div className="flex-1 bg-gray-200 h-2 rounded-full">
             <div className="bg-black h-2 rounded-full w-full"></div>
           </div>
@@ -34,28 +36,36 @@ const ReviewComponent = () => {
         </div>
 
         <div className="flex items-center w-full sm:w-96">
-          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">4 ★</span>
+          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">
+            4 ★
+          </span>
           <div className="flex-1 bg-gray-200 h-2 rounded-full">
             <div className="bg-gray-200 h-2 rounded-full w-0"></div>
           </div>
           <span className="text-xs sm:text-sm font-medium ml-2">0</span>
         </div>
         <div className="flex items-center w-full sm:w-96">
-          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">3 ★</span>
+          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">
+            3 ★
+          </span>
           <div className="flex-1 bg-gray-200 h-2 rounded-full">
             <div className="bg-gray-200 h-2 rounded-full w-0"></div>
           </div>
           <span className="text-xs sm:text-sm font-medium ml-2">0</span>
         </div>
         <div className="flex items-center w-full sm:w-96">
-          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">2 ★</span>
+          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">
+            2 ★
+          </span>
           <div className="flex-1 bg-gray-200 h-2 rounded-full">
             <div className="bg-gray-200 h-2 rounded-full w-0"></div>
           </div>
           <span className="text-xs sm:text-sm font-medium ml-2">0</span>
         </div>
         <div className="flex items-center w-full sm:w-96">
-          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">1 ★</span>
+          <span className="text-xs sm:text-sm font-medium w-10 sm:w-16">
+            1 ★
+          </span>
           <div className="flex-1 bg-gray-200 h-2 rounded-full">
             <div className="bg-gray-200 h-2 rounded-full w-0"></div>
           </div>
@@ -104,7 +114,9 @@ const ReviewComponent = () => {
       <div className="flex justify-between items-center mb-4">
         <span className="text-xs sm:text-sm">3 reviews</span>
         <div className="flex items-center">
-          <span className="text-xs sm:text-sm mr-1 sm:mr-2 font-semibold">Sort</span>
+          <span className="text-xs sm:text-sm mr-1 sm:mr-2 font-semibold">
+            Sort
+          </span>
           <select className="rounded-md px-1 py-0.5 sm:px-2 sm:py-1 text-xs sm:text-sm font-semibold text-black hover:border-black">
             <option>Most Helpful</option>
             <option>Newest</option>
@@ -126,7 +138,9 @@ const ReviewComponent = () => {
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-6">
             <div className="col-span-1">
               <div className="flex flex-col items-start">
-                <span className="font-semibold text-xs sm:text-sm">DALE H.</span>
+                <span className="font-semibold text-xs sm:text-sm">
+                  DALE H.
+                </span>
                 <div className="flex items-center mt-1 sm:mt-2">
                   <span className="text-xxs sm:text-xs text-red-500 font-bold mr-1">
                     Verified Buyer
@@ -165,7 +179,9 @@ const ReviewComponent = () => {
                     ))}
                   </div>
                 </div>
-                <div className="text-xxs sm:text-xs text-gray-500">Yesterday</div>
+                <div className="text-xxs sm:text-xs text-gray-500">
+                  Yesterday
+                </div>
               </div>
               <p className="mt-3 sm:mt-6 text-lg sm:text-xl">Sweet As ...</p>
               <p className="text-xs sm:text-sm mt-3 sm:mt-6">best ever</p>
@@ -174,7 +190,9 @@ const ReviewComponent = () => {
                   Was this helpful?
                 </span>
                 <button className="text-xxs sm:text-xs text-gray-500 mr-1"></button>
-                <span className="text-xxs sm:text-xs text-gray-500 mr-1 sm:mr-2">0</span>
+                <span className="text-xxs sm:text-xs text-gray-500 mr-1 sm:mr-2">
+                  0
+                </span>
                 <button className="text-xxs sm:text-xs text-gray-500 mr-1"></button>
                 <span className="text-xxs sm:text-xs text-gray-500">0</span>
               </div>
@@ -193,7 +211,9 @@ const ReviewComponent = () => {
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-5 gap-2 sm:gap-6">
             <div className="col-span-1">
               <div className="flex flex-col items-start">
-                <span className="font-semibold text-xs sm:text-sm">Mike S.</span>
+                <span className="font-semibold text-xs sm:text-sm">
+                  Mike S.
+                </span>
                 <div className="flex items-center mt-1 sm:mt-2">
                   <span className="text-xxs sm:text-xs text-red-500 font-bold mr-1">
                     Verified Reviewer
@@ -232,9 +252,13 @@ const ReviewComponent = () => {
                     ))}
                   </div>
                 </div>
-                <div className="text-xxs sm:text-xs text-gray-500">9 weeks ago</div>
+                <div className="text-xxs sm:text-xs text-gray-500">
+                  9 weeks ago
+                </div>
               </div>
-              <p className="mt-3 sm:mt-6 text-lg sm:text-xl">Love The Pro Display</p>
+              <p className="mt-3 sm:mt-6 text-lg sm:text-xl">
+                Love The Pro Display
+              </p>
               <p className="text-xs sm:text-sm mt-3 sm:mt-6">
                 Love my new ProFlex rack! Looks great and does the job. The
                 quality of the components is obvious. Installation is pretty
@@ -247,7 +271,9 @@ const ReviewComponent = () => {
                   Was this helpful?
                 </span>
                 <button className="text-xxs sm:text-xs text-gray-500 mr-1"></button>
-                <span className="text-xxs sm:text-xs text-gray-500 mr-1 sm:mr-2">1</span>
+                <span className="text-xxs sm:text-xs text-gray-500 mr-1 sm:mr-2">
+                  1
+                </span>
                 <button className="text-xxs sm:text-xs text-gray-500 mr-1"></button>
                 <span className="text-xxs sm:text-xs text-gray-500">0</span>
               </div>

@@ -81,7 +81,7 @@ function ClassicRange() {
       </div>
 
       <div className="my-10">
-      <ProductRackLIst />
+        <ProductRackLIst />
       </div>
 
       <div className="l-section-header__content p-4 md:pl-[10.5cm] md:pr-4 mb-28">

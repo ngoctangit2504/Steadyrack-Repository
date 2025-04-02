@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from "react";
 
 const VideoCarousel = ({ videos, title }) => {
   const [selectedIndex, setSelectedIndex] = useState(1);
@@ -41,16 +41,21 @@ const VideoCarousel = ({ videos, title }) => {
   }, [selectedIndex]);
 
   const scrollToVideo = (index) => {
-    if (carouselRef.current && videoRefs.current[index] && videoRefs.current[index].current) {
+    if (
+      carouselRef.current &&
+      videoRefs.current[index] &&
+      videoRefs.current[index].current
+    ) {
       const videoElement = videoRefs.current[index].current.parentElement;
       const carouselElement = carouselRef.current;
       const carouselWidth = carouselElement.offsetWidth;
       const videoWidth = 266;
-      const scrollPosition = videoElement.offsetLeft - (carouselWidth - videoWidth) / 2;
+      const scrollPosition =
+        videoElement.offsetLeft - (carouselWidth - videoWidth) / 2;
 
       carouselElement.scrollTo({
         left: scrollPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
 
       videoRefs.current.forEach((videoRef, i) => {
@@ -81,15 +86,15 @@ const VideoCarousel = ({ videos, title }) => {
       <div
         ref={carouselRef}
         className="tolstoy-carousel-videos-container relative mx-auto mt-4 h-[450px] max-w-full overflow-hidden"
-        style={{ 
+        style={{
           width: carouselWidth,
-          overscrollBehaviorX: 'contain' 
+          overscrollBehaviorX: "contain",
         }}
       >
-        <div 
+        <div
           className="relative flex h-full w-full"
-          style={{ 
-            width: carouselWidth 
+          style={{
+            width: carouselWidth,
           }}
         >
           {extendedVideos.map((video, index) => (
@@ -107,7 +112,9 @@ const VideoCarousel = ({ videos, title }) => {
             >
               <div
                 className={`tolstoy-carousel-tile relative flex flex-col items-center transition-all duration-500 gap-3 rounded-lg ${
-                  index === selectedIndex ? 'w-[350px] h-[450px]' : 'w-[250px] h-[350px]'
+                  index === selectedIndex
+                    ? "w-[350px] h-[450px]"
+                    : "w-[250px] h-[350px]"
                 }`}
               >
                 <div className="tolstoy-carousel-video-container relative w-full h-full">

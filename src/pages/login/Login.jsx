@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const LoginCard = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(false);
-  
+
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   };
-  
+
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
     setIsValidEmail(validateEmail(newEmail));
   };
-  
-  const buttonClass = isValidEmail 
-    ? "w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800" 
+
+  const buttonClass = isValidEmail
+    ? "w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800"
     : "w-full bg-gray-200 text-gray-600 py-2 px-4 rounded-md cursor-default";
-  
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">

@@ -40,10 +40,16 @@ export default function FeaturedProducts() {
       data-aos="fade-up"
       className="container-fluid mx-auto pt-12 pb-20 px-5 lg:px-[2cm]" // Thêm padding cho màn hình desktop
     >
-      <h2 data-aos="fade-up" className="text-2xl h-9 sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
+      <h2
+        data-aos="fade-up"
+        className="text-2xl h-9 sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6"
+      >
         Featured Products
       </h2>
-      <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[3px] ">
+      <div
+        data-aos="fade-up"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[3px] "
+      >
         {products.map((product) => (
           <div
             key={product.id}
@@ -79,7 +85,13 @@ export default function FeaturedProducts() {
                       flex items-center justify-center
                       rounded-full bg-white p-2
                       transition-all duration-300
-                      ${hoveredImage === product.id ? (hoveredButton === product.id ? 'px-4 min-h-12' : 'w-12 h-12') : 'w-12 h-12 opacity-0'}
+                      ${
+                        hoveredImage === product.id
+                          ? hoveredButton === product.id
+                            ? "px-4 min-h-12"
+                            : "w-12 h-12"
+                          : "w-12 h-12 opacity-0"
+                      }
                     `}
                     onClick={(e) => {
                       console.log("Quick View button clicked");
@@ -88,17 +100,19 @@ export default function FeaturedProducts() {
                     onMouseEnter={() => setHoveredButton(product.id)}
                     onMouseLeave={() => setHoveredButton(null)}
                   >
-                    {hoveredButton !== product.id && hoveredImage === product.id && (
-                      <ShoppingBag size={16} className="flex-shrink-0" />
-                    )}
-                    {hoveredButton === product.id && hoveredImage === product.id && (
-                      <>
-                        <ShoppingBag size={14} className="mr-1" />
-                        <span className="text-sm font-medium whitespace-nowrap">
-                          ADD TO CARD
-                        </span>
-                      </>
-                    )}
+                    {hoveredButton !== product.id &&
+                      hoveredImage === product.id && (
+                        <ShoppingBag size={16} className="flex-shrink-0" />
+                      )}
+                    {hoveredButton === product.id &&
+                      hoveredImage === product.id && (
+                        <>
+                          <ShoppingBag size={14} className="mr-1" />
+                          <span className="text-sm font-medium whitespace-nowrap">
+                            ADD TO CARD
+                          </span>
+                        </>
+                      )}
                   </button>
                 </div>
               </div>

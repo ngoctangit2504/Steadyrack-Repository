@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useCart } from "../../contexts/CartContext";
 import productsData from "../../data/data.json";
 
-function ProductDetailCut({productId}) {
+function ProductDetailCut({ productId }) {
   const { productName } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -52,8 +52,6 @@ function ProductDetailCut({productId}) {
     setLoading(false);
   }, [productId]);
 
-
-
   if (loading) {
     return <div className="p-8 text-center">Loading...</div>;
   }
@@ -66,14 +64,14 @@ function ProductDetailCut({productId}) {
     if (!selectedSize && product.sizes && product.sizes.length > 0) {
       alert("Please select a size.");
       return;
-  }
-  addItem({
+    }
+    addItem({
       ...product,
       quantity,
       selectedSize,
       selectedProFlexOption,
-  });
-  openCart();
+    });
+    openCart();
   };
 
   const handleThumbnailClick = (image) => {
@@ -81,7 +79,6 @@ function ProductDetailCut({productId}) {
   };
 
   const hasSizes = product.sizes && product.sizes.length > 0;
-
 
   return (
     <div>
@@ -201,7 +198,7 @@ function ProductDetailCut({productId}) {
           </div>
 
           <p className="text-sm text-black mt-2">
-          Pay in 4 interest-free installments of{" "}
+            Pay in 4 interest-free installments of{" "}
             <span className="font-bold text-black">
               ${(parseFloat(product.price.replace("$", "")) / 4).toFixed(2)}
             </span>{" "}
@@ -253,7 +250,6 @@ function ProductDetailCut({productId}) {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

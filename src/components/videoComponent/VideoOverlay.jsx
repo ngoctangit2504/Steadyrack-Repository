@@ -14,10 +14,10 @@ const VideoOverlay = ({ videoSrc, title }) => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    
+
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
@@ -27,11 +27,12 @@ const VideoOverlay = ({ videoSrc, title }) => {
         videoRef.current.pause();
         setShowOverlay(true);
       } else {
-        videoRef.current.play()
+        videoRef.current
+          .play()
           .then(() => {
             setShowOverlay(false);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Video play failed:", error);
             // Handle autoplay restrictions
             setShowOverlay(true);
@@ -43,7 +44,9 @@ const VideoOverlay = ({ videoSrc, title }) => {
 
   const handleProgress = () => {
     if (videoRef.current) {
-      setProgress((videoRef.current.currentTime / videoRef.current.duration) * 100);
+      setProgress(
+        (videoRef.current.currentTime / videoRef.current.duration) * 100
+      );
     }
   };
 
@@ -82,19 +85,20 @@ const VideoOverlay = ({ videoSrc, title }) => {
 
       {/* Thêm một khối bao bọc nội dung */}
       <div className="absolute inset-0 flex items-center justify-center py-10 px-5">
-        <div className="text-center"> {/* Căn giữa nội dung bên trong */}
+        <div className="text-center">
+          {" "}
+          {/* Căn giữa nội dung bên trong */}
           {showOverlay && (
             <div data-aos="fade-up" className="text-white">
               <h1 className="text-3xl font-semibold pb-7">{title}</h1>
-              <button 
-               className="bg-white text-black py-3.5 px-5 border-2 border-black rounded-full font-semibold hover:bg-red-700 hover:text-white transition" 
-               onClick={togglePlay}
-               >
+              <button
+                className="bg-white text-black py-3.5 px-5 border-2 border-black rounded-full font-semibold hover:bg-red-700 hover:text-white transition"
+                onClick={togglePlay}
+              >
                 PLAY VIDEO
-               </button>
+              </button>
             </div>
           )}
-
           {isPlaying && (
             <div className="absolute bottom-2 md:bottom-4 left-0 w-full flex items-center px-2 md:px-4">
               <input
@@ -109,9 +113,7 @@ const VideoOverlay = ({ videoSrc, title }) => {
                 onClick={toggleFullScreen}
                 className="ml-2 md:ml-4 text-white text-base md:text-lg p-1"
                 aria-label="Toggle fullscreen"
-              >
-                
-              </button>
+              ></button>
             </div>
           )}
         </div>

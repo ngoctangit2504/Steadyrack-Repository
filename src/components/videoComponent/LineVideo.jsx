@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react';
-import ModalVideo from './ModalVideo';
+import React, { useRef, useState } from "react";
+import ModalVideo from "./ModalVideo";
 
 const Gallery = () => {
   const videos = [
-    '/videos/introducing-the-new-proflex-bike-rack3.mp4',
-    '/videos/Introducing-the-new-ProFlex-Bike-Rack2.mp4',
-    '/videos/introducing-the-new-proflex-bike-rack.mp4',
-    '/videos/Introducing the new ProFlex Bike Rack6.mp4',
+    "/videos/introducing-the-new-proflex-bike-rack3.mp4",
+    "/videos/Introducing-the-new-ProFlex-Bike-Rack2.mp4",
+    "/videos/introducing-the-new-proflex-bike-rack.mp4",
+    "/videos/Introducing the new ProFlex Bike Rack6.mp4",
   ];
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -18,7 +18,9 @@ const Gallery = () => {
   };
 
   const handleNext = () => {
-    setScrollPosition((prevPosition) => Math.max(prevPosition - videoWidth, -videoWidth * (videos.length - 1)));
+    setScrollPosition((prevPosition) =>
+      Math.max(prevPosition - videoWidth, -videoWidth * (videos.length - 1))
+    );
   };
 
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -38,8 +40,19 @@ const Gallery = () => {
       <h2 className="text-2xl font-bold mb-4">See It In Action</h2>
       <div className="flex items-center">
         <button className="mr-4" onClick={handlePrev}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
         </button>
         <div className="overflow-hidden w-full">
@@ -71,8 +84,19 @@ const Gallery = () => {
           </div>
         </div>
         <button className="ml-4" onClick={handleNext}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </button>
       </div>

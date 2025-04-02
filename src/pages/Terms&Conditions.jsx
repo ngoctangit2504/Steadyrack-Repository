@@ -11,19 +11,70 @@ const features = [
   { id: 7, title: "Grub Screws", content: "Allows for lockable positioning on all bins." }
 ];
 
-const FeatureBlock = ({ feature, isActive, toggleBlock, isRightColumn }) => {
-  const [lineStage, setLineStage] = useState(0);
+// Positions for the connection points on the image
+const connectionPoints = {
+  1: { x: 30, y: 35 },
+  2: { x: 32, y: 50 },
+  3: { x: 35, y: 65 },
+  4: { x: 70, y: 35 },
+  5: { x: 68, y: 50 },
+  6: { x: 65, y: 65 },
+  7: { x: 50, y: 80 },
+};
+
+const FeatureBlock = ({ feature, isActive, toggleBlock, isRightColumn, imageDotRef }) => {
+  const spanRef = useRef(null);
+  const [spanPosition, setSpanPosition] = useState({ x: 0, y: 0 });
+  const [imageDotPosition, setImageDotPosition] = useState({ x: 0, y: 0 });
+  const featureId = feature.id;
 
   useEffect(() => {
-    if (isActive) {
-      setLineStage(2); // Start with bottom line, then side line
-    } else {
-      setLineStage(0);
+    if (spanRef.current) {
+      const rect = spanRef.current.getBoundingClientRect();
+      setSpanPosition({
+        x: isRightColumn ? rect.left : rect.right, // Đặt ở đầu nếu bên trái, cuối nếu bên phải
+        y: rect.top + rect.height / 2
+      });
     }
-  }, [isActive]);
+  }, [isActive, isRightColumn]);
+
+  useEffect(() => {
+    if (imageDotRef.current) {
+      const dotElement = document.querySelector(`.dot-${featureId}`); // Select the dot using the class
+      if (dotElement) {
+        const rect = dotElement.getBoundingClientRect();
+        setImageDotPosition({
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2
+        });
+      }
+    }
+  }, []);
+
+  // Calculate the midpoint for the horizontal-to-vertical transition
+  const getMidPoint = () => {
+    if (!spanPosition || !imageDotPosition) {
+      return { x: 0, y: 0 }; // Return a default if positions are not available.
+    }
+    // Increase the length of the horizontal line.
+    const horizontalLengthFactor = 1.5; // Adjust this to make the line longer
+    if (isRightColumn) {
+      return {
+        x: spanPosition.x - (spanPosition.x - imageDotPosition.x) / 2 * horizontalLengthFactor,
+        y: spanPosition.y
+      };
+    } else {
+      return {
+        x: spanPosition.x + (imageDotPosition.x - spanPosition.x) / 2 * horizontalLengthFactor,
+        y: spanPosition.y
+      };
+    }
+  };
+
+  const midPoint = getMidPoint();
 
   return (
-    <div className='w-full max-w-[320px]'>
+    <div className='w-full max-w-md relative'>
       <div className="flex items-start mb-3.5 relative">
         <button
           className="mr-2 text-xl bg-gray-200 font-bold text-black rounded-full w-8 h-8 flex items-center justify-center"
@@ -34,27 +85,49 @@ const FeatureBlock = ({ feature, isActive, toggleBlock, isRightColumn }) => {
         <h3 className="text-black text-lg font-semibold tracking-tight pb-5 relative z-10">
           {feature.title}
         </h3>
-        {/* Đường kẻ chạy có điều kiện */}
-        <motion.div
-          className="absolute bottom-0 h-[2px] bg-black"
-          initial={{ width: 0, right: isRightColumn ? 0 : "auto", left: isRightColumn ? "auto" : 0 }}
-          animate={{ width: lineStage >= 1 ? "100%" : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+        <span
+          ref={spanRef}
+          className="absolute w-3 h-3 bg-black rounded-full"
+          style={{
+            bottom: 0,
+            left: isRightColumn ? 'auto' : 0, // Thay đổi left tùy thuộc vào cột
+            right: isRightColumn ? 0 : 'auto',
+            backgroundColor: 'rgba(0, 0, 0, 0)'
+          }}
+          data-feature-id={feature.id}
         />
-        {/* Đường kẻ bên cạnh */}
-        {isActive && (
-          <motion.div
-            className={`absolute ${isRightColumn ? 'right-full top-0' : 'left-full top-0'} w-[2px] bg-black`}
-            initial={{ height: 0, top: "100%" }}
-            animate={{ height: lineStage === 2 ? "100%" : 0 , top: "0%" }}
-            transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }} // Delay for the bottom line animation
-          />
+
+        {isActive && imageDotRef.current && spanRef.current && (
+          <svg
+            className="absolute pointer-events-none"
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: 5,
+              overflow: 'visible'
+            }}
+          >
+            <motion.path
+              d={`M ${spanPosition.x} ${spanPosition.y} 
+                  L ${midPoint.x} ${midPoint.y} 
+                  L ${midPoint.x} ${imageDotPosition.y} 
+                  L ${imageDotPosition.x} ${imageDotPosition.y}`}
+              stroke="black"
+              strokeWidth="2"
+              fill="transparent"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            />
+          </svg>
         )}
       </div>
       <AnimatePresence>
         {isActive && (
           <motion.p
-            data-aos="fade-left"
             className='text-black leading-tight text-sm font-semibold'
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,6 +144,21 @@ const FeatureBlock = ({ feature, isActive, toggleBlock, isRightColumn }) => {
 
 function TermsConditions() {
   const [activeId, setActiveId] = useState(null);
+  const imageDotRef = useRef(null);
+  const featureRefs = useRef({});
+  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
+  const imageContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (imageContainerRef.current) {
+      const rect = imageContainerRef.current.getBoundingClientRect();
+      setImageSize({
+        width: rect.width,
+        height: rect.height
+      });
+    }
+  }, []);
+
   const toggleBlock = (id) => {
     setActiveId(activeId === id ? null : id);
   };
@@ -84,35 +172,70 @@ function TermsConditions() {
           </div>
           <div className='mx-10 px-5'>
             <div className='grid grid-cols-12 gap-3'>
-              {/* Cột 1 */}
-              <div className="col-span-3 p-3 text-white flex flex-col justify-evenly h-full">
+              {/* Left Column */}
+              <div className="col-span-3 p-3 flex flex-col justify-evenly h-full">
                 {features.slice(0, 3).map((feature) => (
                   <FeatureBlock
                     key={feature.id}
                     feature={feature}
                     isActive={activeId === feature.id}
                     toggleBlock={toggleBlock}
+                    imageDotRef={imageDotRef}
+                    isRightColumn={false} // Đặt isRightColumn cho cột bên trái
                   />
                 ))}
               </div>
 
-              {/* Ảnh giữa */}
-              <div className="col-span-6 p-3 text-white flex items-center justify-center">
+              {/* Center Image */}
+              <div
+                ref={imageContainerRef}
+                className="col-span-6 p-3 flex items-center justify-center relative"
+              >
                 <img
                   src='https://www.steadyrack.com/cdn/shop/files/image_1_3dca60f8-7ee0-4d68-97f8-fdce33ebc067.png?v=1737354642&width=2000'
+                  alt="Product features showcase"
                   className='w-full'
                 />
+                {/* Central reference dot */}
+                <span
+                  ref={imageDotRef}
+                  id="image-dot"
+                  className="absolute w-3 h-3 bg-black rounded-full"
+                  style={{
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                />
+
+                {/* Feature connection points */}
+                {Object.entries(connectionPoints).map(([id, position]) => {
+                  const featureId = parseInt(id);
+                  return (
+                    <span
+                      key={id}
+                      className={`absolute w-2 h-2 rounded-full dot-${featureId} ${activeId === featureId ? 'bg-red-500' : 'bg-gray-400'}`}
+                      style={{
+                        top: `${position.y}%`,
+                        left: `${position.x}%`,
+                        transform: 'translate(-50%, -50%)',
+                        transition: 'all 0.3s ease',
+                      }}
+                    />
+                  )
+                })}
               </div>
 
-              {/* Cột 2 */}
-              <div className="col-span-3 p-3 text-white flex flex-col justify-evenly h-full">
+              {/* Right Column */}
+              <div className="col-span-3 p-3 flex flex-col justify-evenly h-full">
                 {features.slice(3).map((feature) => (
                   <FeatureBlock
                     key={feature.id}
                     feature={feature}
                     isActive={activeId === feature.id}
                     toggleBlock={toggleBlock}
-                    isRightColumn={true}
+                    isRightColumn={true} // Đặt isRightColumn cho cột bên phải
+                    imageDotRef={imageDotRef}
                   />
                 ))}
               </div>
